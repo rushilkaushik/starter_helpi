@@ -40,6 +40,7 @@ function App() {
           Learn React
         </a>
         <li>Edmar Pelayo</li>
+        <li>Rushil Kaushik</li>
       </header>
 
       <Form>
