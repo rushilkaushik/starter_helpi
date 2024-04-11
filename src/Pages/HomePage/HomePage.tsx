@@ -1,6 +1,6 @@
 import React from "react";
 import "./HomePage.css"; // Import your CSS file
-import JobMatchAI from "../../assets/output-onlinepngtools.png";
+import JobMatchAI from "../../assets/JobMatchAILarge.png";
 interface HomePageProps {
   // Define any props here if needed.
 }
