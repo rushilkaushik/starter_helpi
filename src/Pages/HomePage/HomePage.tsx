@@ -1,7 +1,6 @@
 import React from "react";
 import "./HomePage.css"; // Import your CSS file
-import JobMatchAI from "/Users/edmarpelayo/Desktop/school/CISC275/starter_helpi/src/assets/smallerjobAI.png"; // Import your image
-
+import JobMatchAI from "../../assets/output-onlinepngtools.png";
 interface HomePageProps {
   // Define any props here if needed.
 }
