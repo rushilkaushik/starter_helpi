@@ -1,6 +1,9 @@
 
 export function BasicQ() {
-    return(
+
+    return (
+
         <div>Basic Questions page</div>
+
     );
 }

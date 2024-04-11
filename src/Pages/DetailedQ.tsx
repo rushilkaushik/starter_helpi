@@ -1,6 +1,7 @@
 
 export function DetailedQ() {
-    return(
+
+    return (
         <div>Detailed Questions Page</div>
     );
 }
