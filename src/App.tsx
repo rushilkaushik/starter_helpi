@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { Button, Form } from "react-bootstrap";
+import HomePage from "./Pages/HomePage/HomePage";
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -26,7 +27,8 @@ function App() {
   }
   return (
     <div className="App">
-      <header className="App-header">
+      <HomePage />
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
@@ -42,7 +44,7 @@ function App() {
         <li>Edmar Pelayo</li>
         <li>Rushil Kaushik</li>
         <li>Kushal Gurrapu</li>
-      </header>
+      </header> */}
 
       <Form>
         <Form.Label>API Key:</Form.Label>
