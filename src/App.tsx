@@ -1,7 +1,13 @@
 import React, { useState } from "react";
-import logo from "./logo.svg";
+import logo from "./Pages/logo.svg";
 import "./App.css";
 import { Button, Form } from "react-bootstrap";
+import { HashRouter as Router, Routes, Route} from "react-router-dom";
+import { Home } from "./Pages/Home";
+import { Alternate } from "./Pages/Alternate";
+import { BasicQ } from "./Pages/BasicQ";
+import { DetailedQ } from "./Pages/DetailedQ";
+import { Layout } from "./Layout";
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -12,6 +18,7 @@ if (prevKey !== null) {
 }
 
 function App() {
+
   const [key, setKey] = useState<string>(keyData); //for api key input
 
   //sets the local storage item to the api key the user inputed
@@ -24,44 +31,56 @@ function App() {
   function changeKey(event: React.ChangeEvent<HTMLInputElement>) {
     setKey(event.target.value);
   }
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <li>Edmar Pelayo</li>
-        <li>Rushil Kaushik</li>
-        <li>Kushal Gurrapu</li>
-      </header>
 
-      <Form>
-        <Form.Label>API Key:</Form.Label>
-        <Form.Control
-          type="password"
-          placeholder="Insert API Key Here"
-          onChange={changeKey}
-        ></Form.Control>
-        <br></br>
-        <Button className="Submit-Button" onClick={handleSubmit}>
-          Submit
-        </Button>
-      </Form>
-    </div>
+  return(
+    <>
+    <Router>
+      <Routes>
+        <Route element={<Layout/>}>
+          <Route path="/" element={<Home/>}/>
+          <Route path="/alternate" element={<Alternate/>}/>
+          <Route path="/basicq" element={<BasicQ/>}/>
+          <Route path="/detailedq" element={<DetailedQ/>}/>
+        </Route>
+      </Routes>
+    </Router>
+    <div className="App">
+    <header className="App-header">
+      <img src={logo} className="App-logo" alt="logo" />
+      <p>
+        Edit <code>src/App.tsx</code> and save to reload.
+      </p>
+      <a
+        className="App-link"
+        href="https://reactjs.org"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Learn React
+      </a>
+      <li>Edmar Pelayo</li>
+      <li>Rushil Kaushik</li>
+      <li>Kushal Gurrapu</li>
+    </header>
+
+    <Form>
+      <Form.Label>API Key:</Form.Label>
+      <Form.Control
+        type="password"
+        placeholder="Insert API Key Here"
+        onChange={changeKey}
+      ></Form.Control>
+      <br></br>
+      <Button className="Submit-Button" onClick={handleSubmit}>
+        Submit
+      </Button>
+    </Form>
+  </div>
+  </>
   );
 }
 
 export default App;
-
 //rushil
 //Edmar  Pelayo
 //Kushal Gurrapu
