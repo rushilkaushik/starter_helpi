@@ -29,6 +29,16 @@ function App() {
     <div className="App">
       <HomePage />
       <header className="App-header">
+        <h1>Who are we: </h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex veritatis
+          aperiam recusandae. Fugiat tempora provident doloremque perferendis
+          temporibus molestias, animi ea ut odit delectus cupiditate! Doloremque
+          iure natus rerum esse. Lorem ipsum dolor sit, amet consectetur
+          adipisicing elit. Illum odio nihil temporibus ex, ab libero
+          perferendis autem ducimus iste neque dignissimos dolorem ipsum enim
+          asperiores labore! Incidunt odio optio sit.
+        </p>
         <li>Edmar Pelayo</li>
         <li>Rushil Kaushik</li>
         <li>Kushal Gurrapu</li>
