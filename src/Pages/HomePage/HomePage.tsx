@@ -93,21 +93,3 @@ const HomePage: React.FC<HomePageProps> = () => {
 };
 
 export default HomePage;
-
-// const HomePage: React.FC<HomePageProps> = () => {
-//   return (
-//     <div className="home-container">
-//       <div className="title-container">
-//         <h1 className="title">JobMatchAI</h1>
-//         <p className="description">
-//           Welcome to JobMatchAI, where you can find the perfect job matches
-//           using the power of AI!
-//         </p>
-//       </div>
-
-//       <div className="image-container">
-//         <img src={JobMatchAI} alt="JobMatchAI" className="right-image" />
-//       </div>
-//     </div>
-//   );
-// };
