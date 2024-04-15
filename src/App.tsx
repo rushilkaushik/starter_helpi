@@ -1,7 +1,13 @@
 import React, { useState } from "react";
-import logo from "./logo.svg";
+import logo from "./Pages/logo.svg";
 import "./App.css";
 import { Button, Form } from "react-bootstrap";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { Home } from "./Pages/Home";
+import Alternate from "./Pages/Alternate/Alternate";
+import BasicQuestionsPage from "./Pages/BasicQuestionsPage/BasicQuestionsPage";
+import DetailedQuestionsPage from "./Pages/DetailedQuestionsPage/DetailedQuestionsPage";
+import { Layout } from "./Layout";
 import HomePage from "./Pages/HomePage/HomePage";
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
@@ -25,43 +31,61 @@ function App() {
   function changeKey(event: React.ChangeEvent<HTMLInputElement>) {
     setKey(event.target.value);
   }
-  return (
-    <div className="App">
-      <HomePage />
-      <header className="App-header">
-        <h1>Who are we: </h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex veritatis
-          aperiam recusandae. Fugiat tempora provident doloremque perferendis
-          temporibus molestias, animi ea ut odit delectus cupiditate! Doloremque
-          iure natus rerum esse. Lorem ipsum dolor sit, amet consectetur
-          adipisicing elit. Illum odio nihil temporibus ex, ab libero
-          perferendis autem ducimus iste neque dignissimos dolorem ipsum enim
-          asperiores labore! Incidunt odio optio sit.
-        </p>
-        <li>Edmar Pelayo</li>
-        <li>Rushil Kaushik</li>
-        <li>Kushal Gurrapu</li>
-      </header>
 
-      <Form>
-        <Form.Label>API Key:</Form.Label>
-        <Form.Control
-          type="password"
-          placeholder="Insert API Key Here"
-          onChange={changeKey}
-        ></Form.Control>
-        <br></br>
-        <Button className="Submit-Button" onClick={handleSubmit}>
-          Submit
-        </Button>
-      </Form>
-    </div>
+  return (
+    <>
+      <Router>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/alternate" element={<Alternate />} />
+            <Route
+              path="/basic-questions-page"
+              element={<BasicQuestionsPage />}
+            />
+            <Route
+              path="/detailed-question-page"
+              element={<DetailedQuestionsPage />}
+            />
+          </Route>
+        </Routes>
+      </Router>
+      <div className="App">
+        {/* <HomePage /> */}
+        <header className="App-header">
+          <h1>Who are we: </h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex
+            veritatis aperiam recusandae. Fugiat tempora provident doloremque
+            perferendis temporibus molestias, animi ea ut odit delectus
+            cupiditate! Doloremque iure natus rerum esse. Lorem ipsum dolor sit,
+            amet consectetur adipisicing elit. Illum odio nihil temporibus ex,
+            ab libero perferendis autem ducimus iste neque dignissimos dolorem
+            ipsum enim asperiores labore! Incidunt odio optio sit.
+          </p>
+          <li>Edmar Pelayo</li>
+          <li>Rushil Kaushik</li>
+          <li>Kushal Gurrapu</li>
+        </header>
+
+        <Form>
+          <Form.Label>API Key:</Form.Label>
+          <Form.Control
+            type="password"
+            placeholder="Insert API Key Here"
+            onChange={changeKey}
+          ></Form.Control>
+          <br></br>
+          <Button className="Submit-Button" onClick={handleSubmit}>
+            Submit
+          </Button>
+        </Form>
+      </div>
+    </>
   );
 }
 
 export default App;
-
 //rushil
 //Edmar  Pelayo
 //Kushal Gurrapu
