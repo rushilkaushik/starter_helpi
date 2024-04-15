@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import logo from "./Pages/logo.svg";
 import "./App.css";
 import { Button, Form } from "react-bootstrap";
-import { HashRouter as Router, Routes, Route} from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import { Home } from "./Pages/Home";
-import { Alternate } from "./Pages/Alternate";
-import { BasicQ } from "./Pages/BasicQ";
-import { DetailedQ } from "./Pages/DetailedQ";
+import Alternate from "./Pages/Alternate/Alternate";
+import BasicQuestionsPage from "./Pages/BasicQuestionsPage/BasicQuestionsPage";
+import DetailedQuestionsPage from "./Pages/DetailedQuestionsPage/DetailedQuestionsPage";
 import { Layout } from "./Layout";
+import HomePage from "./Pages/HomePage/HomePage";
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -18,7 +19,6 @@ if (prevKey !== null) {
 }
 
 function App() {
-
   const [key, setKey] = useState<string>(keyData); //for api key input
 
   //sets the local storage item to the api key the user inputed
@@ -32,51 +32,56 @@ function App() {
     setKey(event.target.value);
   }
 
-  return(
+  return (
     <>
-    <Router>
-      <Routes>
-        <Route element={<Layout/>}>
-          <Route path="/" element={<Home/>}/>
-          <Route path="/alternate" element={<Alternate/>}/>
-          <Route path="/basicq" element={<BasicQ/>}/>
-          <Route path="/detailedq" element={<DetailedQ/>}/>
-        </Route>
-      </Routes>
-    </Router>
-    <div className="App">
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <p>
-        Edit <code>src/App.tsx</code> and save to reload.
-      </p>
-      <a
-        className="App-link"
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Learn React
-      </a>
-      <li>Edmar Pelayo</li>
-      <li>Rushil Kaushik</li>
-      <li>Kushal Gurrapu</li>
-    </header>
+      <Router>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/alternate" element={<Alternate />} />
+            <Route
+              path="/basic-questions-page"
+              element={<BasicQuestionsPage />}
+            />
+            <Route
+              path="/detailed-question-page"
+              element={<DetailedQuestionsPage />}
+            />
+          </Route>
+        </Routes>
+      </Router>
+      <div className="App">
+        {/* <HomePage /> */}
+        <header className="App-header">
+          <h1>Who are we: </h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex
+            veritatis aperiam recusandae. Fugiat tempora provident doloremque
+            perferendis temporibus molestias, animi ea ut odit delectus
+            cupiditate! Doloremque iure natus rerum esse. Lorem ipsum dolor sit,
+            amet consectetur adipisicing elit. Illum odio nihil temporibus ex,
+            ab libero perferendis autem ducimus iste neque dignissimos dolorem
+            ipsum enim asperiores labore! Incidunt odio optio sit.
+          </p>
+          <li>Edmar Pelayo</li>
+          <li>Rushil Kaushik</li>
+          <li>Kushal Gurrapu</li>
+        </header>
 
-    <Form>
-      <Form.Label>API Key:</Form.Label>
-      <Form.Control
-        type="password"
-        placeholder="Insert API Key Here"
-        onChange={changeKey}
-      ></Form.Control>
-      <br></br>
-      <Button className="Submit-Button" onClick={handleSubmit}>
-        Submit
-      </Button>
-    </Form>
-  </div>
-  </>
+        <Form>
+          <Form.Label>API Key:</Form.Label>
+          <Form.Control
+            type="password"
+            placeholder="Insert API Key Here"
+            onChange={changeKey}
+          ></Form.Control>
+          <br></br>
+          <Button className="Submit-Button" onClick={handleSubmit}>
+            Submit
+          </Button>
+        </Form>
+      </div>
+    </>
   );
 }
 

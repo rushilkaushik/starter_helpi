@@ -1,5 +1,7 @@
+import React from 'react'
 import { Link } from "react-router-dom";
 
+interface Props{};
 
 export function Navbar() {
     return (
@@ -19,3 +21,5 @@ export function Navbar() {
         </>
     )
 }
+
+export default Navbar;
