@@ -2,40 +2,252 @@
 > starter_helpi@0.1.0 test
 > react-scripts test --coverage
 
-PASS src/App.test.tsx
-  ✓ renders learn react link (48 ms)
+FAIL src/App.test.tsx
+  ✕ renders learn react link (62 ms)
 
----------------------|---------|----------|---------|---------|-------------------
-File                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
----------------------|---------|----------|---------|---------|-------------------
-All files            |   33.33 |    16.66 |   36.36 |   33.33 |                   
- src                 |   31.81 |    16.66 |   33.33 |   31.81 |                   
-  App.tsx            |      60 |       50 |   33.33 |      60 | 17,26-32          
-  Layout.tsx         |     100 |      100 |     100 |     100 |                   
-  index.tsx          |       0 |      100 |     100 |       0 | 7-19              
-  reportWebVitals.ts |       0 |        0 |       0 |       0 | 3-10              
- src/Components      |     100 |      100 |     100 |     100 |                   
-  Navbar.tsx         |     100 |      100 |     100 |     100 |                   
- src/Pages           |      25 |      100 |      25 |      25 |                   
-  Alternate.tsx      |       0 |      100 |       0 |       0 | 3                 
-  BasicQ.tsx         |       0 |      100 |       0 |       0 | 4                 
-  DetailedQ.tsx      |       0 |      100 |       0 |       0 | 4                 
-  Home.tsx           |     100 |      100 |     100 |     100 |                   
----------------------|---------|----------|---------|---------|-------------------
-Test Suites: 1 passed, 1 total
-Tests:       1 passed, 1 total
+  ● renders learn react link
+
+    TestingLibraryElementError: Unable to find an element with the text: /learn react/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+    Ignored nodes: comments, script, style
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<a[39m
+          [33mhref[39m=[32m"#/"[39m
+        [36m>[39m
+          [36m<button>[39m
+            [0mHome[0m
+          [36m</button>[39m
+        [36m</a>[39m
+        [36m<a[39m
+          [33mhref[39m=[32m"#/alternate"[39m
+        [36m>[39m
+          [36m<button>[39m
+            [0mAlternate[0m
+          [36m</button>[39m
+        [36m</a>[39m
+        [36m<a[39m
+          [33mhref[39m=[32m"#/basicq"[39m
+        [36m>[39m
+          [36m<button>[39m
+            [0mBasicQuestionsPage[0m
+          [36m</button>[39m
+        [36m</a>[39m
+        [36m<a[39m
+          [33mhref[39m=[32m"#/detailedq"[39m
+        [36m>[39m
+          [36m<button>[39m
+            [0mDetailedQuestionsPage[0m
+          [36m</button>[39m
+        [36m</a>[39m
+        [36m<main>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"home-page"[39m
+          [36m>[39m
+            [36m<nav[39m
+              [33mclass[39m=[32m"navbar navbar-expand-lg navbar-light bg-white py-3"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"container px-5"[39m
+              [36m>[39m
+                [36m<button[39m
+                  [33maria-controls[39m=[32m"navbarSupportedContent"[39m
+                  [33maria-expanded[39m=[32m"false"[39m
+                  [33maria-label[39m=[32m"Toggle navigation"[39m
+                  [33mclass[39m=[32m"navbar-toggler"[39m
+                  [33mdata-bs-target[39m=[32m"#navbarSupportedContent"[39m
+                  [33mdata-bs-toggle[39m=[32m"collapse"[39m
+                  [33mtype[39m=[32m"button"[39m
+                [36m>[39m
+                  [36m<span[39m
+                    [33mclass[39m=[32m"navbar-toggler-icon"[39m
+                  [36m/>[39m
+                [36m</button>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"collapse navbar-collapse"[39m
+                  [33mid[39m=[32m"navbarSupportedContent"[39m
+                [36m>[39m
+                  [36m<ul[39m
+                    [33mclass[39m=[32m"navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder"[39m
+                  [36m>[39m
+                    [36m<li[39m
+                      [33mclass[39m=[32m"nav-item"[39m
+                    [36m>[39m
+                      [0mHome[0m
+                    [36m</li>[39m
+                    [36m<li[39m
+                      [33mclass[39m=[32m"nav-item"[39m
+                    [36m>[39m
+                      [0mLogin[0m
+                    [36m</li>[39m
+                    [36m<li[39m
+                      [33mclass[39m=[32m"nav-item"[39m
+                    [36m>[39m
+                      [0mBasic Questions Page[0m
+                    [36m</li>[39m
+                    [36m<li[39m
+                      [33mclass[39m=[32m"nav-item"[39m
+                    [36m>[39m
+                      [0mDetail Questions Page[0m
+                    [36m</li>[39m
+                  [36m</ul>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+            [36m</nav>[39m
+            [36m<header[39m
+              [33mclass[39m=[32m"py-5"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"container px-5 pb-5"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"row gx-5 align-items-center"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"col-xxl-5"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"text-center text-xxl-start"[39m
+                    [36m>[39m
+                      [36m<div[39m
+                        [33mclass[39m=[32m"fs-3 fw-light text-muted"[39m
+                      [36m>[39m
+                        [0mWelcome to[0m
+                      [36m</div>[39m
+                      [36m<h1[39m
+                        [33mclass[39m=[32m"display-3 fw-bolder mb-5"[39m
+                      [36m>[39m
+                        [36m<span[39m
+                          [33mclass[39m=[32m"text-gradient d-inline"[39m
+                        [36m>[39m
+                          [0mJobMatchAI[0m
+                        [36m</span>[39m
+                      [36m</h1>[39m
+                      [36m<div[39m
+                        [33mclass[39m=[32m"d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-3"[39m
+                      [36m>[39m
+                        [36m<button[39m
+                          [33mclass[39m=[32m"btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder"[39m
+                        [36m>[39m
+                          [0mBasic Questions Quiz[0m
+                        [36m</button>[39m
+                        [36m<button>[39m
+                          [0mDetailed Questions Page[0m
+                        [36m</button>[39m
+                      [36m</div>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"col-xxl-7"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"d-flex justify-content-center mt-5 mt-xxl-0"[39m
+                    [36m>[39m
+                      [36m<div[39m
+                        [33mclass[39m=[32m"profile"[39m
+                      [36m>[39m
+                        [36m<img[39m
+                          [33malt[39m=[32m"Profile"[39m
+                          [33mclass[39m=[32m"profile-img"[39m
+                          [33msrc[39m=[32m"JobMatchAILarge.png"[39m
+                        [36m/>[39m
+                      [36m</div>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+            [36m</header>[39m
+          [36m</div>[39m
+        [36m</main>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"App"[39m
+        [36m>[39m
+          [36m<header[39m
+            [33mclass[39m=[32m"App-header"[39m
+          [36m>[39m
+            [36m<h1>[39m
+              [0mWho are we: [0m
+            [36m</h1>[39m
+            [36m<p>[39m
+              [0mLorem ipsum dolor sit amet consectetur adipisicing elit. Ex veritatis aperiam recusandae. Fugiat tempora provident doloremque perferendis temporibus molestias, animi ea ut odit delectus cupiditate! Doloremque iure natus rerum esse. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum odio nihil temporibus ex, ab libero perferendis autem ducimus iste neque dignissimos dolorem ipsum enim asperiores labore! Incidunt odio optio sit.[0m
+            [36m</p>[39m
+            [36m<li>[39m
+              [0mEdmar Pelayo[0m
+            [36m</li>[39m
+            [36m<li>[39m
+              [0mRushil Kaushik[0m
+            [36m</li>[39m
+            [36m<li>[39m
+              [0mKushal Gurrapu[0m
+            [36m</li>[39m
+          [36m</header>[39m
+          [36m<form[39m
+            [33mclass[39m=[32m""[39m
+          [36m>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"form-label"[39m
+            [36m>[39m
+              [0mAPI Key:[0m
+            [36m</label>[39m
+            [36m<input[39m
+              [33mclass[39m=[32m"form-control"[39m
+              [33mplaceholder[39m=[32m"Insert API Key Here"[39m
+              [33mtype[39m=[32m"password"[39m
+            [36m/>[39m
+            [36m<br />[39m
+            [36m<button[39m
+              [33mclass[39m=[32m"Submit-Button btn btn-primary"[39m
+              [33mtype[39m=[32m"button"[39m
+            [36m>[39m
+              [0mSubmit[0m
+            [36m</button>[39m
+          [36m</form>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</body>[39m
+
+       5 | test('renders learn react link', () => {
+       6 |   render(<App />);
+    >  7 |   const linkElement = screen.getByText(/learn react/i);
+         |                              ^
+       8 |   expect(linkElement).toBeInTheDocument();
+       9 | });
+      10 |
+
+      at Object.getElementError (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/config.js:37:19)
+      at node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+      at node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+      at getByText (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:95:19)
+      at Object.<anonymous> (src/App.test.tsx:7:30)
+      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
+      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
+      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
+      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
+
+---------------------------------|---------|----------|---------|---------|-------------------
+File                             | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+---------------------------------|---------|----------|---------|---------|-------------------
+All files                        |   40.62 |    16.66 |   33.33 |   40.62 |                   
+ src                             |   31.81 |    16.66 |   33.33 |   31.81 |                   
+  App.tsx                        |      60 |       50 |   33.33 |      60 | 16,24-30          
+  Layout.tsx                     |     100 |      100 |     100 |     100 |                   
+  index.tsx                      |       0 |      100 |     100 |       0 | 7-19              
+  reportWebVitals.ts             |       0 |        0 |       0 |       0 | 3-10              
+ src/Components/Navbar           |     100 |      100 |     100 |     100 |                   
+  Navbar.tsx                     |     100 |      100 |     100 |     100 |                   
+ src/Pages                       |       0 |      100 |       0 |       0 |                   
+  Home.tsx                       |       0 |      100 |       0 |       0 | 5                 
+ src/Pages/Alternate             |      50 |      100 |       0 |      50 |                   
+  Alternate.tsx                  |      50 |      100 |       0 |      50 | 6                 
+ src/Pages/BasicQuestionsPage    |      50 |      100 |       0 |      50 |                   
+  BasicQuestionsPage.tsx         |      50 |      100 |       0 |      50 | 6                 
+ src/Pages/DetailedQuestionsPage |      50 |      100 |       0 |      50 |                   
+  DetailedQuestionsPage.tsx      |      50 |      100 |       0 |      50 | 6                 
+ src/Pages/HomePage              |     100 |      100 |     100 |     100 |                   
+  HomePage.tsx                   |     100 |      100 |     100 |     100 |                   
+---------------------------------|---------|----------|---------|---------|-------------------
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.859 s
+Time:        2.632 s
 Ran all test suites.
-[0;33mOne of your dependencies, babel-preset-react-app, is importing the
-"@babel/plugin-proposal-private-property-in-object" package without
-declaring it in its dependencies. This is currently working because
-"@babel/plugin-proposal-private-property-in-object" is already in your
-node_modules folder for unrelated reasons, but it [1mmay break at any time[0;33m.
-
-babel-preset-react-app is part of the create-react-app project, [1mwhich
-is not maintianed anymore[0;33m. It is thus unlikely that this bug will
-ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
-your devDependencies to work around this error. This will make this message
-go away.[0m
-  
