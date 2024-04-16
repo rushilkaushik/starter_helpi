@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import logo from "./Pages/logo.svg";
 import "./App.css";
 import { Button, Form } from "react-bootstrap";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
-import { Home } from "./Pages/Home";
 import Alternate from "./Pages/Alternate/Alternate";
 import BasicQuestionsPage from "./Pages/BasicQuestionsPage/BasicQuestionsPage";
 import DetailedQuestionsPage from "./Pages/DetailedQuestionsPage/DetailedQuestionsPage";
