@@ -1,18 +1,10 @@
 import React from "react";
-import "./HomePage.css"; // Import your CSS file
-import JobMatchAI from "../../assets/JobMatchAILarge.png";
 import Hero from "../../Components/Hero/hero";
 
-interface HomePageProps {
-  // Define any props here if needed.
-}
+interface Props {}
 
-const HomePage: React.FC<HomePageProps> = () => {
-  return (
-    <>
-      <Hero />
-    </>
-  );
+const HomePage = (props: Props) => {
+  return <Hero />;
 };
 
 export default HomePage;
