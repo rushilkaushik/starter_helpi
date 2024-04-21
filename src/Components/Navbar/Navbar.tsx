@@ -24,7 +24,7 @@ export function Navbar(props: Props) {
             </Link>
             <Link
               to="/detailedq"
-              className="px-8 py-3 font-bold rounded text-white bg-lightGreen hover:opacity-70"
+              className="px-8 py-3 font-bold rounded text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:opacity-70"
             >
               Detailed Questions Page
             </Link>

@@ -50,7 +50,7 @@ function App() {
       </Router>
       <div className="App">
         {/* <HomePage /> */}
-        <header className="App-header">
+        {/* <header className="App-header">
           <h1>Who are we: </h1>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex
@@ -64,7 +64,7 @@ function App() {
           <li>Edmar Pelayo</li>
           <li>Rushil Kaushik</li>
           <li>Kushal Gurrapu</li>
-        </header>
+        </header> */}
 
         <Form>
           <Form.Label>API Key:</Form.Label>
