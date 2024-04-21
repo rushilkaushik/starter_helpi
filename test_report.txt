@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (62 ms)
+  ✕ renders learn react link (54 ms)
 
   ● renders learn react link
 
@@ -12,175 +12,106 @@ FAIL src/App.test.tsx
     Ignored nodes: comments, script, style
     [36m<body>[39m
       [36m<div>[39m
-        [36m<a[39m
-          [33mhref[39m=[32m"#/"[39m
+        [36m<nav[39m
+          [33mclass[39m=[32m"relative container mx-auto p-6"[39m
         [36m>[39m
-          [36m<button>[39m
-            [0mHome[0m
-          [36m</button>[39m
-        [36m</a>[39m
-        [36m<a[39m
-          [33mhref[39m=[32m"#/alternate"[39m
-        [36m>[39m
-          [36m<button>[39m
-            [0mAlternate[0m
-          [36m</button>[39m
-        [36m</a>[39m
-        [36m<a[39m
-          [33mhref[39m=[32m"#/basicq"[39m
-        [36m>[39m
-          [36m<button>[39m
-            [0mBasicQuestionsPage[0m
-          [36m</button>[39m
-        [36m</a>[39m
-        [36m<a[39m
-          [33mhref[39m=[32m"#/detailedq"[39m
-        [36m>[39m
-          [36m<button>[39m
-            [0mDetailedQuestionsPage[0m
-          [36m</button>[39m
-        [36m</a>[39m
-        [36m<main>[39m
           [36m<div[39m
-            [33mclass[39m=[32m"home-page"[39m
+            [33mclass[39m=[32m"flex items-center justify-between"[39m
           [36m>[39m
-            [36m<nav[39m
-              [33mclass[39m=[32m"navbar navbar-expand-lg navbar-light bg-white py-3"[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex items-center space-x-20"[39m
             [36m>[39m
-              [36m<div[39m
-                [33mclass[39m=[32m"container px-5"[39m
+              [36m<a[39m
+                [33mhref[39m=[32m"#/"[39m
               [36m>[39m
-                [36m<button[39m
-                  [33maria-controls[39m=[32m"navbarSupportedContent"[39m
-                  [33maria-expanded[39m=[32m"false"[39m
-                  [33maria-label[39m=[32m"Toggle navigation"[39m
-                  [33mclass[39m=[32m"navbar-toggler"[39m
-                  [33mdata-bs-target[39m=[32m"#navbarSupportedContent"[39m
-                  [33mdata-bs-toggle[39m=[32m"collapse"[39m
-                  [33mtype[39m=[32m"button"[39m
-                [36m>[39m
-                  [36m<span[39m
-                    [33mclass[39m=[32m"navbar-toggler-icon"[39m
-                  [36m/>[39m
-                [36m</button>[39m
-                [36m<div[39m
-                  [33mclass[39m=[32m"collapse navbar-collapse"[39m
-                  [33mid[39m=[32m"navbarSupportedContent"[39m
-                [36m>[39m
-                  [36m<ul[39m
-                    [33mclass[39m=[32m"navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder"[39m
-                  [36m>[39m
-                    [36m<li[39m
-                      [33mclass[39m=[32m"nav-item"[39m
-                    [36m>[39m
-                      [0mHome[0m
-                    [36m</li>[39m
-                    [36m<li[39m
-                      [33mclass[39m=[32m"nav-item"[39m
-                    [36m>[39m
-                      [0mLogin[0m
-                    [36m</li>[39m
-                    [36m<li[39m
-                      [33mclass[39m=[32m"nav-item"[39m
-                    [36m>[39m
-                      [0mBasic Questions Page[0m
-                    [36m</li>[39m
-                    [36m<li[39m
-                      [33mclass[39m=[32m"nav-item"[39m
-                    [36m>[39m
-                      [0mDetail Questions Page[0m
-                    [36m</li>[39m
-                  [36m</ul>[39m
-                [36m</div>[39m
-              [36m</div>[39m
-            [36m</nav>[39m
-            [36m<header[39m
-              [33mclass[39m=[32m"py-5"[39m
-            [36m>[39m
+                [36m<img[39m
+                  [33malt[39m=[32m""[39m
+                  [33msrc[39m=[32m"cornerlogo.jpeg"[39m
+                [36m/>[39m
+              [36m</a>[39m
               [36m<div[39m
-                [33mclass[39m=[32m"container px-5 pb-5"[39m
+                [33mclass[39m=[32m"hidden font-bold lg:flex"[39m
+              [36m>[39m
+                [36m<a[39m
+                  [33mclass[39m=[32m"text-black hover:text-darkBlue"[39m
+                  [33mhref[39m=[32m"#/"[39m
+                [36m>[39m
+                  [0mDashboard[0m
+                [36m</a>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"hidden lg:flex items-center space-x-6 text-back"[39m
+            [36m>[39m
+              [36m<a[39m
+                [33mhref[39m=[32m"#/basicq"[39m
               [36m>[39m
                 [36m<div[39m
-                  [33mclass[39m=[32m"row gx-5 align-items-center"[39m
+                  [33mclass[39m=[32m"hover:text-darkBlue"[39m
                 [36m>[39m
-                  [36m<div[39m
-                    [33mclass[39m=[32m"col-xxl-5"[39m
-                  [36m>[39m
-                    [36m<div[39m
-                      [33mclass[39m=[32m"text-center text-xxl-start"[39m
-                    [36m>[39m
-                      [36m<div[39m
-                        [33mclass[39m=[32m"fs-3 fw-light text-muted"[39m
-                      [36m>[39m
-                        [0mWelcome to[0m
-                      [36m</div>[39m
-                      [36m<h1[39m
-                        [33mclass[39m=[32m"display-3 fw-bolder mb-5"[39m
-                      [36m>[39m
-                        [36m<span[39m
-                          [33mclass[39m=[32m"text-gradient d-inline"[39m
-                        [36m>[39m
-                          [0mJobMatchAI[0m
-                        [36m</span>[39m
-                      [36m</h1>[39m
-                      [36m<div[39m
-                        [33mclass[39m=[32m"d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-3"[39m
-                      [36m>[39m
-                        [36m<button[39m
-                          [33mclass[39m=[32m"btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder"[39m
-                        [36m>[39m
-                          [0mBasic Questions Quiz[0m
-                        [36m</button>[39m
-                        [36m<button>[39m
-                          [0mDetailed Questions Page[0m
-                        [36m</button>[39m
-                      [36m</div>[39m
-                    [36m</div>[39m
-                  [36m</div>[39m
-                  [36m<div[39m
-                    [33mclass[39m=[32m"col-xxl-7"[39m
-                  [36m>[39m
-                    [36m<div[39m
-                      [33mclass[39m=[32m"d-flex justify-content-center mt-5 mt-xxl-0"[39m
-                    [36m>[39m
-                      [36m<div[39m
-                        [33mclass[39m=[32m"profile"[39m
-                      [36m>[39m
-                        [36m<img[39m
-                          [33malt[39m=[32m"Profile"[39m
-                          [33mclass[39m=[32m"profile-img"[39m
-                          [33msrc[39m=[32m"JobMatchAILarge.png"[39m
-                        [36m/>[39m
-                      [36m</div>[39m
-                    [36m</div>[39m
-                  [36m</div>[39m
+                  [0mBasic Questions Page[0m
                 [36m</div>[39m
-              [36m</div>[39m
-            [36m</header>[39m
+              [36m</a>[39m
+              [36m<a[39m
+                [33mclass[39m=[32m"px-8 py-3 font-bold rounded text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:opacity-70"[39m
+                [33mhref[39m=[32m"#/detailedq"[39m
+              [36m>[39m
+                [0mDetailed Questions Page[0m
+              [36m</a>[39m
+            [36m</div>[39m
           [36m</div>[39m
+        [36m</nav>[39m
+        [36m<main>[39m
+          [36m<section[39m
+            [33mid[39m=[32m"Hero"[39m
+            [33mstyle[39m=[32m"background-image: url(background.png); background-size: cover; background-repeat: no-repeat; background-position: bottom center; height: 100vh;"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"container flex flex-col-reverse mx-auto p-8 lg:flex-row pt-20"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex flex-col space-y-10 mb-44 m-10 lg:m-10 xl:m-20 lg:mt:16 lg:w-1/2 xl:mb-52"[39m
+              [36m>[39m
+                [36m<h1[39m
+                  [33mclass[39m=[32m"text-5xl font-bold text-center lg:text-6xl lg:max-w-md lg:text-left"[39m
+                [36m>[39m
+                  [0mWelcome to[0m
+                [36m</h1>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"text-5xl font-bold text-center lg:text-6xl lg:max-w-md lg:text-left bg-gradient-to-r text-transparent bg-clip-text from-blue-500 to-indigo-500"[39m
+                [36m>[39m
+                  [0mJobMatchAI[0m
+                [36m</div>[39m
+                [36m<p[39m
+                  [33mclass[39m=[32m"text-2xl text-center text-gray-400 lg:max-w-md lg:text-left"[39m
+                [36m>[39m
+                  [0mFind the best career choice for you.[0m
+                [36m</p>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"mx-auto lg:mx-0"[39m
+                [36m>[39m
+                  [36m<a[39m
+                    [33mclass[39m=[32m"py-5 px-10 text-2xl font-bold text-white bg-gradient-to-r from-cyan-500 to-blue-500 rounded lg:py-4 hover:opacity-70"[39m
+                    [33mhref[39m=[32m"#/"[39m
+                  [36m>[39m
+                    [0mGet Started[0m
+                  [36m</a>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"mb-24 mx-auto md:w-180 md:px-10 lg:mb-0 lg:w-1/2"[39m
+              [36m>[39m
+                [36m<img[39m
+                  [33malt[39m=[32m""[39m
+                  [33msrc[39m=[32m"adjusted.png"[39m
+                [36m/>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+          [36m</section>[39m
         [36m</main>[39m
         [36m<div[39m
           [33mclass[39m=[32m"App"[39m
         [36m>[39m
-          [36m<header[39m
-            [33mclass[39m=[32m"App-header"[39m
-          [36m>[39m
-            [36m<h1>[39m
-              [0mWho are we: [0m
-            [36m</h1>[39m
-            [36m<p>[39m
-              [0mLorem ipsum dolor sit amet consectetur adipisicing elit. Ex veritatis aperiam recusandae. Fugiat tempora provident doloremque perferendis temporibus molestias, animi ea ut odit delectus cupiditate! Doloremque iure natus rerum esse. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum odio nihil temporibus ex, ab libero perferendis autem ducimus iste neque dignissimos dolorem ipsum enim asperiores labore! Incidunt odio optio sit.[0m
-            [36m</p>[39m
-            [36m<li>[39m
-              [0mEdmar Pelayo[0m
-            [36m</li>[39m
-            [36m<li>[39m
-              [0mRushil Kaushik[0m
-            [36m</li>[39m
-            [36m<li>[39m
-              [0mKushal Gurrapu[0m
-            [36m</li>[39m
-          [36m</header>[39m
           [36m<form[39m
             [33mclass[39m=[32m""[39m
           [36m>[39m
@@ -227,12 +158,16 @@ FAIL src/App.test.tsx
 ---------------------------------|---------|----------|---------|---------|-------------------
 File                             | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ---------------------------------|---------|----------|---------|---------|-------------------
-All files                        |   40.62 |    16.66 |   33.33 |   40.62 |                   
+All files                        |   41.66 |    16.66 |   35.71 |   41.66 |                   
  src                             |   31.81 |    16.66 |   33.33 |   31.81 |                   
   App.tsx                        |      60 |       50 |   33.33 |      60 | 16,24-30          
   Layout.tsx                     |     100 |      100 |     100 |     100 |                   
   index.tsx                      |       0 |      100 |     100 |       0 | 7-19              
   reportWebVitals.ts             |       0 |        0 |       0 |       0 | 3-10              
+ src/Components/Card             |       0 |      100 |       0 |       0 |                   
+  Card.tsx                       |       0 |      100 |       0 |       0 | 5-6               
+ src/Components/Hero             |     100 |      100 |     100 |     100 |                   
+  hero.tsx                       |     100 |      100 |     100 |     100 |                   
  src/Components/Navbar           |     100 |      100 |     100 |     100 |                   
   Navbar.tsx                     |     100 |      100 |     100 |     100 |                   
  src/Pages                       |       0 |      100 |       0 |       0 |                   
@@ -249,5 +184,5 @@ All files                        |   40.62 |    16.66 |   33.33 |   40.62 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.632 s
+Time:        2.464 s
 Ran all test suites.
