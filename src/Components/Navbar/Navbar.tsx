@@ -13,9 +13,9 @@ export function Navbar(props: Props) {
               <img src={cornerlogo} alt="" />
             </Link>
             <div className="hidden font-bold lg:flex">
-              <a href="" className="text-black hover:text-darkBlue">
+              <Link to="/" className="text-black hover:text-darkBlue">
                 Dashboard
-              </a>
+              </Link>
             </div>
           </div>
           <div className="hidden lg:flex items-center space-x-6 text-back">
