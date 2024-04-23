@@ -48,6 +48,7 @@ function App() {
           </Route>
         </Routes>
       </Router>
+
       <div className="App">
         {/* <HomePage /> */}
         {/* <header className="App-header">
@@ -65,19 +66,22 @@ function App() {
           <li>Rushil Kaushik</li>
           <li>Kushal Gurrapu</li>
         </header> */}
-
-        <Form>
-          <Form.Label>API Key:</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Insert API Key Here"
-            onChange={changeKey}
-          ></Form.Control>
-          <br></br>
-          <Button className="Submit-Button" onClick={handleSubmit}>
-            Submit
-          </Button>
-        </Form>
+        <div className="App">
+          <div className="form-container">
+            <Form>
+              <Form.Label>API Key:</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder=" Insert API Key Here"
+                onChange={changeKey}
+              ></Form.Control>
+              <br></br>
+              <Button className="Submit-Button" onClick={handleSubmit}>
+                Submit
+              </Button>
+            </Form>
+          </div>
+        </div>
       </div>
     </>
   );
