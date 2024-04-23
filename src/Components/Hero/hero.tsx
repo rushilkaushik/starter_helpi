@@ -1,5 +1,5 @@
 import React from "react";
-import hero from "./adjusted.png";
+import hero from "./LargeMascot.png";
 import "./Hero.css";
 import background from "./background.png";
 import { Link } from "react-router-dom";
@@ -30,15 +30,17 @@ const Hero = (props: Props) => {
             Find the best career choice for you.
           </p>
           <div className="mx-auto lg:mx-0">
-            <Link
-              to="/"
-              className="py-5 px-10 text-2xl font-bold text-white bg-gradient-to-r from-cyan-500 to-blue-500 rounded lg:py-4 hover:opacity-70"
-            >
-              Get Started
-            </Link>
+            <div className="link-container">
+              <Link
+                to="/"
+                className="py-5 px-10 text-2xl font-bold text-white bg-gradient-to-r from-cyan-500 to-blue-500 rounded lg:py-4 hover:opacity-70"
+              >
+                Get Started
+              </Link>
+            </div>
           </div>
         </div>
-        <div className="mb-24 mx-auto md:w-180 md:px-10 lg:mb-0 lg:w-1/2">
+        <div className="mb-24 mx-auto md:w-180 md:px-10 lg:mb-0 lg:w-1/2 image-container">
           <img src={hero} alt="" />
         </div>
       </div>
