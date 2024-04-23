@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (54 ms)
+  ✕ renders learn react link (56 ms)
 
   ● renders learn react link
 
@@ -44,7 +44,7 @@ FAIL src/App.test.tsx
               [33mclass[39m=[32m"hidden lg:flex items-center space-x-6 text-back"[39m
             [36m>[39m
               [36m<a[39m
-                [33mhref[39m=[32m"#/basicq"[39m
+                [33mhref[39m=[32m"#/basic-questions-page"[39m
               [36m>[39m
                 [36m<div[39m
                   [33mclass[39m=[32m"hover:text-darkBlue"[39m
@@ -54,7 +54,7 @@ FAIL src/App.test.tsx
               [36m</a>[39m
               [36m<a[39m
                 [33mclass[39m=[32m"px-8 py-3 font-bold rounded text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:opacity-70"[39m
-                [33mhref[39m=[32m"#/detailedq"[39m
+                [33mhref[39m=[32m"#/detailed-question-page"[39m
               [36m>[39m
                 [0mDetailed Questions Page[0m
               [36m</a>[39m
@@ -90,20 +90,24 @@ FAIL src/App.test.tsx
                 [36m<div[39m
                   [33mclass[39m=[32m"mx-auto lg:mx-0"[39m
                 [36m>[39m
-                  [36m<a[39m
-                    [33mclass[39m=[32m"py-5 px-10 text-2xl font-bold text-white bg-gradient-to-r from-cyan-500 to-blue-500 rounded lg:py-4 hover:opacity-70"[39m
-                    [33mhref[39m=[32m"#/"[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"link-container"[39m
                   [36m>[39m
-                    [0mGet Started[0m
-                  [36m</a>[39m
+                    [36m<a[39m
+                      [33mclass[39m=[32m"py-5 px-10 text-2xl font-bold text-white bg-gradient-to-r from-cyan-500 to-blue-500 rounded lg:py-4 hover:opacity-70"[39m
+                      [33mhref[39m=[32m"#/"[39m
+                    [36m>[39m
+                      [0mGet Started[0m
+                    [36m</a>[39m
+                  [36m</div>[39m
                 [36m</div>[39m
               [36m</div>[39m
               [36m<div[39m
-                [33mclass[39m=[32m"mb-24 mx-auto md:w-180 md:px-10 lg:mb-0 lg:w-1/2"[39m
+                [33mclass[39m=[32m"mb-24 mx-auto md:w-180 md:px-10 lg:mb-0 lg:w-1/2 image-container"[39m
               [36m>[39m
                 [36m<img[39m
                   [33malt[39m=[32m""[39m
-                  [33msrc[39m=[32m"adjusted.png"[39m
+                  [33msrc[39m=[32m"LargeMascot.png"[39m
                 [36m/>[39m
               [36m</div>[39m
             [36m</div>[39m
@@ -112,27 +116,35 @@ FAIL src/App.test.tsx
         [36m<div[39m
           [33mclass[39m=[32m"App"[39m
         [36m>[39m
-          [36m<form[39m
-            [33mclass[39m=[32m""[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"App"[39m
           [36m>[39m
-            [36m<label[39m
-              [33mclass[39m=[32m"form-label"[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"form-container"[39m
             [36m>[39m
-              [0mAPI Key:[0m
-            [36m</label>[39m
-            [36m<input[39m
-              [33mclass[39m=[32m"form-control"[39m
-              [33mplaceholder[39m=[32m"Insert API Key Here"[39m
-              [33mtype[39m=[32m"password"[39m
-            [36m/>[39m
-            [36m<br />[39m
-            [36m<button[39m
-              [33mclass[39m=[32m"Submit-Button btn btn-primary"[39m
-              [33mtype[39m=[32m"button"[39m
-            [36m>[39m
-              [0mSubmit[0m
-            [36m</button>[39m
-          [36m</form>[39m
+              [36m<form[39m
+                [33mclass[39m=[32m""[39m
+              [36m>[39m
+                [36m<label[39m
+                  [33mclass[39m=[32m"form-label"[39m
+                [36m>[39m
+                  [0mAPI Key:[0m
+                [36m</label>[39m
+                [36m<input[39m
+                  [33mclass[39m=[32m"form-control"[39m
+                  [33mplaceholder[39m=[32m" Insert API Key Here"[39m
+                  [33mtype[39m=[32m"password"[39m
+                [36m/>[39m
+                [36m<br />[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"Submit-Button btn btn-primary"[39m
+                  [33mtype[39m=[32m"button"[39m
+                [36m>[39m
+                  [0mSubmit[0m
+                [36m</button>[39m
+              [36m</form>[39m
+            [36m</div>[39m
+          [36m</div>[39m
         [36m</div>[39m
       [36m</div>[39m
     [36m</body>[39m
@@ -158,14 +170,14 @@ FAIL src/App.test.tsx
 ---------------------------------|---------|----------|---------|---------|-------------------
 File                             | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ---------------------------------|---------|----------|---------|---------|-------------------
-All files                        |   41.66 |    16.66 |   35.71 |   41.66 |                   
+All files                        |   39.02 |    16.66 |   31.25 |   39.02 |                   
  src                             |   31.81 |    16.66 |   33.33 |   31.81 |                   
   App.tsx                        |      60 |       50 |   33.33 |      60 | 16,24-30          
   Layout.tsx                     |     100 |      100 |     100 |     100 |                   
   index.tsx                      |       0 |      100 |     100 |       0 | 7-19              
   reportWebVitals.ts             |       0 |        0 |       0 |       0 | 3-10              
- src/Components/Card             |       0 |      100 |       0 |       0 |                   
-  Card.tsx                       |       0 |      100 |       0 |       0 | 5-6               
+ src/Components/Card             |   14.28 |      100 |       0 |   14.28 |                   
+  Card.tsx                       |   14.28 |      100 |       0 |   14.28 | 6-17              
  src/Components/Hero             |     100 |      100 |     100 |     100 |                   
   hero.tsx                       |     100 |      100 |     100 |     100 |                   
  src/Components/Navbar           |     100 |      100 |     100 |     100 |                   
@@ -175,7 +187,7 @@ All files                        |   41.66 |    16.66 |   35.71 |   41.66 |
  src/Pages/Alternate             |      50 |      100 |       0 |      50 |                   
   Alternate.tsx                  |      50 |      100 |       0 |      50 | 6                 
  src/Pages/BasicQuestionsPage    |      50 |      100 |       0 |      50 |                   
-  BasicQuestionsPage.tsx         |      50 |      100 |       0 |      50 | 6                 
+  BasicQuestionsPage.tsx         |      50 |      100 |       0 |      50 | 5                 
  src/Pages/DetailedQuestionsPage |      50 |      100 |       0 |      50 |                   
   DetailedQuestionsPage.tsx      |      50 |      100 |       0 |      50 | 6                 
  src/Pages/HomePage              |     100 |      100 |     100 |     100 |                   
@@ -184,5 +196,5 @@ All files                        |   41.66 |    16.66 |   35.71 |   41.66 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.464 s
+Time:        2.57 s
 Ran all test suites.
