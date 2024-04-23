@@ -19,11 +19,11 @@ export function Navbar(props: Props) {
             </div>
           </div>
           <div className="hidden lg:flex items-center space-x-6 text-back">
-            <Link to="/basicq">
+            <Link to="/basic-questions-page">
               <div className="hover:text-darkBlue">Basic Questions Page</div>
             </Link>
             <Link
-              to="/detailedq"
+              to="/detailed-question-page"
               className="px-8 py-3 font-bold rounded text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:opacity-70"
             >
               Detailed Questions Page
