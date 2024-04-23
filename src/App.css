@@ -46,3 +46,12 @@
   left: 50%;
   transform: translateX(-50%);
 }
+
+
+.text-area{
+  border-radius: 5px;
+  padding-left: 2px;
+}
+.form-label{
+  padding-right:5px;
+}

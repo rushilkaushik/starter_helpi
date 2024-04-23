@@ -69,12 +69,13 @@ function App() {
         <div className="App">
           <div className="form-container">
             <Form>
-              <Form.Label>API Key:</Form.Label>
+              <Form.Label className="form-label">API Key:</Form.Label>
               <Form.Control
+                className="text-area"
                 type="password"
-                placeholder=" Insert API Key Here"
+                placeholder="Insert API Key Here"
                 onChange={changeKey}
-              ></Form.Control>
+              />
               <br></br>
               <Button className="Submit-Button" onClick={handleSubmit}>
                 Submit
