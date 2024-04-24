@@ -7,16 +7,15 @@ const BasicQuestionsPage = () => {
 
   return (
     <>
-      <div className="flex justify-center pt-20">
-        <h1>Basic Questions Page</h1>
-      </div>
-      <div>
-        <div className="flex justify-center pt-5">
+      <div className="w-screen h-screen p-0 relative">
+        <div className="flex justify-center pt-20">
+          <h1>Basic Questions Page</h1>
+        </div>
+        <div className="relative flex justify-center pt-5">
           <Card />
         </div>
-        <div>
-          <VideoCard videoSrc={subwaySurfersVideoSrc} />{" "}
-          {/* Use the video source link */}
+        <div className="float top-1/2 transform -translate-y-1/2 pl-10 right-10">
+          <VideoCard videoSrc={subwaySurfersVideoSrc} />
         </div>
       </div>
     </>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ReactPlayer from "react-player";
-
+import "./VideoCard.css";
 interface Props {
   videoSrc: string;
 }
@@ -13,11 +13,18 @@ const VideoCard: React.FC<Props> = ({ videoSrc }) => {
   };
 
   return (
-    <div>
+    <div className="pt-5">
       {showVideo && (
-        <ReactPlayer url={videoSrc} controls width="15%" height="15%" />
+        <ReactPlayer
+          url={videoSrc}
+          controls
+          width="15%"
+          height="15%"
+          loop={true}
+        />
       )}
-      <div className="container">
+      <div className="container-checked pt-2">
+        <h1 className="pl-3 pr-4">Entertainment Mode</h1>
         <input
           type="checkbox"
           checked={showVideo}

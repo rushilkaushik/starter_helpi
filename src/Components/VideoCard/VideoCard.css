@@ -1,40 +1,53 @@
-*{
-    padding: 0;
-    margin: 0;
-}
-.container{
-    width: 100%;
-    height: 100vh;
+.container-checked {
+    width: auto;
+    height: auto;
     background-color: #fff;
-    display: flex;
+    display: inline-flex; /* Use inline-flex to make the container fit around the content */
     align-items: center;
     justify-content: center;
-}
-.button{
+  }
+  
+  .button {
     background-color: #d2d2d2;
-    width: 200px;
-    height: 100px;
-    border-radius: 200px;
+    width: 50px;
+    height: 25px;
+    border-radius: 100px;
     cursor: pointer;
     position: relative;
     transition: 0.2s;
-}
-.button::before{
+    border: 2px solid black; /* Adding border style */
+  }
+  
+  
+  .button::before {
     position: absolute;
-    content: '';
+    content: "";
     background-color: #fff;
-    width: 90px;
-    height: 90px;
-    border-radius: 200px;
-    margin: 5px;
+    width: 18px;
+    height: 18px;
+    border-radius: 100px;
+    margin: 2px;
     transition: 0.2s;
-}
-input:checked + .button{
-    background-color: #20096d;
-}
-input:checked + .button::before{
-    transform: translateX(100px);
-}
-input{
+  }
+  
+  input:checked + .button {
+    background-color: #18a223;
+  }
+  
+  input:checked + .button::before {
+    transform: translateX(25px);
+  }
+  
+  input {
     display: none;
-}
+  }
+  
+  .video-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .video-player {
+    margin-right: 0.25rem;
+  }
+  
