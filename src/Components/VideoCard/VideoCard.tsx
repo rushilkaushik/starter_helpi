@@ -17,7 +17,7 @@ const VideoCard: React.FC<Props> = ({ videoSrc }) => {
       {showVideo && (
         <ReactPlayer
           url={videoSrc}
-          controls
+          playing={true}
           width="15%"
           height="15%"
           loop={true}
