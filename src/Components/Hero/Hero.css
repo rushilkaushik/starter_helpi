@@ -1,23 +1,33 @@
 @keyframes bounce {
-    0%, 100% {
+  0%, 50% {
       transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-20px);
-    }
+      animation-timing-function: ease-out; /* Faster at the beginning */
+  }
+  25% {
+      transform: translateY(-30px); /* Increased jump height */
+      animation-timing-function: ease-in; /* Slower when going up */
+  }
+  75% {
+      transform: translateY(-30px); /* Increased jump height */
+      animation-timing-function: ease-in; /* Slower when going up */
+  }
+  100% {
+      transform: translateY(0);
+      animation-timing-function: ease-out; /* Faster at the end */
+  }
 }
 
 .image-container:hover img {
-animation: bounce 1s infinite;
+  animation: bounce 1s infinite; /* Adjusted duration to 1s */
 }
 
 .link-container {
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Add box-shadow transition */
-    display: inline-block;
-  }
-  
-  .link-container:hover {
-    transform: scale(1.05);
-    transform-origin: center;
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0.2); /* Add slight shadow */
-  }
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Add box-shadow transition */
+  display: inline-block;
+}
+
+.link-container:hover {
+  transform: scale(1.05);
+  transform-origin: center;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.2); /* Add slight shadow */
+}
