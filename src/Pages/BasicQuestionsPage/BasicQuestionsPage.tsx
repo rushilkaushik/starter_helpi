@@ -12,7 +12,7 @@ const BasicQuestionsPage = () => {
           <h1>Basic Questions Page</h1>
         </div>
         <div className="relative flex justify-center pt-5">
-          <Card />
+          <Card questions={["bq1?", "bq2?", "bq3?", "bq4?", "bq5?"]} />
         </div>
         <div className="float top-1/2 transform -translate-y-1/2 pl-10 right-10">
           <VideoCard videoSrc={subwaySurfersVideoSrc} />
