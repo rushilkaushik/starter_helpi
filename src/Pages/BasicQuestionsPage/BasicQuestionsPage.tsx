@@ -1,7 +1,8 @@
 import React from "react";
 import Card from "../../Components/Card/Card";
 import VideoCard from "../../Components/VideoCard/VideoCard";
-
+import John from "../../assets/John.png";
+import "./BasicQuestionPage.css";
 const BasicQuestionsPage = () => {
   const subwaySurfersVideoSrc = "subwaysurfers.mp4"; // Keep the video source link
 
@@ -14,9 +15,13 @@ const BasicQuestionsPage = () => {
         <div className="relative flex justify-center pt-5">
           <Card questions={["bq1?", "bq2?", "bq3?", "bq4?", "bq5?"]} />
         </div>
+
         <div className="float top-1/2 transform -translate-y-1/2 pl-10 right-10">
           <VideoCard videoSrc={subwaySurfersVideoSrc} />
         </div>
+      </div>
+      <div className="absolute bottom-0 right-0">
+        <img src={John} alt="John" className="john-image" />
       </div>
     </>
   );
