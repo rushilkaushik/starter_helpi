@@ -9,7 +9,7 @@ const BasicQuestionsPage = () => {
   return (
     <>
       <div className="w-screen h-screen p-0 relative">
-        <div className="flex justify-center pt-20">
+        <div className="flex justify-center pt-20 ">
           <h1>Basic Questions Page</h1>
         </div>
         <div className="relative flex justify-center pt-5">
@@ -20,7 +20,6 @@ const BasicQuestionsPage = () => {
               "Question 3?",
               "Question 4?",
               "Question 5?",
-
               "Question 6?",
               "Question 7?",
             ]}

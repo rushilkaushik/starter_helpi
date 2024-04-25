@@ -62,14 +62,14 @@ const Card: React.FC<Props> = (Props) => {
         {/* Submit Button Container */}
         <div className="flex justify-center mt-6">
           <button
-            className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-blue-500 hover:to-cyan-500 text-white font-bold py-2 px-4 rounded mr-4"
+            className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-blue-500 hover:to-cyan-500 hover:opacity-70 text-white font-bold py-2 px-4 rounded mr-4"
             onClick={handlePrevious}
           >
             Previous
           </button>
 
           <button
-            className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-blue-500 hover:to-cyan-500 text-white font-bold py-2 px-4 rounded ml-4"
+            className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-blue-500 hover:to-cyan-500 hover:opacity-70 text-white font-bold py-2 px-4 rounded ml-4"
             onClick={handleNext}
           >
             Next
