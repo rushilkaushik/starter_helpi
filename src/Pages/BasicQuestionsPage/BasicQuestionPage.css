@@ -5,9 +5,11 @@
     margin-right: 20px; /* Adjust the margin-right as needed */
     transition: transform 0.5s ease; /* Apply transition effect to the transform property */
     transform: translateY(310px); /* Translate the image downwards initially */
+    opacity: 0;
   }
   
   .john-image:hover {
     transform: translateY(100px); /* Translate the image upwards on hover */
+    opacity: 1;
   }
   
