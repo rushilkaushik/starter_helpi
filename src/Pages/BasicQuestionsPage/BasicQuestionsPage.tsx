@@ -8,7 +8,9 @@ const BasicQuestionsPage = () => {
         <h1>Basic Questions Page</h1>
       </div>
       <div className="flex justify-center pt-5">
-        <Card />
+        <Card 
+          questions={["bq1?", "bq2?", "bq3?", "bq4?", "bq5?"]}
+        />
       </div>
     </>
   );

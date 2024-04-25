@@ -9,7 +9,9 @@ const DetailedQuestionsPage = (props: Props) => {
         <h1>Detailed Questions Page</h1>
       </div>
       <div className="flex justify-center pt-5">
-        <Card />
+        <Card 
+          questions={["dq1?", "dq2?", "dq3?"]}
+        />
       </div>
     </>
   );
