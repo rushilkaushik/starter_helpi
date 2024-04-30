@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (77 ms)
+  ✕ renders learn react link (65 ms)
 
   ● renders learn react link
 
@@ -170,31 +170,33 @@ FAIL src/App.test.tsx
 ---------------------------------|---------|----------|---------|---------|-------------------
 File                             | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ---------------------------------|---------|----------|---------|---------|-------------------
-All files                        |   28.07 |       10 |   27.77 |   28.07 |                   
+All files                        |   26.56 |     8.33 |      25 |   26.56 |                   
  src                             |   31.81 |    16.66 |   33.33 |   31.81 |                   
   App.tsx                        |      60 |       50 |   33.33 |      60 | 16,24-30          
   Layout.tsx                     |     100 |      100 |     100 |     100 |                   
   index.tsx                      |       0 |      100 |     100 |       0 | 7-19              
   reportWebVitals.ts             |       0 |        0 |       0 |       0 | 3-10              
  src/Components/Card             |    4.34 |        0 |       0 |    4.34 |                   
-  Card.tsx                       |    4.34 |        0 |       0 |    4.34 | 8-42              
+  Card.tsx                       |    4.34 |        0 |       0 |    4.34 | 8-41              
  src/Components/Hero             |     100 |      100 |     100 |     100 |                   
   hero.tsx                       |     100 |      100 |     100 |     100 |                   
  src/Components/Navbar           |     100 |      100 |     100 |     100 |                   
   Navbar.tsx                     |     100 |      100 |     100 |     100 |                   
+ src/Components/VideoCard        |      20 |        0 |       0 |      20 |                   
+  VideoCard.tsx                  |      20 |        0 |       0 |      20 | 10-16             
  src/Pages                       |       0 |      100 |       0 |       0 |                   
   Home.tsx                       |       0 |      100 |       0 |       0 | 5                 
  src/Pages/Alternate             |      50 |      100 |       0 |      50 |                   
   Alternate.tsx                  |      50 |      100 |       0 |      50 | 6                 
- src/Pages/BasicQuestionsPage    |      50 |      100 |       0 |      50 |                   
-  BasicQuestionsPage.tsx         |      50 |      100 |       0 |      50 | 5                 
- src/Pages/DetailedQuestionsPage |      50 |      100 |       0 |      50 |                   
-  DetailedQuestionsPage.tsx      |      50 |      100 |       0 |      50 | 6                 
+ src/Pages/BasicQuestionsPage    |   33.33 |      100 |       0 |   33.33 |                   
+  BasicQuestionsPage.tsx         |   33.33 |      100 |       0 |   33.33 | 7-9               
+ src/Pages/DetailedQuestionsPage |   33.33 |      100 |       0 |   33.33 |                   
+  DetailedQuestionsPage.tsx      |   33.33 |      100 |       0 |   33.33 | 8-9               
  src/Pages/HomePage              |     100 |      100 |     100 |     100 |                   
   HomePage.tsx                   |     100 |      100 |     100 |     100 |                   
 ---------------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.55 s
+Time:        2.573 s
 Ran all test suites.
