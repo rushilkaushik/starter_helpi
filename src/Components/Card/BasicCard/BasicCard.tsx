@@ -4,7 +4,7 @@ interface Props {
   questions: string[];
 }
 
-const Card: React.FC<Props> = (Props) => {
+const BasicCard: React.FC<Props> = (Props) => {
   const { questions } = Props;
   const [textInput, setTextInput] = useState(""); // State to store the entered text
   const [answers, setAnswers] = useState<string[]>([]); // State to store the answers
@@ -88,4 +88,4 @@ const Card: React.FC<Props> = (Props) => {
   );
 };
 
-export default Card;
+export default BasicCard;
