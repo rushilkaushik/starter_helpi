@@ -1,55 +1,65 @@
 .container-checked {
-    width: auto;
-    height: auto;
-    background-color: #fff;
-    display: inline-flex; /* Use inline-flex to make the container fit around the content */
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .button {
-    background-color: #d2d2d2;
-    width: 53px;
-    height: 28px;
-    border-radius: 100px;
-    cursor: pointer;
-    position: relative;
-    transition: 0.2s;
-    border: 2px solid black; /* Adding border style */
-  }
-  
-  
-  .button::before {
-    position: absolute;
-    content: "";
-    background-color: #fff;
-    width: 23px;
-    height: 23px;
-    border-radius: 100px;
-    margin: 2px;
-    transition: 0.2s;
-    border: 2px solid black;
-    top: -2px;
-  }
-  
-  input:checked + .button {
-    background-color: #18a223;
-  }
-  
-  input:checked + .button::before {
-    transform: translateX(23px);
-  }
-  
-  input {
-    display: none;
-  }
-  
-  .video-container {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .video-player {
-    margin-right: 0.25rem;
-  }
-  
+  width: auto;
+  height: auto;
+  background-color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px; /* Adjusted width */
+  height: 30px; /* Adjusted height */
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 30px; /* Adjusted border radius */
+  border: 2px solid black; /* Added black border */
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  top: 0px;
+  height: 26px; /* Slightly smaller height */
+  width: 26px; /* Slightly smaller width */
+  left: 2px; /* Adjusted left position */
+  bottom: 2px; /* Lowered position */
+  background-color: white;
+  border-radius: 50%;
+  border: 2px solid black; /* Added black border */
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #4CAF50;
+}
+
+input:checked + .slider:before {
+  transform: translateX(27px); /* Adjusted translation */
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}

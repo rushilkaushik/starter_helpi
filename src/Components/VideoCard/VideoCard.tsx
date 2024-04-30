@@ -28,13 +28,15 @@ const VideoCard: React.FC<Props> = ({ videoSrc }) => {
         <h1 className="pl-3 pr-4">Entertainment Mode</h1>
 
         {/* Code for toggle button */}
-        <input
-          type="checkbox"
-          checked={showVideo}
-          onChange={toggleVideo}
-          id="check"
-        />
-        <label htmlFor="check" className="button"></label>
+        <label className="toggle-switch">
+          <input
+            type="checkbox"
+            checked={showVideo}
+            onChange={toggleVideo}
+            id="check"
+          />
+          <span className="slider"></span>
+        </label>
       </div>
     </div>
   );
