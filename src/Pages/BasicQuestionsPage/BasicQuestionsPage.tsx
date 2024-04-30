@@ -26,8 +26,9 @@ const BasicQuestionsPage = () => {
           />
         </div>
 
-        <div className="float top-1/2 transform -translate-y-1/2 pl-10 right-10">
-          <VideoCard videoSrc={subwaySurfersVideoSrc} />
+        <div className="float top-1/2 transform -translate-y-1/2 pl-10 right-10 w-1/5">
+          <VideoCard videoSrc={subwaySurfersVideoSrc} />{" "}
+          {/* Use the video source link */}
         </div>
       </div>
       <div className="absolute bottom-0 right-0">

@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "../../Components/Card/Card";
 import VideoCard from "../../Components/VideoCard/VideoCard";
+import "./DetailedQuestionsPage.css";
 interface Props {}
 
 const DetailedQuestionsPage = (props: Props) => {
@@ -24,7 +25,7 @@ const DetailedQuestionsPage = (props: Props) => {
             ]}
           />
         </div>
-        <div className="float top-1/2 transform -translate-y-1/2 pl-10 right-10">
+        <div className="float top-1/2 transform -translate-y-1/2 pl-10 right-10 w-1/5">
           <VideoCard videoSrc={Minecraft} /> {/* Use the video source link */}
         </div>
       </div>
