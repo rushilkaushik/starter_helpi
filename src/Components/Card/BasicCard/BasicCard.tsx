@@ -4,24 +4,23 @@ interface Props {
   questions: string[];
 }
 
-const BasicCard: React.FC<Props> = (Props) => {
-  const { questions } = Props;
-  const [textInput, setTextInput] = useState(""); // State to store the entered text
+const BasicCard: React.FC<Props> = ({ questions }) => {
+  const [selectedOption, setSelectedOption] = useState(""); // State to store the selected option
   const [answers, setAnswers] = useState<string[]>([]); // State to store the answers
   const [questionIndex, setQuestionIndex] = useState(0); // State to store the current question index
 
   const handleSubmit = () => {
-    // Here you can submit the text input, for now, let's just log it
-    console.log("Submitted text:", textInput);
+    // Here you can submit the selected option, for now, let's just log it
+    console.log("Selected option:", selectedOption);
     const updatedAnswers = [...answers]; // Create a copy of the answers array
-    updatedAnswers[questionIndex] = textInput; // Set the answer at questionIndex to be the textInput
+    updatedAnswers[questionIndex] = selectedOption; // Set the answer at questionIndex to be the selected option
     setAnswers(updatedAnswers); // Update the answers state with the updated array
-    setTextInput(""); // Clear the text input after submitting
+    setSelectedOption(""); // Reset the selected option after submitting
     console.log({ updatedAnswers });
   };
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setTextInput(event.target.value); // Update the text input state when the textarea value changes
+  const handleOptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedOption(event.target.value); // Update the selected option state when the radio button value changes
   };
 
   const handlePrevious = () => {
@@ -40,26 +39,76 @@ const BasicCard: React.FC<Props> = (Props) => {
 
   return (
     <div className="flex flex-col items-center">
-      {" "}
       {/* Container for both divs */}
-      <div className="bg-white shadow-md rounded-lg p-8 w-full md:w-2/3 lg:w-3/4 xl:w-2/3 ml-50 mr-50 pt-10 border border-gray-300">
-        {" "}
+      <div
+        className="bg-white shadow-md rounded-lg p-8 w-full md:w-2/3 lg:w-3/4 xl:w-2/3 ml-50 mr-50 pt-10 border border-gray-300"
+        style={{
+          maxWidth: "800px",
+          minWidth: "800px",
+          maxHeight: "500px",
+          minHeight: "500px",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          textAlign: "center", // Center align the text
+        }}
+      >
         {/* Adjusted padding and width */}
         {/* Content */}
-        <div className="mb-6 pb-16">
-          {questions[questionIndex]} : Lorem ipsum dolor, sit amet consectetur
-          adipisicing elit. Quia fuga corporis non nisi ad placeat asperiores
-        </div>
-        {/* Text Input Area */}
+        <div className="mb-6 pb-16">{questions[questionIndex]}</div>
+        {/* Multiple Choice Radio Buttons */}
         <div>
-          <textarea
-            className="w-full h-24 border rounded-md p-2 mt-10" // Added mt-2 for top margin
-            placeholder="Enter your text here"
-            value={textInput} // Bind textarea value to state
-            onChange={handleInputChange} // Call handleInputChange function when the value changes
-          />
+          <label>
+            <input
+              type="radio"
+              value="Strongly Agree"
+              checked={selectedOption === "Strongly Agree"}
+              onChange={handleOptionChange}
+            />
+            Strongly Agree
+          </label>
+          <br />
+          <label>
+            <input
+              type="radio"
+              value="Agree"
+              checked={selectedOption === "Agree"}
+              onChange={handleOptionChange}
+            />
+            Agree
+          </label>
+          <br />
+          <label>
+            <input
+              type="radio"
+              value="Neutral"
+              checked={selectedOption === "Neutral"}
+              onChange={handleOptionChange}
+            />
+            Neutral
+          </label>
+          <br />
+          <label>
+            <input
+              type="radio"
+              value="Disagree"
+              checked={selectedOption === "Disagree"}
+              onChange={handleOptionChange}
+            />
+            Disagree
+          </label>
+          <br />
+          <label>
+            <input
+              type="radio"
+              value="Strongly Disagree"
+              checked={selectedOption === "Strongly Disagree"}
+              onChange={handleOptionChange}
+            />
+            Strongly Disagree
+          </label>
         </div>
-        {/* Submit Button Container */}
+        {/* Navigation Buttons */}
         <div className="flex justify-center mt-6">
           <button
             className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-blue-500 hover:to-cyan-500 hover:opacity-70 text-white font-bold py-2 px-4 rounded mr-4"
@@ -67,7 +116,6 @@ const BasicCard: React.FC<Props> = (Props) => {
           >
             Previous
           </button>
-
           <button
             className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-blue-500 hover:to-cyan-500 hover:opacity-70 text-white font-bold py-2 px-4 rounded ml-4"
             onClick={handleNext}
@@ -76,8 +124,9 @@ const BasicCard: React.FC<Props> = (Props) => {
           </button>
         </div>
       </div>
+      {/* Submit Button */}
       <div>
-        <button // Submit Button
+        <button
           className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-blue-500 hover:to-cyan-500 text-white font-bold py-3 px-6 rounded mt-8"
           onClick={handleSubmit}
         >
