@@ -1,5 +1,4 @@
 import React from "react";
-import Card from "../../Components/Card/DetailedCard/DetailedCard";
 import VideoCard from "../../Components/VideoCard/VideoCard";
 import John from "../../assets/John.png";
 import "./BasicQuestionPage.css";
