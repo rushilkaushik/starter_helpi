@@ -44,8 +44,8 @@ const DetailedCard: React.FC<Props> = (Props) => {
       <div
         className="bg-white shadow-md rounded-lg p-8 w-full md:w-2/3 lg:w-3/4 xl:w-2/3 ml-auto mr-auto pt-10 border border-gray-300"
         style={{
-          maxWidth: "400px",
-          minWidth: "400px",
+          maxWidth: "800px",
+          minWidth: "800px",
           maxHeight: "500px",
           minHeight: "500px",
           display: "flex",

@@ -43,8 +43,8 @@ const BasicCard: React.FC<Props> = ({ questions }) => {
       <div
         className="bg-white shadow-md rounded-lg p-8 w-full md:w-2/3 lg:w-3/4 xl:w-2/3 ml-50 mr-50 pt-10 border border-gray-300"
         style={{
-          maxWidth: "800px",
-          minWidth: "800px",
+          maxWidth: "400px",
+          minWidth: "400px",
           maxHeight: "500px",
           minHeight: "500px",
           display: "flex",
