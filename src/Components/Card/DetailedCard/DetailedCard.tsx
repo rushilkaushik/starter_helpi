@@ -9,7 +9,6 @@ const DetailedCard: React.FC<Props> = (Props) => {
   const [textInput, setTextInput] = useState(""); // State to store the entered text
   const [answers, setAnswers] = useState<string[]>([]); // State to store the answers
   const [questionIndex, setQuestionIndex] = useState(0); // State to store the current question index
-  const [questionIndex, setQuestionIndex] = useState(0); // State to store the current question index
   const [progress, setProgress] = useState(100/(questions.length)); // State to store progress through the quiz
 
   const handleSubmit = () => {
