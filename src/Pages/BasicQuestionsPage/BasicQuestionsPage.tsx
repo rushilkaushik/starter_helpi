@@ -1,9 +1,9 @@
 import React from "react";
-import Card from "../../Components/Card/Card";
 import VideoCard from "../../Components/VideoCard/VideoCard";
 import John from "../../assets/John.png";
 import "./BasicQuestionPage.css";
 import { ProgressBar } from "../../Components/ProgressBar/ProgressBar";
+import BasicCard from "../../Components/Card/BasicCard/BasicCard";
 const BasicQuestionsPage = () => {
   const subwaySurfersVideoSrc = "subwaysurfers.mp4"; // Keep the video source link
 
@@ -14,15 +14,15 @@ const BasicQuestionsPage = () => {
           <h1>Basic Questions Page</h1>
         </div>
         <div className="relative flex justify-center pt-5">
-          <Card
+          <BasicCard
             questions={[
-              "Question 1?",
-              "Question 2?",
-              "Question 3?",
-              "Question 4?",
-              "Question 5?",
-              "Question 6?",
-              "Question 7?",
+              "1. I like working in a collaborative and social environment.",
+              "2. I enjoy using my hands in my work tasks.",
+              "3. I prefer spending my day indoors rather than outdoors.",
+              "4. I prefer working directly with people rather than indirectly.",
+              "5. I prefer following instructions rather than coming up with my own ideas.",
+              "6. I value having a job that allows me to express my creativity.",
+              "7. Work-life balance is important to me.",
             ]}
           />
         </div>
