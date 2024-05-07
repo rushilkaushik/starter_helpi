@@ -3,6 +3,7 @@ import Card from "../../Components/Card/Card";
 import VideoCard from "../../Components/VideoCard/VideoCard";
 import John from "../../assets/John.png";
 import "./BasicQuestionPage.css";
+import { ProgressBar } from "../../Components/ProgressBar/ProgressBar";
 const BasicQuestionsPage = () => {
   const subwaySurfersVideoSrc = "subwaysurfers.mp4"; // Keep the video source link
 
@@ -25,6 +26,7 @@ const BasicQuestionsPage = () => {
             ]}
           />
         </div>
+        
 
         <div className="float top-1/2 transform -translate-y-1/2 pl-10 right-10 w-1/5">
           <VideoCard videoSrc={subwaySurfersVideoSrc} />{" "}

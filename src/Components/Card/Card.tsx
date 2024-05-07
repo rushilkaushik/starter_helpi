@@ -9,6 +9,7 @@ const Card: React.FC<Props> = (Props) => {
   const [textInput, setTextInput] = useState(""); // State to store the entered text
   const [answers, setAnswers] = useState<string[]>([]); // State to store the answers
   const [questionIndex, setQuestionIndex] = useState(0); // State to store the current question index
+  const [progress, setProgress] = useState(100/(questions.length)); // State to store progress through the quiz
 
   const handleSubmit = () => {
     // Here you can submit the text input, for now, let's just log it
@@ -25,8 +26,11 @@ const Card: React.FC<Props> = (Props) => {
   };
 
   const handlePrevious = () => {
-    if (questionIndex > 0) {
+    if (questionIndex > 100/(questions.length-1)) {
       setQuestionIndex(questionIndex - 1);
+    }
+    if (progress > 100/(questions.length-1)){
+      setProgress(progress - (100/(questions.length)));
     }
     console.log("Previous");
   };
@@ -35,56 +39,67 @@ const Card: React.FC<Props> = (Props) => {
     if (questionIndex < questions.length - 1) {
       setQuestionIndex(questionIndex + 1);
     }
+    if (progress < 100){
+      setProgress(progress + (100/(questions.length)));
+    }
     console.log("Next");
   };
 
   return (
+    <>
     <div className="flex flex-col items-center">
-      {" "}
-      {/* Container for both divs */}
-      <div className="bg-white shadow-md rounded-lg p-8 w-full md:w-2/3 lg:w-3/4 xl:w-2/3 ml-50 mr-50 pt-10 border border-gray-300">
+      <div className="w-[40rem] rounded-full bg-gray-100 p-2">
+        <div className="bg-blue-300 h-full rounded-full w-[20%] text-white font-medium p-2 text-xs text-center transition-all duration-500"
+                style={{ width: `${progress}%`, backgroundColor: "#ADD8E6" }}>
+                {" "}
+        </div>
+      </div>
         {" "}
-        {/* Adjusted padding and width */}
-        {/* Content */}
-        <div className="mb-6 pb-16">
-          {questions[questionIndex]} : Lorem ipsum dolor, sit amet consectetur
-          adipisicing elit. Quia fuga corporis non nisi ad placeat asperiores
-        </div>
-        {/* Text Input Area */}
-        <div>
-          <textarea
-            className="w-full h-24 border rounded-md p-2 mt-10" // Added mt-2 for top margin
-            placeholder="Enter your text here"
-            value={textInput} // Bind textarea value to state
-            onChange={handleInputChange} // Call handleInputChange function when the value changes
-          />
-        </div>
-        {/* Submit Button Container */}
-        <div className="flex justify-center mt-6">
-          <button
-            className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-blue-500 hover:to-cyan-500 hover:opacity-70 text-white font-bold py-2 px-4 rounded mr-4"
-            onClick={handlePrevious}
-          >
-            Previous
-          </button>
+        {/* Container for both divs */}
+        <div className="bg-white shadow-md rounded-lg p-8 w-full md:w-2/3 lg:w-3/4 xl:w-2/3 ml-50 mr-50 pt-10 border border-gray-300 mt-4">
+          {" "}
+          {/* Adjusted padding and width */}
+          {/* Content */}
+          <div className="mb-6 pb-16">
+            {questions[questionIndex]} : Lorem ipsum dolor, sit amet consectetur
+            adipisicing elit. Quia fuga corporis non nisi ad placeat asperiores
+          </div>
+          {/* Text Input Area */}
+          <div>
+            <textarea
+              className="w-full h-24 border rounded-md p-2 mt-10" // Added mt-2 for top margin
+              placeholder="Enter your text here"
+              value={textInput} // Bind textarea value to state
+              onChange={handleInputChange} // Call handleInputChange function when the value changes
+            />
+          </div>
+          {/* Submit Button Container */}
+          <div className="flex justify-center mt-6">
+            <button
+              className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-blue-500 hover:to-cyan-500 hover:opacity-70 text-white font-bold py-2 px-4 rounded mr-4"
+              onClick={handlePrevious}
+            >
+              Previous
+            </button>
 
-          <button
-            className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-blue-500 hover:to-cyan-500 hover:opacity-70 text-white font-bold py-2 px-4 rounded ml-4"
-            onClick={handleNext}
+            <button
+              className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-blue-500 hover:to-cyan-500 hover:opacity-70 text-white font-bold py-2 px-4 rounded ml-4"
+              onClick={handleNext}
+            >
+              Next
+            </button>
+          </div>
+        </div>
+        <div>
+          <button // Submit Button
+
+            className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-blue-500 hover:to-cyan-500 text-white font-bold py-3 px-6 rounded mt-8"
+            onClick={handleSubmit}
           >
-            Next
+            Submit
           </button>
         </div>
-      </div>
-      <div>
-        <button // Submit Button
-          className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-blue-500 hover:to-cyan-500 text-white font-bold py-3 px-6 rounded mt-8"
-          onClick={handleSubmit}
-        >
-          Submit
-        </button>
-      </div>
-    </div>
+      </div></>
   );
 };
 
