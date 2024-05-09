@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 interface Props {
   questions: string[];
@@ -95,7 +96,7 @@ const DetailedCard: React.FC<Props> = ({
           className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-blue-500 hover:to-cyan-500 text-white font-bold py-3 px-6 rounded mt-8"
           onClick={handleSubmit}
         >
-          Submit
+          <Link to="/results-page">Submit</Link>
         </button>
       </div>
     </div>
