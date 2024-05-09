@@ -1,11 +1,12 @@
 .container-checked {
   width: auto;
   height: auto;
-  background-color: #fff;
+  background-color: transparent; /* Set background color to transparent */
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
+
 
 .toggle-switch {
   position: relative;

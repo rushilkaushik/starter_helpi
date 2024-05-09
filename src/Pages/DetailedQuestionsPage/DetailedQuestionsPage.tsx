@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import DetailedCard from "../../Components/Card/DetailedCard/DetailedCard";
 import VideoCard from "../../Components/VideoCard/VideoCard";
+import background from "../../Components/Hero/background.png";
 import "./DetailedQuestionsPage.css";
 
 interface Props {}
@@ -50,24 +51,35 @@ const DetailedQuestionsPage = (props: Props) => {
   };
   return (
     <>
-      <div className="flex justify-center pt-15 ">
-        <h1>Detailed Questions Page</h1>
-      </div>
-      <div>
-        <div className="flex justify-center pt-5">
-          <DetailedCard
-            questions={questions}
-            onInputChange={handleInputChange}
-            answers={answers}
-          />
+      <section
+        id="Hero"
+        style={{
+          backgroundImage: `url(${background})`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "bottom center", // Adjust the position here
+          height: "100vh",
+        }}
+      >
+        <div className="flex justify-center pt-15 ">
+          <h1>Detailed Questions Page</h1>
         </div>
-        <div
-          className="float top-1/2 transform -translate-y-1/2 pl-10 right-10 w-1/5 pb-28"
-          onWheel={handleVideoScroll}
-        >
-          <VideoCard videoSrc={videos[currentVideoIndex]} />
+        <div>
+          <div className="flex justify-center pt-5">
+            <DetailedCard
+              questions={questions}
+              onInputChange={handleInputChange}
+              answers={answers}
+            />
+          </div>
+          <div
+            className="float top-1/2 transform -translate-y-1/2 pl-10 right-10 w-1/5 pb-28"
+            onWheel={handleVideoScroll}
+          >
+            <VideoCard videoSrc={videos[currentVideoIndex]} />
+          </div>
         </div>
-      </div>
+      </section>
     </>
   );
 };
