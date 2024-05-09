@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Button, Modal } from "flowbite-react";
 
 interface Props {
   questions: string[];
@@ -9,37 +10,64 @@ const BasicCard: React.FC<Props> = ({ questions }) => {
   const [answers, setAnswers] = useState<string[]>([]); // State to store the answers
   const [questionIndex, setQuestionIndex] = useState(0); // State to store the current question index
   const [progress, setProgress] = useState(100/(questions.length)); // State to store progress through the quiz
+  const [openModal, setOpenModal] = useState(false); // State for popup when submitting
+
+  useEffect(() => {
+    setSelectedOption(answers[questionIndex] || "");
+  }, [questionIndex, answers]);
+
+  const handleMessage = () => {
+    // Check if all questions have been answered
+    const answeredQuestions = answers.filter((answer: string ): boolean => answer !== "");
+
+    // Define the confirmation message based on whether all questions are answered
+    let confirmMessage;
+    if (answeredQuestions.length === 0) {
+      confirmMessage = `You haven't answered any questions yet. You must at least answer one question before submitting.`;
+    } else {
+      confirmMessage = `Are you sure you want to submit? You have answered ${answeredQuestions.length} out of ${questions.length} questions.`;
+    }
+    return confirmMessage;
+  }
 
   const handleSubmit = () => {
     // Here you can submit the selected option, for now, let's just log it
+    setOpenModal(false);
     console.log("Selected option:", selectedOption);
     const updatedAnswers = [...answers]; // Create a copy of the answers array
     updatedAnswers[questionIndex] = selectedOption; // Set the answer at questionIndex to be the selected option
     setAnswers(updatedAnswers); // Update the answers state with the updated array
     setSelectedOption(""); // Reset the selected option after submitting
     console.log({ updatedAnswers });
+    
   };
 
   const handleOptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedOption(event.target.value); // Update the selected option state when the radio button value changes
+    const option = event.target.value;
+    setSelectedOption(option); // Update the selected option state when the radio button value changes
+    setAnswers((prevAnswers) => {
+      const updatedAnswers = [...prevAnswers];
+      updatedAnswers[questionIndex] = option;
+      return updatedAnswers;
+    });
   };
 
   const handlePrevious = () => {
     if (questionIndex > 0) {
-      setQuestionIndex(questionIndex - 1);
+      setQuestionIndex(questionIndex - 1); //If you are past question 1, then you go back to the previous question.
     }
     if (progress > 100/(questions.length-1)){
-      setProgress(progress - (100/(questions.length)));
+      setProgress(progress - (100/(questions.length))); //If progress is past question 1, set progress back by 100/number of questions.
     }
     console.log("Previous");
   };
 
   const handleNext = () => {
-    if (questionIndex < questions.length - 1) {
-      setQuestionIndex(questionIndex + 1);
+    if (questionIndex < questions.length - 1) { 
+      setQuestionIndex(questionIndex + 1); //If you are before the last question, then you go to the next question.
     }
     if (progress < 100){
-      setProgress(progress + (100/(questions.length)));
+      setProgress(progress + (100/(questions.length))); //If progress is before the last question, set progress forward by 100/number of questions.
     }
     console.log("Next");
   };
@@ -144,10 +172,28 @@ const BasicCard: React.FC<Props> = ({ questions }) => {
       <div>
         <button
           className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-blue-500 hover:to-cyan-500 text-white font-bold py-3 px-6 rounded mt-8"
-          onClick={handleSubmit}
+          onClick={() => setOpenModal(true)}
         >
           Submit
         </button>
+        <Modal show={openModal} size="md" onClose={() => setOpenModal(false)} popup>
+            <Modal.Header />
+            <Modal.Body>
+              <div className="text-center">
+                <h3 className="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
+                  {handleMessage()}
+                </h3>
+                <div className="flex justify-center gap-4">
+                  <Button className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-blue-500 hover:to-cyan-500" onClick={handleSubmit} disabled={handleMessage() === "You haven't answered any questions yet. You must at least answer one question before submitting."}>
+                    {"Submit"}
+                  </Button>
+                  <Button color="gray" onClick={() => setOpenModal(false)}>
+                    Continue
+                  </Button>
+                </div>
+              </div>
+            </Modal.Body>
+          </Modal>
       </div>
     </div>
   );
