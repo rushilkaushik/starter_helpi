@@ -1,3 +1,4 @@
+// DetailedCard.tsx
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -20,8 +21,15 @@ const DetailedCard: React.FC<Props> = ({
   ); // State to track whether the text input is empty
 
   const handleSubmit = () => {
-    // Here you can submit the text input
+    // Here you can submit the text input along with the current answers
     onInputChange(questions[questionIndex], textInput);
+    const currentAnswers = {
+      ...answers,
+      [questions[questionIndex]]: textInput,
+    };
+    console.log("Current answers:", currentAnswers);
+
+    // After submitting, you can navigate to the results page
   };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -100,12 +108,14 @@ const DetailedCard: React.FC<Props> = ({
         </div>
       </div>
       <div>
-        <button
-          className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-blue-500 hover:to-cyan-500 text-white font-bold py-3 px-6 rounded mt-8"
-          onClick={handleSubmit}
-        >
-          <Link to="/results-page">Submit</Link>
-        </button>
+        <Link to="/results-page">
+          <button
+            className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-blue-500 hover:to-cyan-500 text-white font-bold py-3 px-6 rounded mt-8"
+            onClick={handleSubmit}
+          >
+            Submit
+          </button>
+        </Link>
       </div>
     </div>
   );

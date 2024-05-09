@@ -7,11 +7,6 @@
   justify-content: center;
 }
 
-.input-box-up {
-  margin-top: -10px; /* Adjust the value as needed */
-}
-
-
 .toggle-switch {
   position: relative;
   display: inline-block;
