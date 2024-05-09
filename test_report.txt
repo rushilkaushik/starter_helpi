@@ -170,20 +170,22 @@ FAIL src/App.test.tsx
 ----------------------------------|---------|----------|---------|---------|-------------------
 File                              | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ----------------------------------|---------|----------|---------|---------|-------------------
-All files                         |   20.93 |     6.25 |      20 |   20.93 |                   
+All files                         |   14.51 |     3.12 |   14.28 |   14.63 |                   
  src                              |   31.81 |    16.66 |   33.33 |   31.81 |                   
   App.tsx                         |      60 |       50 |   33.33 |      60 | 16,24-30          
   Layout.tsx                      |     100 |      100 |     100 |     100 |                   
   index.tsx                       |       0 |      100 |     100 |       0 | 7-19              
   reportWebVitals.ts              |       0 |        0 |       0 |       0 | 3-10              
- src/Components/Card/BasicCard    |    4.54 |        0 |       0 |    4.54 |                   
-  BasicCard.tsx                   |    4.54 |        0 |       0 |    4.54 | 8-40              
- src/Components/Card/DetailedCard |    4.34 |        0 |       0 |    4.34 |                   
-  DetailedCard.tsx                |    4.34 |        0 |       0 |    4.34 | 8-41              
+ src/Components/Card/BasicCard    |    2.17 |        0 |       0 |    2.22 |                   
+  BasicCard.tsx                   |    2.17 |        0 |       0 |    2.22 | 9-190             
+ src/Components/Card/DetailedCard |    3.57 |        0 |       0 |    3.57 |                   
+  DetailedCard.tsx                |    3.57 |        0 |       0 |    3.57 | 8-48              
  src/Components/Hero              |     100 |      100 |     100 |     100 |                   
   hero.tsx                        |     100 |      100 |     100 |     100 |                   
  src/Components/Navbar            |     100 |      100 |     100 |     100 |                   
   Navbar.tsx                      |     100 |      100 |     100 |     100 |                   
+ src/Components/ProgressBar       |       0 |        0 |       0 |       0 |                   
+  ProgressBar.tsx                 |       0 |        0 |       0 |       0 | 4-17              
  src/Components/VideoCard         |      20 |        0 |       0 |      20 |                   
   VideoCard.tsx                   |      20 |        0 |       0 |      20 | 10-16             
  src/Pages                        |       0 |      100 |       0 |       0 |                   
@@ -200,5 +202,5 @@ All files                         |   20.93 |     6.25 |      20 |   20.93 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.893 s
+Time:        3.498 s
 Ran all test suites.
