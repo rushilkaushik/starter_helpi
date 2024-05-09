@@ -62,7 +62,7 @@ const DetailedQuestionsPage = (props: Props) => {
           />
         </div>
         <div
-          className="float top-1/2 transform -translate-y-1/2 pl-10 right-10 w-1/5"
+          className="float top-1/2 transform -translate-y-1/2 pl-10 right-10 w-1/5 pb-28"
           onWheel={handleVideoScroll}
         >
           <VideoCard videoSrc={videos[currentVideoIndex]} />
