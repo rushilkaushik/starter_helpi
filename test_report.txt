@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (58 ms)
+  ✕ renders learn react link (56 ms)
 
   ● renders learn react link
 
@@ -202,5 +202,5 @@ All files                         |   14.51 |     3.12 |   14.28 |   14.63 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.498 s
+Time:        3.027 s
 Ran all test suites.
