@@ -2,6 +2,7 @@ import React from "react";
 import VideoCard from "../../Components/VideoCard/VideoCard";
 import John from "../../assets/John.png";
 import "./BasicQuestionPage.css";
+import { ProgressBar } from "../../Components/ProgressBar/ProgressBar";
 import BasicCard from "../../Components/Card/BasicCard/BasicCard";
 const BasicQuestionsPage = () => {
   const subwaySurfersVideoSrc = "subwaysurfers.mp4"; // Keep the video source link
@@ -9,7 +10,7 @@ const BasicQuestionsPage = () => {
   return (
     <>
       <div className="w-screen h-screen p-0 relative">
-        <div className="flex justify-center pt-20 ">
+        <div className="flex justify-center pt-15 ">
           <h1>Basic Questions Page</h1>
         </div>
         <div className="relative flex justify-center pt-5">
@@ -25,6 +26,7 @@ const BasicQuestionsPage = () => {
             ]}
           />
         </div>
+        
 
         <div className="float top-1/2 transform -translate-y-1/2 pl-10 right-10 w-1/5">
           <VideoCard videoSrc={subwaySurfersVideoSrc} />{" "}

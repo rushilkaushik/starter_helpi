@@ -8,6 +8,7 @@ const BasicCard: React.FC<Props> = ({ questions }) => {
   const [selectedOption, setSelectedOption] = useState(""); // State to store the selected option
   const [answers, setAnswers] = useState<string[]>([]); // State to store the answers
   const [questionIndex, setQuestionIndex] = useState(0); // State to store the current question index
+  const [progress, setProgress] = useState(100/(questions.length)); // State to store progress through the quiz
 
   const handleSubmit = () => {
     // Here you can submit the selected option, for now, let's just log it
@@ -27,6 +28,9 @@ const BasicCard: React.FC<Props> = ({ questions }) => {
     if (questionIndex > 0) {
       setQuestionIndex(questionIndex - 1);
     }
+    if (progress > 100/(questions.length-1)){
+      setProgress(progress - (100/(questions.length)));
+    }
     console.log("Previous");
   };
 
@@ -34,11 +38,23 @@ const BasicCard: React.FC<Props> = ({ questions }) => {
     if (questionIndex < questions.length - 1) {
       setQuestionIndex(questionIndex + 1);
     }
+    if (progress < 100){
+      setProgress(progress + (100/(questions.length)));
+    }
     console.log("Next");
   };
 
   return (
     <div className="flex flex-col items-center">
+      <div className = "pb-3">
+      <div className="w-[25rem] rounded-full bg-gray-200 p-1">
+        <div className="bg-gradient-to-r from-cyan-300 to-blue-400 h-full rounded-full w-[20%] text-white font-medium p-1 text-xs text-center transition-all duration-500"
+                style={{ width: `${progress}%`, backgroundColor: "#ADD8E6" }}>
+                {" "}
+        </div>
+      </div>
+      </div>
+     
       {/* Container for both divs */}
       <div
         className="bg-white shadow-md rounded-lg p-8 w-full md:w-2/3 lg:w-3/4 xl:w-2/3 ml-50 mr-50 pt-10 border border-gray-300"
