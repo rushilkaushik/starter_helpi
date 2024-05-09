@@ -28,14 +28,14 @@ export type Completion = {
 
 const ResultsPage: React.FC = () => {
   useEffect(() => {
-    const apiKey: string | null = localStorage.getItem("MYKEY"); // Retrieve API key from local storage
+    const apiKey: string | null = localStorage.getItem("MYKEY");
     if (apiKey) {
-      const openai = new OpenAI({ apiKey, dangerouslyAllowBrowser: true }); // Allow browser-like environment
-      main(openai);
+      const openai = new OpenAI({ apiKey, dangerouslyAllowBrowser: true });
+      simulateConversation(openai);
     } else {
       console.error("API key not found in local storage.");
     }
-  }, []); // Empty dependency array ensures this effect runs only once on component mount
+  }, []);
 
   return (
     <Link to="/">
@@ -49,15 +49,25 @@ const ResultsPage: React.FC = () => {
   );
 };
 
-async function main(openai: OpenAI): Promise<void> {
+async function simulateConversation(openai: OpenAI): Promise<void> {
   try {
-    const completion = await openai.chat.completions.create({
-      messages: [{ role: "user", content: "Hello, I need some assistance." }],
+    const userMessage = "Hello, I need some assistance.";
+    const userCompletion = await openai.chat.completions.create({
+      messages: [{ role: "user", content: userMessage }],
       model: "gpt-3.5-turbo",
     });
-    console.log(completion.choices[0]?.message);
+    console.log("User message:", userCompletion.choices[0]?.message.content);
+
+    const systemCompletion = await openai.chat.completions.create({
+      messages: [{ role: "system", content: "" }],
+      model: "gpt-3.5-turbo",
+    });
+    console.log(
+      "System response:",
+      systemCompletion.choices[0]?.message.content
+    );
   } catch (error) {
-    console.error("Error fetching completion:", error);
+    console.error("Error during conversation simulation:", error);
   }
 }
 
