@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PopUp from "./PopUp";
+import { Button, Modal } from "flowbite-react";
 
 interface Props {
   questions: string[];
@@ -10,6 +11,7 @@ const BasicCard: React.FC<Props> = ({ questions }) => {
   const [answers, setAnswers] = useState<string[]>([]); // State to store the answers
   const [questionIndex, setQuestionIndex] = useState(0); // State to store the current question index
   const [progress, setProgress] = useState(100/(questions.length)); // State to store progress through the quiz
+  const [openModal, setOpenModal] = useState(true); // State for popup when submitting
 
   useEffect(() => {
     setSelectedOption(answers[questionIndex] || "");
