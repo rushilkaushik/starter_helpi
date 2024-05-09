@@ -2,7 +2,6 @@ import React from "react";
 import VideoCard from "../../Components/VideoCard/VideoCard";
 import John from "../../assets/John.png";
 import "./BasicQuestionPage.css";
-import { ProgressBar } from "../../Components/ProgressBar/ProgressBar";
 import BasicCard from "../../Components/Card/BasicCard/BasicCard";
 const BasicQuestionsPage = () => {
   const subwaySurfersVideoSrc = "subwaysurfers.mp4"; // Keep the video source link
