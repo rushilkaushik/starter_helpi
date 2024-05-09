@@ -8,7 +8,7 @@ const DetailedQuestionsPage = (props: Props) => {
   const Minecraft = "MinecraftVideo.mp4";
   return (
     <>
-      <div className="flex justify-center pt-20 ">
+      <div className="flex justify-center pt-15 ">
         <h1>Detailed Questions Page</h1>
       </div>
       <div>

@@ -26,7 +26,7 @@ const DetailedCard: React.FC<Props> = (Props) => {
   };
 
   const handlePrevious = () => {
-    if (questionIndex > 100/(questions.length-1)) {
+    if (questionIndex > 0) {
       setQuestionIndex(questionIndex - 1);
     }
     if (progress > 100/(questions.length-1)){
@@ -47,11 +47,13 @@ const DetailedCard: React.FC<Props> = (Props) => {
 
   return (
     <div className="flex flex-col items-center">
-      <div className="w-[40rem] rounded-full bg-gray-100 p-2">
-        <div className="bg-blue-300 h-full rounded-full w-[20%] text-white font-medium p-2 text-xs text-center transition-all duration-500"
+      <div className="pb-3">
+      <div className="w-[50rem] rounded-full bg-gray-200 p-2">
+        <div className="bg-gradient-to-r from-cyan-300 to-blue-400 h-full rounded-full w-[20%] text-white font-medium p-2 text-xs text-center transition-all duration-500"
                 style={{ width: `${progress}%`, backgroundColor: "#ADD8E6" }}>
                 {" "}
         </div>
+      </div>
       </div>
       {/* Container for both divs */}
       <div
