@@ -1,0 +1,16 @@
+@keyframes sway {
+    0% {
+      transform: rotateZ(0deg);
+    }
+    50% {
+      transform: rotateZ(-10deg);
+    }
+    100% {
+      transform: rotateZ(10deg);
+    }
+  }
+  
+  .mascot-animation {
+    animation: sway 2s ease-in-out infinite alternate; /* Adjust the duration and easing as needed */
+  }
+  

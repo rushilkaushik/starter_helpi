@@ -7,6 +7,7 @@ import BasicQuestionsPage from "./Pages/BasicQuestionsPage/BasicQuestionsPage";
 import DetailedQuestionsPage from "./Pages/DetailedQuestionsPage/DetailedQuestionsPage";
 import { Layout } from "./Layout";
 import HomePage from "./Pages/HomePage/HomePage";
+import ResultsPage from "./Pages/ResultsPage/ResultsPage";
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -16,7 +17,7 @@ if (prevKey !== null) {
   keyData = JSON.parse(prevKey);
 }
 
-function App() {
+function App(): JSX.Element {
   const [key, setKey] = useState<string>(keyData); //for api key input
 
   //sets the local storage item to the api key the user inputed
@@ -46,26 +47,11 @@ function App() {
               element={<DetailedQuestionsPage />}
             />
           </Route>
+          <Route path="/results-page" element={<ResultsPage />} />
         </Routes>
       </Router>
 
       <div className="App">
-        {/* <HomePage /> */}
-        {/* <header className="App-header">
-          <h1>Who are we: </h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex
-            veritatis aperiam recusandae. Fugiat tempora provident doloremque
-            perferendis temporibus molestias, animi ea ut odit delectus
-            cupiditate! Doloremque iure natus rerum esse. Lorem ipsum dolor sit,
-            amet consectetur adipisicing elit. Illum odio nihil temporibus ex,
-            ab libero perferendis autem ducimus iste neque dignissimos dolorem
-            ipsum enim asperiores labore! Incidunt odio optio sit.
-          </p>
-          <li>Edmar Pelayo</li>
-          <li>Rushil Kaushik</li>
-          <li>Kushal Gurrapu</li>
-        </header> */}
         <div className="App">
           <div className="form-container">
             <Form>
