@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import PopUp from "./PopUp";
 
 interface Props {
   questions: string[];
@@ -10,36 +11,72 @@ const BasicCard: React.FC<Props> = ({ questions }) => {
   const [questionIndex, setQuestionIndex] = useState(0); // State to store the current question index
   const [progress, setProgress] = useState(100/(questions.length)); // State to store progress through the quiz
 
+  useEffect(() => {
+    setSelectedOption(answers[questionIndex] || "");
+  }, [questionIndex, answers]);
+
   const handleSubmit = () => {
     // Here you can submit the selected option, for now, let's just log it
+
     console.log("Selected option:", selectedOption);
     const updatedAnswers = [...answers]; // Create a copy of the answers array
     updatedAnswers[questionIndex] = selectedOption; // Set the answer at questionIndex to be the selected option
     setAnswers(updatedAnswers); // Update the answers state with the updated array
     setSelectedOption(""); // Reset the selected option after submitting
     console.log({ updatedAnswers });
+
+    // Check if all questions have been answered
+    const answeredQuestions = answers.filter((answer: string ): boolean => answer !== "");
+
+    // Define the confirmation message based on whether all questions are answered
+    let confirmMessage;
+    if (answeredQuestions.length === 0) {
+      confirmMessage = `You haven't answered any questions yet. You must at least answer one question before submitting.`;
+    } else {
+      confirmMessage = `Are you sure you want to submit? You have answered ${answeredQuestions.length} out of ${questions.length} questions.`;
+    }
+
+    // Show a confirmation dialog
+    const confirmSubmission = window.confirm(confirmMessage);
+
+    // If the user confirms submission, proceed
+    if (confirmSubmission) {
+      console.log("Submitting quiz...");
+      console.log("Answers:", answers);
+      // You can proceed with any submission logic here
+    } else {
+      console.log("Submission cancelled.");
+      // Handle cancellation, if needed
+    }
+    
   };
 
   const handleOptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedOption(event.target.value); // Update the selected option state when the radio button value changes
+    const option = event.target.value;
+    setSelectedOption(option); // Update the selected option state when the radio button value changes
+    setAnswers((prevAnswers) => {
+      const updatedAnswers = [...prevAnswers];
+      updatedAnswers[questionIndex] = option;
+      return updatedAnswers;
+    });
   };
 
   const handlePrevious = () => {
     if (questionIndex > 0) {
-      setQuestionIndex(questionIndex - 1);
+      setQuestionIndex(questionIndex - 1); //If you are past question 1, then you go back to the previous question.
     }
     if (progress > 100/(questions.length-1)){
-      setProgress(progress - (100/(questions.length)));
+      setProgress(progress - (100/(questions.length))); //If progress is past question 1, set progress back by 100/number of questions.
     }
     console.log("Previous");
   };
 
   const handleNext = () => {
-    if (questionIndex < questions.length - 1) {
-      setQuestionIndex(questionIndex + 1);
+    if (questionIndex < questions.length - 1) { 
+      setQuestionIndex(questionIndex + 1); //If you are before the last question, then you go to the next question.
     }
     if (progress < 100){
-      setProgress(progress + (100/(questions.length)));
+      setProgress(progress + (100/(questions.length))); //If progress is before the last question, set progress forward by 100/number of questions.
     }
     console.log("Next");
   };
@@ -149,6 +186,7 @@ const BasicCard: React.FC<Props> = ({ questions }) => {
           Submit
         </button>
       </div>
+      <PopUp Message="Balls"/>
     </div>
   );
 };
