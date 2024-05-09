@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (61 ms)
+  ✕ renders learn react link (60 ms)
 
   ● renders learn react link
 
@@ -212,7 +212,7 @@ FAIL src/App.test.tsx
 ----------------------------------|---------|----------|---------|---------|-------------------
 File                              | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ----------------------------------|---------|----------|---------|---------|-------------------
-All files                         |   13.63 |     2.27 |   12.76 |   14.18 |                   
+All files                         |   12.88 |     2.08 |   12.76 |   13.37 |                   
  src                              |   31.81 |    16.66 |   33.33 |   31.81 |                   
   App.tsx                         |      60 |       50 |   33.33 |      60 | 17,25-31          
   Layout.tsx                      |     100 |      100 |     100 |     100 |                   
@@ -234,16 +234,16 @@ All files                         |   13.63 |     2.27 |   12.76 |   14.18 |
  src/Pages/Alternate              |      50 |      100 |       0 |      50 |                   
   Alternate.tsx                   |      50 |      100 |       0 |      50 | 6                 
  src/Pages/BasicQuestionsPage     |   33.33 |      100 |       0 |   33.33 |                   
-  BasicQuestionsPage.tsx          |   33.33 |      100 |       0 |   33.33 | 7-9               
+  BasicQuestionsPage.tsx          |   33.33 |      100 |       0 |   33.33 | 9-11              
  src/Pages/DetailedQuestionsPage  |    5.55 |        0 |       0 |    5.88 |                   
-  DetailedQuestionsPage.tsx       |    5.55 |        0 |       0 |    5.88 | 9-51              
+  DetailedQuestionsPage.tsx       |    5.55 |        0 |       0 |    5.88 | 10-52             
  src/Pages/HomePage               |     100 |      100 |     100 |     100 |                   
   HomePage.tsx                    |     100 |      100 |     100 |     100 |                   
- src/Pages/ResultsPage            |    8.33 |        0 |       0 |    8.33 |                   
-  ResultsPage.tsx                 |    8.33 |        0 |       0 |    8.33 | 30-60             
+ src/Pages/ResultsPage            |    4.76 |        0 |       0 |    4.76 |                   
+  ResultsPage.tsx                 |    4.76 |        0 |       0 |    4.76 | 30-68             
 ----------------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.23 s
+Time:        3.077 s
 Ran all test suites.
