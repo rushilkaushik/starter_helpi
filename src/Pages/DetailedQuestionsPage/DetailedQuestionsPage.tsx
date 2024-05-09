@@ -6,7 +6,12 @@ import "./DetailedQuestionsPage.css";
 interface Props {}
 
 const DetailedQuestionsPage = (props: Props) => {
-  const Minecraft = "MinecraftVideo.mp4";
+  const videos = [
+    "MinecraftVideo.mp4",
+    "subwaysurfers.mp4",
+    "kingBaldwin.mp4",
+    "sandvideo.mp4",
+  ];
 
   const questions = [
     "1. What activities or hobbies do you find yourself consistently drawn to, even in your free time? How do these activities reflect your personality traits and preferences?",
@@ -34,6 +39,15 @@ const DetailedQuestionsPage = (props: Props) => {
     }));
   };
 
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+
+  const handleVideoScroll = (event: React.WheelEvent<HTMLDivElement>) => {
+    const delta = event.deltaY;
+    const newIndex = currentVideoIndex + (delta > 0 ? 1 : -1);
+    if (newIndex >= 0 && newIndex < videos.length) {
+      setCurrentVideoIndex(newIndex);
+    }
+  };
   return (
     <>
       <div className="flex justify-center pt-15 ">
@@ -47,8 +61,11 @@ const DetailedQuestionsPage = (props: Props) => {
             answers={answers}
           />
         </div>
-        <div className="float top-1/2 transform -translate-y-1/2 pl-10 right-10 w-1/5">
-          <VideoCard videoSrc={Minecraft} /> {/* Use the video source link */}
+        <div
+          className="float top-1/2 transform -translate-y-1/2 pl-10 right-10 w-1/5"
+          onWheel={handleVideoScroll}
+        >
+          <VideoCard videoSrc={videos[currentVideoIndex]} />
         </div>
       </div>
     </>

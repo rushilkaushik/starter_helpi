@@ -14,7 +14,7 @@ const VideoCard: React.FC<Props> = ({ videoSrc }) => {
   };
 
   return (
-    <div className="pt-5">
+    <div className="pb-16">
       {showVideo && (
         <ReactPlayer
           url={videoSrc}
@@ -24,7 +24,7 @@ const VideoCard: React.FC<Props> = ({ videoSrc }) => {
           loop={true}
         />
       )}
-      <div className="container-checked pt-2">
+      <div className="fixed container-checked pt-2">
         <h1 className="pl-3 pr-4">Entertainment Mode</h1>
 
         {/* Code for toggle button */}

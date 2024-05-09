@@ -15,6 +15,9 @@ const DetailedCard: React.FC<Props> = ({
   const [textInput, setTextInput] = useState(answers[questions[0]] || ""); // Initialize with the answer if already provided
   const [questionIndex, setQuestionIndex] = useState(0); // State to store the current question index
   const [progress, setProgress] = useState(100 / questions.length); // State to store progress through the quiz
+  const [isTextInputEmpty, setIsTextInputEmpty] = useState(
+    textInput.trim() === ""
+  ); // State to track whether the text input is empty
 
   const handleSubmit = () => {
     // Here you can submit the text input
@@ -22,13 +25,15 @@ const DetailedCard: React.FC<Props> = ({
   };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setTextInput(event.target.value);
+    const inputValue = event.target.value;
+    setTextInput(inputValue);
+    setIsTextInputEmpty(inputValue.trim() === ""); // Update the state based on the content of the input
   };
 
   const handlePrevious = () => {
     if (questionIndex > 0) {
-      setQuestionIndex(questionIndex - 1);
-      setTextInput(answers[questions[questionIndex - 1]] || ""); // Update text input with the previous answer
+      setQuestionIndex((prevIndex) => prevIndex - 1);
+      setTextInput(answers[questions[questionIndex - 1]] || "");
       setProgress((prevProgress) => prevProgress - 100 / questions.length);
       onInputChange(questions[questionIndex], textInput);
     }
@@ -36,8 +41,8 @@ const DetailedCard: React.FC<Props> = ({
 
   const handleNext = () => {
     if (questionIndex < questions.length - 1) {
-      setQuestionIndex(questionIndex + 1);
-      setTextInput(answers[questions[questionIndex + 1]] || ""); // Update text input with the next answer
+      setQuestionIndex((prevIndex) => prevIndex + 1);
+      setTextInput(answers[questions[questionIndex + 1]] || "");
       setProgress((prevProgress) => prevProgress + 100 / questions.length);
       onInputChange(questions[questionIndex], textInput);
     }
@@ -84,8 +89,11 @@ const DetailedCard: React.FC<Props> = ({
             Previous
           </button>
           <button
-            className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-blue-500 hover:to-cyan-500 hover:opacity-70 text-white font-bold py-2 px-4 rounded ml-4"
+            className={`bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-blue-500 hover:to-cyan-500 hover:opacity-70 text-white font-bold py-2 px-4 rounded ml-4 ${
+              isTextInputEmpty ? "opacity-50 cursor-not-allowed" : ""
+            }`}
             onClick={handleNext}
+            disabled={isTextInputEmpty}
           >
             Next
           </button>
