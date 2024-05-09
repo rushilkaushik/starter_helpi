@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import PopUp from "./PopUp";
 import { Button, Modal } from "flowbite-react";
 
 interface Props {
@@ -11,22 +10,13 @@ const BasicCard: React.FC<Props> = ({ questions }) => {
   const [answers, setAnswers] = useState<string[]>([]); // State to store the answers
   const [questionIndex, setQuestionIndex] = useState(0); // State to store the current question index
   const [progress, setProgress] = useState(100/(questions.length)); // State to store progress through the quiz
-  const [openModal, setOpenModal] = useState(true); // State for popup when submitting
+  const [openModal, setOpenModal] = useState(false); // State for popup when submitting
 
   useEffect(() => {
     setSelectedOption(answers[questionIndex] || "");
   }, [questionIndex, answers]);
 
-  const handleSubmit = () => {
-    // Here you can submit the selected option, for now, let's just log it
-
-    console.log("Selected option:", selectedOption);
-    const updatedAnswers = [...answers]; // Create a copy of the answers array
-    updatedAnswers[questionIndex] = selectedOption; // Set the answer at questionIndex to be the selected option
-    setAnswers(updatedAnswers); // Update the answers state with the updated array
-    setSelectedOption(""); // Reset the selected option after submitting
-    console.log({ updatedAnswers });
-
+  const handleMessage = () => {
     // Check if all questions have been answered
     const answeredQuestions = answers.filter((answer: string ): boolean => answer !== "");
 
@@ -37,19 +27,18 @@ const BasicCard: React.FC<Props> = ({ questions }) => {
     } else {
       confirmMessage = `Are you sure you want to submit? You have answered ${answeredQuestions.length} out of ${questions.length} questions.`;
     }
+    return confirmMessage;
+  }
 
-    // Show a confirmation dialog
-    const confirmSubmission = window.confirm(confirmMessage);
-
-    // If the user confirms submission, proceed
-    if (confirmSubmission) {
-      console.log("Submitting quiz...");
-      console.log("Answers:", answers);
-      // You can proceed with any submission logic here
-    } else {
-      console.log("Submission cancelled.");
-      // Handle cancellation, if needed
-    }
+  const handleSubmit = () => {
+    // Here you can submit the selected option, for now, let's just log it
+    setOpenModal(false);
+    console.log("Selected option:", selectedOption);
+    const updatedAnswers = [...answers]; // Create a copy of the answers array
+    updatedAnswers[questionIndex] = selectedOption; // Set the answer at questionIndex to be the selected option
+    setAnswers(updatedAnswers); // Update the answers state with the updated array
+    setSelectedOption(""); // Reset the selected option after submitting
+    console.log({ updatedAnswers });
     
   };
 
@@ -183,12 +172,29 @@ const BasicCard: React.FC<Props> = ({ questions }) => {
       <div>
         <button
           className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-blue-500 hover:to-cyan-500 text-white font-bold py-3 px-6 rounded mt-8"
-          onClick={handleSubmit}
+          onClick={() => setOpenModal(true)}
         >
           Submit
         </button>
+        <Modal show={openModal} size="md" onClose={() => setOpenModal(false)} popup>
+            <Modal.Header />
+            <Modal.Body>
+              <div className="text-center">
+                <h3 className="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
+                  {handleMessage()}
+                </h3>
+                <div className="flex justify-center gap-4">
+                  <Button className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-blue-500 hover:to-cyan-500" onClick={handleSubmit} disabled={handleMessage() === "You haven't answered any questions yet. You must at least answer one question before submitting."}>
+                    {"Submit"}
+                  </Button>
+                  <Button color="gray" onClick={() => setOpenModal(false)}>
+                    Continue
+                  </Button>
+                </div>
+              </div>
+            </Modal.Body>
+          </Modal>
       </div>
-      <PopUp Message="Balls"/>
     </div>
   );
 };
