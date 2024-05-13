@@ -11,7 +11,7 @@ import ResultsPage from "./Pages/ResultsPage/ResultsPage";
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
-const saveKeyData = "MYKEY";
+export const saveKeyData = "MYKEY";
 const prevKey = localStorage.getItem(saveKeyData); //so it'll look like: MYKEY: <api_key_value here> in the local storage when you inspect
 if (prevKey !== null) {
   keyData = JSON.parse(prevKey);
@@ -51,23 +51,21 @@ function App(): JSX.Element {
         </Routes>
       </Router>
 
-      <div className="App">
-        <div className="App">
-          <div className="form-container">
-            <Form>
-              <Form.Label>API Key:</Form.Label>
-              <Form.Control
-                type="password"
-                placeholder=" Insert API Key Here"
-                onChange={changeKey}
-              ></Form.Control>
-              <br></br>
-              <Button className="Submit-Button" onClick={handleSubmit}>
-                Submit
-              </Button>
-            </Form>
+      <div className="form-container">
+        <Form>
+          <div className="input-container">
+            <Form.Label className="form-label">API Key:</Form.Label>
+            <Form.Control
+              className="text-area"
+              type="password"
+              placeholder="Insert API Key Here"
+              onChange={changeKey}
+            />
+            <Button className="Submit-Button" onClick={handleSubmit}>
+              Submit
+            </Button>
           </div>
-        </div>
+        </Form>
       </div>
     </>
   );
