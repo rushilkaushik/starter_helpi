@@ -4,34 +4,34 @@ import "./ResultsPage.css";
 import { Link } from "react-router-dom";
 import { OpenAI } from "openai"; // Import OpenAI like this if it's exported as a named export
 
-// interface Props {
-//   userData: string;
-// }
+interface Props {
+  userData: string;
+}
 
 const ResultsPage: React.FC = () => {
   const [response, setResponse] = useState<string | null>(null); // State to store the response
   const [apiKey, setApiKey] = useState<string>(""); // State to store the API key
 
-  // const user_prompt = `
-  //   You will be given a TypeScript Hashmap in the following format:
+  const user_prompt = `
+    You will be given a TypeScript Hashmap in the following format:
 
-  //   interface Props {
-  //     questions: string[];
-  //     onInputChange: (question: string, answer: string) => void;
-  //     answers: { [key: string]: string };
-  //   }
+    interface Props {
+      questions: string[];
+      onInputChange: (question: string, answer: string) => void;
+      answers: { [key: string]: string };
+    }
 
-  //   Based on the questions and answers provided, your task is to suggest a career path for the user. Your response should include the following details:
+    Based on the questions and answers provided, your task is to suggest a career path for the user. Your response should include the following details:
 
-  //   - Suggested career path
-  //   - Type of schooling required
-  //   - Estimated time to become qualified
-  //   - Salary information
-  //   - Job demand
-  //   - Reasons why this job would be suitable for them
+    - Suggested career path
+    - Type of schooling required
+    - Estimated time to become qualified
+    - Salary information
+    - Job demand
+    - Reasons why this job would be suitable for them
 
-  //   Ensure your response is informative, well-structured, and provides valuable insights for the user.
-  // `;
+    Ensure your response is informative, well-structured, and provides valuable insights for the user.
+  `;
 
   useEffect(() => {
     async function main() {
@@ -55,7 +55,7 @@ const ResultsPage: React.FC = () => {
             },
             {
               role: "user",
-              content: "Tell me Happy Birthday, but my birthday was yesterday",
+              content: user_prompt,
             },
           ],
           model: "gpt-3.5-turbo",
