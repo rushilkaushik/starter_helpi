@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (60 ms)
+  ✕ renders learn react link (59 ms)
 
   ● renders learn react link
 
@@ -156,37 +156,32 @@ FAIL src/App.test.tsx
           [36m</section>[39m
         [36m</main>[39m
         [36m<div[39m
-          [33mclass[39m=[32m"App"[39m
+          [33mclass[39m=[32m"form-container"[39m
         [36m>[39m
-          [36m<div[39m
-            [33mclass[39m=[32m"App"[39m
+          [36m<form[39m
+            [33mclass[39m=[32m""[39m
           [36m>[39m
             [36m<div[39m
-              [33mclass[39m=[32m"form-container"[39m
+              [33mclass[39m=[32m"input-container"[39m
             [36m>[39m
-              [36m<form[39m
-                [33mclass[39m=[32m""[39m
+              [36m<label[39m
+                [33mclass[39m=[32m"form-label form-label"[39m
               [36m>[39m
-                [36m<label[39m
-                  [33mclass[39m=[32m"form-label"[39m
-                [36m>[39m
-                  [0mAPI Key:[0m
-                [36m</label>[39m
-                [36m<input[39m
-                  [33mclass[39m=[32m"form-control"[39m
-                  [33mplaceholder[39m=[32m" Insert API Key Here"[39m
-                  [33mtype[39m=[32m"password"[39m
-                [36m/>[39m
-                [36m<br />[39m
-                [36m<button[39m
-                  [33mclass[39m=[32m"Submit-Button btn btn-primary"[39m
-                  [33mtype[39m=[32m"button"[39m
-                [36m>[39m
-                  [0mSubmit[0m
-                [36m</button>[39m
-              [36m</form>[39m
+                [0mAPI Key:[0m
+              [36m</label>[39m
+              [36m<input[39m
+                [33mclass[39m=[32m"text-area form-control"[39m
+                [33mplaceholder[39m=[32m"Insert API Key Here"[39m
+                [33mtype[39m=[32m"password"[39m
+              [36m/>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"Submit-Button btn btn-primary"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mSubmit[0m
+              [36m</button>[39m
             [36m</div>[39m
-          [36m</div>[39m
+          [36m</form>[39m
         [36m</div>[39m
       [36m</div>[39m
     [36m</body>[39m
@@ -212,7 +207,7 @@ FAIL src/App.test.tsx
 ----------------------------------|---------|----------|---------|---------|-------------------
 File                              | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ----------------------------------|---------|----------|---------|---------|-------------------
-All files                         |   12.88 |     2.08 |   12.76 |   13.37 |                   
+All files                         |   13.37 |     2.08 |   12.76 |    13.9 |                   
  src                              |   31.81 |    16.66 |   33.33 |   31.81 |                   
   App.tsx                         |      60 |       50 |   33.33 |      60 | 17,25-31          
   Layout.tsx                      |     100 |      100 |     100 |     100 |                   
@@ -239,11 +234,11 @@ All files                         |   12.88 |     2.08 |   12.76 |   13.37 |
   DetailedQuestionsPage.tsx       |    5.55 |        0 |       0 |    5.88 | 10-52             
  src/Pages/HomePage               |     100 |      100 |     100 |     100 |                   
   HomePage.tsx                    |     100 |      100 |     100 |     100 |                   
- src/Pages/ResultsPage            |    4.76 |        0 |       0 |    4.76 |                   
-  ResultsPage.tsx                 |    4.76 |        0 |       0 |    4.76 | 30-68             
+ src/Pages/ResultsPage            |    6.66 |        0 |       0 |    6.66 |                   
+  ResultsPage.tsx                 |    6.66 |        0 |       0 |    6.66 | 12-74             
 ----------------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.077 s
+Time:        3.189 s
 Ran all test suites.
