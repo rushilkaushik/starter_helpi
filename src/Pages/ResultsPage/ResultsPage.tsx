@@ -2,82 +2,57 @@ import React, { useEffect, useState } from "react";
 import mascot from "../../Components/Hero/LargeMascot.png";
 import "./ResultsPage.css";
 import { Link } from "react-router-dom";
-import OpenAI from "openai";
-
-export type Completion = {
-  id: string;
-  object: string;
-  created: number;
-  model: string;
-  system_fingerprint: string;
-  choices: {
-    index: number;
-    message: {
-      role: string;
-      content: string;
-    };
-    logprobs: any;
-    finish_reason: string;
-  }[];
-  usage: {
-    prompt_tokens: number;
-    completion_tokens: number;
-    total_tokens: number;
-  };
-};
+import { OpenAI } from "openai"; // Import OpenAI like this if it's exported as a named export
 
 const ResultsPage: React.FC = () => {
-  const [systemResponse, setSystemResponse] = useState<string | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [response, setResponse] = useState<string | null>(null); // State to store the response
+  const [apiKey, setApiKey] = useState<string>(""); // State to store the API key
 
   useEffect(() => {
-    const apiKey: string | null = localStorage.getItem("MYKEY");
-    if (apiKey) {
-      const openai = new OpenAI({ apiKey, dangerouslyAllowBrowser: true });
-      simulateConversation(openai);
-    } else {
-      console.error("API key not found in local storage.");
+    async function main() {
+      const apiKeyFromStorage =
+        localStorage.getItem("MYKEY")?.slice(1, -1).replace(/\s/g, "") ?? "";
+
+      setApiKey(apiKeyFromStorage); // Set the API key in state
+      console.log("Formatted Api Key Thing:", apiKeyFromStorage);
+      const openai = new OpenAI({
+        apiKey: apiKeyFromStorage,
+        dangerouslyAllowBrowser: true,
+      });
+      try {
+        const completion = await openai.chat.completions.create({
+          messages: [
+            {
+              role: "system",
+              content:
+                "You are a career selection assistant. Help the user find the best job based on their preferences and skills. Return the results in a JSON object.",
+            },
+            {
+              role: "user",
+              content: "Tell me good night",
+            },
+          ],
+          model: "gpt-3.5-turbo",
+          response_format: { type: "json_object" },
+        });
+        setResponse(completion.choices[0].message.content); // Set the response in state
+      } catch (error) {
+        console.error(error);
+      }
     }
+
+    main();
   }, []);
 
-  async function simulateConversation(openai: OpenAI) {
-    try {
-      setLoading(true); // Set loading to true before starting the simulation
-
-      const userMessage = "Hello, I need some assistance.";
-      const userCompletion = await openai.chat.completions.create({
-        messages: [{ role: "user", content: userMessage }],
-        model: "gpt-3.5-turbo",
-      });
-      console.log("User message:", userCompletion.choices[0]?.message.content);
-
-      const systemCompletion = await openai.chat.completions.create({
-        messages: [{ role: "system", content: "" }],
-        model: "gpt-3.5-turbo",
-      });
-      const systemResponse = systemCompletion.choices[0]?.message.content;
-      console.log("System response:", systemResponse);
-      setSystemResponse(systemResponse);
-    } catch (error) {
-      console.error("Error during conversation simulation:", error);
-    } finally {
-      setLoading(false); // Set loading to false regardless of success or failure
-    }
-  }
-
   return (
-    <Link to="/">
-      <div className="flex flex-col items-center justify-center h-screen text-blue-500">
-        <div className="flex flex-col items-center justify-center">
-          <img src={mascot} alt="Mascot" className="w-1/4 mascot-animation" />
-          <div className="text-6xl mt-4">Under Construction</div>
-          {loading && <div>Loading...</div>}
-          {systemResponse && (
-            <div className="mt-4">System Response: {systemResponse}</div>
-          )}
-        </div>
+    <div className="flex flex-col items-center justify-center h-screen text-blue-500">
+      <div className="flex flex-col items-center justify-center">
+        <img src={mascot} alt="Mascot" className="w-1/4 mascot-animation" />
+        {response && <div>{response}</div>}{" "}
+        {/* Render the response if it exists */}
       </div>
-    </Link>
+      <Link to="/">Back to Home</Link>
+    </div>
   );
 };
 
