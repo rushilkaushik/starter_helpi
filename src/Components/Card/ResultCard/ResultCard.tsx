@@ -5,8 +5,11 @@ interface ResultCardProps {
 }
 
 const ResultCard: React.FC<ResultCardProps> = ({ resultData }) => {
-  // Split the resultData string into an array
-  const dataArray = resultData.split(": ");
+  // Remove the first 25 characters
+  const trimmedResultData = resultData.substring(25);
+
+  // Split the trimmedResultData string into an array
+  const dataArray = trimmedResultData.split(": ");
 
   // Log the dataArray
   console.log("Split Data Array: ", dataArray);
@@ -15,8 +18,8 @@ const ResultCard: React.FC<ResultCardProps> = ({ resultData }) => {
     <div
       className="flex flex-col items-center"
       style={{
-        maxWidth: "800px",
-        minWidth: "800px",
+        maxWidth: "1000px",
+        minWidth: "1000px",
         maxHeight: "500px",
         minHeight: "500px",
         display: "flex",
