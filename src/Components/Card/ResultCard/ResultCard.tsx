@@ -1,22 +1,19 @@
 import React from "react";
 
 interface ResultCardProps {
-  suggestedCareerPath: string;
-  typeOfSchoolingRequired: string;
-  estimatedTimeToQualify: string;
-  salaryInformation: string;
-  jobDemand: string;
-  reasonsForSuitability: string;
+  resultData: string; // Added userData prop
 }
 
-const ResultCard: React.FC<ResultCardProps> = ({
-  suggestedCareerPath,
-  typeOfSchoolingRequired,
-  estimatedTimeToQualify,
-  salaryInformation,
-  jobDemand,
-  reasonsForSuitability,
-}) => {
+const ResultCard: React.FC<ResultCardProps> = ({ resultData }) => {
+  // Parse the resultData string into a JavaScript object
+  const parsedData = JSON.parse(resultData);
+
+  // Stringify the parsedData object with indentation for readability
+  const formattedData = JSON.stringify(parsedData, null, 2);
+
+  // Log formattedData
+  console.log("Formatted Result Data: ", formattedData);
+
   return (
     <div
       className="flex flex-col items-center"
@@ -31,26 +28,9 @@ const ResultCard: React.FC<ResultCardProps> = ({
       }}
     >
       <div className="bg-white shadow-md rounded-lg p-8 w-full md:w-2/3 lg:w-3/4 xl:w-2/3 ml-auto mr-auto pt-10 border border-gray-300">
-        <h2 className="text-2xl font-bold mb-4">{suggestedCareerPath}</h2>
         <div className="flex justify-between mb-2">
-          <p>Type of Schooling Required:</p>
-          <p>{typeOfSchoolingRequired}</p>
-        </div>
-        <div className="flex justify-between mb-2">
-          <p>Estimated Time to Become Qualified:</p>
-          <p>{estimatedTimeToQualify}</p>
-        </div>
-        <div className="flex justify-between mb-2">
-          <p>Salary Information:</p>
-          <p>{salaryInformation}</p>
-        </div>
-        <div className="flex justify-between mb-2">
-          <p>Job Demand:</p>
-          <p>{jobDemand}</p>
-        </div>
-        <div className="flex justify-between mb-2">
-          <p>Reasons Why This Job Would Be Suitable for Them:</p>
-          <p>{reasonsForSuitability}</p>
+          {/* Display formattedData inside a pre tag with white-space: pre-wrap */}
+          <pre style={{ whiteSpace: "pre-wrap" }}>{formattedData}</pre>
         </div>
       </div>
     </div>

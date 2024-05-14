@@ -46,11 +46,11 @@ function App(): JSX.Element {
               path="/detailed-question-page"
               element={<DetailedQuestionsPage />}
             />
+            <Route
+              path="/results-page"
+              element={<ResultsPage userData="" userAnswers="" />}
+            />
           </Route>
-          <Route
-            path="/results-page"
-            element={<ResultsPage userData="" userAnswers="" />}
-          />
         </Routes>
       </Router>
 

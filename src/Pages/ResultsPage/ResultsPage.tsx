@@ -11,7 +11,7 @@ interface Props {
 }
 
 const ResultsPage: React.FC<Props> = ({ userData, userAnswers }) => {
-  const [resultData, setResultData] = useState<any | null>(null); // Changed type to 'any' for flexibility
+  const [resultData, setResultData] = useState<string | null>(null); // Changed type to string
   const [apiKey, setApiKey] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
@@ -67,9 +67,7 @@ const ResultsPage: React.FC<Props> = ({ userData, userAnswers }) => {
           response_format: { type: "json_object" },
         });
         console.log(completion.choices[0].message.content);
-        setResultData(
-          mapToResultCardProps(completion.choices[0].message.content)
-        );
+        setResultData(JSON.stringify(completion.choices[0].message.content)); // Convert to string
         setIsLoading(false); // Set loading state to false after receiving the response
       } catch (error) {
         console.error("OpenAI API Error:", error);
@@ -79,24 +77,13 @@ const ResultsPage: React.FC<Props> = ({ userData, userAnswers }) => {
     main();
   }, [apiKey]);
 
-  // Function to map OpenAI response to ResultCard props
-  const mapToResultCardProps = (data: any): any => {
-    // Assuming the structure of data received from OpenAI matches the expected format
-    console.log("Received data from OpenAI:", data.typeOfSchoolingRequired);
-
-    return {
-      suggestedCareerPath: data.suggestedCareerPath,
-      typeOfSchoolingRequired: data.typeOfSchoolingRequired,
-      estimatedTimeToBecomeQualified: data.estimatedTimeToBecomeQualified,
-      salaryInformation: data.salaryInformation,
-      jobDemand: data.jobDemand,
-      reasonsWhySuitable: data.reasonsWhySuitable,
-    };
-  };
-
   return (
-    <div className="flex flex-col items-center justify-center h-screen text-blue-500">
+    <div className="flex flex-col items-center justify-top h-screen text-blue-500 mt-15">
+      <h1 className="text-4xl font-bold mb-6">Your Results</h1>{" "}
+      {/* Bigger and bold */}
       <div className="flex flex-col items-center justify-center">
+        {resultData && <ResultCard resultData={resultData} />}{" "}
+        {/* Move ResultCard here */}
         {isLoading ? (
           <div className="mt-4 text-center">
             <img
@@ -106,10 +93,9 @@ const ResultsPage: React.FC<Props> = ({ userData, userAnswers }) => {
             />
             Loading...
           </div>
-        ) : (
-          resultData && <ResultCard {...resultData} />
-        )}
-        {/* Display ResultCard */}
+        ) : null}{" "}
+        {/* Hide loading section if not loading */}
+        {/* Display User Answers */}
         <div className="mt-4">User Answers: {userAnswers}</div>
       </div>
       <Link to="/">Back to Home</Link>
