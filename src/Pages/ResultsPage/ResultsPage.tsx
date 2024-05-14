@@ -107,10 +107,9 @@ const ResultsPage: React.FC<Props> = ({ userData, userAnswers }) => {
           ) : null}{" "}
           {/* Hide loading section if not loading */}
           {/* Display User Answers */}
-          <div className="mt-4">User Answers: {userAnswers}</div>
         </div>
-        <Link to="/">Back to Home</Link>
       </div>
+      <Link to="/">Back to Home</Link>
     </section>
   );
 };
