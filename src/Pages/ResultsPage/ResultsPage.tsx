@@ -4,6 +4,7 @@ import "./ResultsPage.css";
 import { Link } from "react-router-dom";
 import { OpenAI } from "openai";
 import ResultCard from "../../Components/Card/ResultCard/ResultCard";
+import background from "../../Components/Hero/background.png";
 
 interface Props {
   userData: string;
@@ -78,28 +79,39 @@ const ResultsPage: React.FC<Props> = ({ userData, userAnswers }) => {
   }, [apiKey]);
 
   return (
-    <div className="flex flex-col items-center justify-top h-screen text-blue-500 mt-15">
-      <h1 className="text-4xl font-bold mb-6">Your Results</h1>{" "}
-      {/* Bigger and bold */}
-      <div className="flex flex-col items-center justify-center">
-        {resultData && <ResultCard resultData={resultData} />}{" "}
-        {/* Move ResultCard here */}
-        {isLoading ? (
-          <div className="mt-4 text-center">
-            <img
-              src={mascot}
-              alt="Mascot"
-              className="w-1/4 mascot-animation mx-auto"
-            />
-            Loading...
-          </div>
-        ) : null}{" "}
-        {/* Hide loading section if not loading */}
-        {/* Display User Answers */}
-        <div className="mt-4">User Answers: {userAnswers}</div>
+    <section
+      id="Hero"
+      style={{
+        backgroundImage: `url(${background})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "bottom center", // Adjust the position here
+        height: "100vh",
+      }}
+    >
+      <div className="flex flex-col items-center justify-top h-screen text-blue-500 mt-15">
+        <h1 className="text-4xl font-bold mb-6">Your Results</h1>{" "}
+        {/* Bigger and bold */}
+        <div className="flex flex-col items-center justify-center">
+          {resultData && <ResultCard resultData={resultData} />}{" "}
+          {/* Move ResultCard here */}
+          {isLoading ? (
+            <div className="mt-4 text-center">
+              <img
+                src={mascot}
+                alt="Mascot"
+                className="w-1/4 mascot-animation mx-auto"
+              />
+              Loading...
+            </div>
+          ) : null}{" "}
+          {/* Hide loading section if not loading */}
+          {/* Display User Answers */}
+          <div className="mt-4">User Answers: {userAnswers}</div>
+        </div>
+        <Link to="/">Back to Home</Link>
       </div>
-      <Link to="/">Back to Home</Link>
-    </div>
+    </section>
   );
 };
 

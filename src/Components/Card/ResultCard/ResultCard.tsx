@@ -7,10 +7,8 @@ interface ResultCardProps {
 const ResultCard: React.FC<ResultCardProps> = ({ resultData }) => {
   // Parse the resultData string into a JavaScript object
   const parsedData = JSON.parse(resultData);
-
   // Stringify the parsedData object with indentation for readability
   const formattedData = JSON.stringify(parsedData, null, 2);
-
   // Log formattedData
   console.log("Formatted Result Data: ", formattedData);
 
