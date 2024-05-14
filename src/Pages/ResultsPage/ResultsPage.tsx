@@ -2,15 +2,18 @@ import React, { useEffect, useState } from "react";
 import mascot from "../../Components/Hero/LargeMascot.png";
 import "./ResultsPage.css";
 import { Link } from "react-router-dom";
-import { OpenAI } from "openai"; // Import OpenAI like this if it's exported as a named export
+import { OpenAI } from "openai";
+import ResultCard from "../../Components/Card/ResultCard/ResultCard";
 
 interface Props {
   userData: string;
-  userAnswers: string; // Add userAnswers prop
+  userAnswers: string;
 }
+
 const ResultsPage: React.FC<Props> = ({ userData, userAnswers }) => {
-  const [response, setResponse] = useState<string | null>(null); // State to store the response
-  const [apiKey, setApiKey] = useState<string>(""); // State to store the API key
+  const [resultData, setResultData] = useState<any | null>(null); // Changed type to 'any' for flexibility
+  const [apiKey, setApiKey] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const user_prompt = `
     You will be given a TypeScript Hashmap in the following format:
@@ -30,6 +33,7 @@ const ResultsPage: React.FC<Props> = ({ userData, userAnswers }) => {
     - Job demand
     - Reasons why this job would be suitable for them
 
+    Send it over as 1 string
     Ensure your response is informative, well-structured, and provides valuable insights for the user.
   `;
 
@@ -37,14 +41,15 @@ const ResultsPage: React.FC<Props> = ({ userData, userAnswers }) => {
     async function main() {
       const apiKeyFromStorage =
         (localStorage.getItem("MYKEY") ?? "").slice(1, -1) ?? "";
-      console.log("API Key from Storage:", apiKeyFromStorage); // Log the API key
+      console.log("API Key from Storage:", apiKeyFromStorage);
 
-      setApiKey(apiKeyFromStorage); // Set the API key in state
+      setApiKey(apiKeyFromStorage);
 
       const openai = new OpenAI({
         apiKey: apiKeyFromStorage,
         dangerouslyAllowBrowser: true,
       });
+
       try {
         const completion = await openai.chat.completions.create({
           messages: [
@@ -61,8 +66,11 @@ const ResultsPage: React.FC<Props> = ({ userData, userAnswers }) => {
           model: "gpt-3.5-turbo",
           response_format: { type: "json_object" },
         });
-        setResponse(completion.choices[0].message.content); // Set the response in state
-        console.log("Api Key given", apiKey);
+        console.log(completion.choices[0].message.content);
+        setResultData(
+          mapToResultCardProps(completion.choices[0].message.content)
+        );
+        setIsLoading(false); // Set loading state to false after receiving the response
       } catch (error) {
         console.error("OpenAI API Error:", error);
       }
@@ -71,12 +79,38 @@ const ResultsPage: React.FC<Props> = ({ userData, userAnswers }) => {
     main();
   }, [apiKey]);
 
+  // Function to map OpenAI response to ResultCard props
+  const mapToResultCardProps = (data: any): any => {
+    // Assuming the structure of data received from OpenAI matches the expected format
+    console.log("Received data from OpenAI:", data.typeOfSchoolingRequired);
+
+    return {
+      suggestedCareerPath: data.suggestedCareerPath,
+      typeOfSchoolingRequired: data.typeOfSchoolingRequired,
+      estimatedTimeToBecomeQualified: data.estimatedTimeToBecomeQualified,
+      salaryInformation: data.salaryInformation,
+      jobDemand: data.jobDemand,
+      reasonsWhySuitable: data.reasonsWhySuitable,
+    };
+  };
+
   return (
     <div className="flex flex-col items-center justify-center h-screen text-blue-500">
       <div className="flex flex-col items-center justify-center">
-        <img src={mascot} alt="Mascot" className="w-1/4 mascot-animation" />
-        {response && <div>{response}</div>}
-        User Answers: {userAnswers} {/* Display userAnswers */}
+        {isLoading ? (
+          <div className="mt-4 text-center">
+            <img
+              src={mascot}
+              alt="Mascot"
+              className="w-1/4 mascot-animation mx-auto"
+            />
+            Loading...
+          </div>
+        ) : (
+          resultData && <ResultCard {...resultData} />
+        )}
+        {/* Display ResultCard */}
+        <div className="mt-4">User Answers: {userAnswers}</div>
       </div>
       <Link to="/">Back to Home</Link>
     </div>
