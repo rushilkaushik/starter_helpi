@@ -6,9 +6,9 @@ import { OpenAI } from "openai"; // Import OpenAI like this if it's exported as 
 
 interface Props {
   userData: string;
+  userAnswers: string; // Add userAnswers prop
 }
-
-const ResultsPage: React.FC = () => {
+const ResultsPage: React.FC<Props> = ({ userData, userAnswers }) => {
   const [response, setResponse] = useState<string | null>(null); // State to store the response
   const [apiKey, setApiKey] = useState<string>(""); // State to store the API key
 
@@ -73,11 +73,10 @@ const ResultsPage: React.FC = () => {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen text-blue-500">
-      {/* Display the API key within a header tag */}
       <div className="flex flex-col items-center justify-center">
         <img src={mascot} alt="Mascot" className="w-1/4 mascot-animation" />
-        {response && <div>{response}</div>}Response:{" "}
-        {/* Render the response if it exists */}
+        {response && <div>{response}</div>}
+        User Answers: {userAnswers} {/* Display userAnswers */}
       </div>
       <Link to="/">Back to Home</Link>
     </div>
