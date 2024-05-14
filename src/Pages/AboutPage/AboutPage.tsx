@@ -30,38 +30,40 @@ const AboutPage = (props: Props) => {
                         <div className="text-5xl font-bold text-center lg:text-6xl lg:max-w-md lg:text-left bg-gradient-to-r text-transparent bg-clip-text from-blue-500 to-indigo-500">
                             JobMatchAI
                         </div>
+                        <div>
+                            <p className="text-justify text-lg lg:text-xl">
+                                We created this site to help people find their ideal career based on a basic or more detailed AI-powered career quiz. Our goal is to provide personalized career recommendations and guidance to individuals looking to explore different career paths. Whether you're just starting out or considering a career change, our platform can assist you in making informed decisions about your professional future.
+                            </p>
+                        </div>
                     </div>
                     
                     {/* About Us content */}
-                    <div className="space-y-3">
+                    <div className="space-y-5">
                         <div>
                             <AboutCard 
-                                image="/"
                                 name="Rushil Kaushik"
-                                github="/"
-                                linkedin="/"
-                                email="/"
-                                description="Rushil Description"
+                                github="https://www.github.com/rushilkaushik"
+                                linkedin="https://www.linkedin.com/in/rushil-kaushik"
+                                email="rushilkaushik0326@gmail.com"
+                                role="Project Manager"
                             />
                         </div>
                         <div>
                             <AboutCard
-                                image="/"
                                 name="Edmar Pelayo"
-                                github="/"
-                                linkedin="/"
-                                email="/"
-                                description="Edmar Description"
+                                github="https://www.github.com/edmarpelayo"
+                                linkedin="https://www.linkedin.com/in/edmar-pelayo-42185121a/"
+                                email="edmarp@udel.edu"
+                                role="Team Member"
                             />
                         </div>
                         <div>
                             <AboutCard
-                                image="/"
                                 name="Kushal Gurrapu"
-                                github="/"
-                                linkedin="/"
-                                email="/"
-                                description="Kushal Description"
+                                github="https://www.github.com/kushalgurrapu"
+                                linkedin="https://www.linkedin.com/in/kgurrapu/"
+                                email="kushalg@udel.edu"
+                                role="Team Member"
                             />
                         </div>
                     </div>
