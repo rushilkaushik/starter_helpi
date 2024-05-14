@@ -8,10 +8,11 @@ import DetailedQuestionsPage from "./Pages/DetailedQuestionsPage/DetailedQuestio
 import { Layout } from "./Layout";
 import HomePage from "./Pages/HomePage/HomePage";
 import ResultsPage from "./Pages/ResultsPage/ResultsPage";
+import AboutPage from "./Pages/AboutPage/AboutPage";
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
-export const saveKeyData = "MYKEY";
+const saveKeyData = "MYKEY";
 const prevKey = localStorage.getItem(saveKeyData); //so it'll look like: MYKEY: <api_key_value here> in the local storage when you inspect
 if (prevKey !== null) {
   keyData = JSON.parse(prevKey);
@@ -46,26 +47,29 @@ function App(): JSX.Element {
               path="/detailed-question-page"
               element={<DetailedQuestionsPage />}
             />
+            <Route path="/about-page" element={<AboutPage />} />
           </Route>
           <Route path="/results-page" element={<ResultsPage />} />
         </Routes>
       </Router>
 
-      <div className="form-container">
-        <Form>
-          <div className="input-container">
-            <Form.Label className="form-label">API Key:</Form.Label>
-            <Form.Control
-              className="text-area"
-              type="password"
-              placeholder="Insert API Key Here"
-              onChange={changeKey}
-            />
-            <Button className="Submit-Button" onClick={handleSubmit}>
-              Submit
-            </Button>
+      <div className="App">
+        <div className="App">
+          <div className="form-container">
+            <Form>
+              <Form.Label>API Key:</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder=" Insert API Key Here"
+                onChange={changeKey}
+              ></Form.Control>
+              <br></br>
+              <Button className="Submit-Button" onClick={handleSubmit}>
+                Submit
+              </Button>
+            </Form>
           </div>
-        </Form>
+        </div>
       </div>
     </>
   );
