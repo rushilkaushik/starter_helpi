@@ -5,15 +5,8 @@ interface ResultCardProps {
 }
 
 const ResultCard: React.FC<ResultCardProps> = ({ resultData }) => {
-  // Print the type of resultData
-  console.log("Type of resultData:", typeof resultData);
-
   // Parse the JSON string into an object
-  var dataObject = resultData;
-  dataObject = dataObject.substring(18, dataObject.length - 6);
-  const aiArray: string[] = dataObject.split(",");
-
-  console.log("Result Data Thing:", dataObject);
+  const dataObject = JSON.parse(resultData);
 
   return (
     <div
@@ -30,23 +23,30 @@ const ResultCard: React.FC<ResultCardProps> = ({ resultData }) => {
     >
       <div className="bg-white shadow-md rounded-lg p-8 w-full md:w-2/3 lg:w-3/4 xl:w-2/3 ml-auto mr-auto pt-10 border border-gray-300 flex flex-col items-center">
         <h1 className="text-2xl font-bold mb-2">Suggested career path:</h1>
-        <p>{aiArray[0]}</p>
+        <p className="text-center pb-2 text-lg">{dataObject.careerPath}</p>
+
         <h1 className="text-2xl font-bold mb-2">Type of schooling required:</h1>
-        <p>{aiArray[1]}</p>
+        <p className="text-center pb-2 text-lg">
+          {dataObject.schoolingRequired}
+        </p>
+
         <h1 className="text-2xl font-bold mb-2">
           Estimated time to become qualified:
         </h1>
-        <p>{aiArray[2]}</p>
+        <p className="text-center pb-2 text-lg">{dataObject.timeToQualify}</p>
+
         <h1 className="text-2xl font-bold mb-2">Salary information:</h1>
-        <p>
-          {aiArray[3]},{aiArray[4]}
-        </p>
+        <p className="text-center pb-2 text-lg">{dataObject.salaryInfo}</p>
+
         <h1 className="text-2xl font-bold mb-2">Job demand:</h1>
-        <p>{aiArray[5]}</p>
+        <p className="text-center pb-2 text-lg">{dataObject.jobDemand}</p>
+
         <h1 className="text-2xl font-bold mb-2">
           Reasons why this job would be suitable for them:
         </h1>
-        <p>{aiArray[6]}</p>
+        <p className="text-center pb-2 text-lg">
+          {dataObject.reasonForSuitability}
+        </p>
       </div>
     </div>
   );

@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { OpenAI } from "openai";
 import ResultCard from "../../Components/Card/ResultCard/ResultCard";
 import background from "../../Components/Hero/background.png";
-
 interface Props {
   userData: string;
   userAnswers: string;
@@ -32,12 +31,17 @@ const ResultsPage: React.FC<Props> = ({ userData, userAnswers }) => {
     - Estimated time to become qualified
     - Salary information
     - Job demand
-    - Reasons why this job would be suitable for them
+    - Reason why this job would be suitable for them
 
-    Send it over as 1 string like this:
-    Send it over in this exact format. Do not send it as a json object. Send it over as 1 string with this exact format:
-    Do not add extra words just a string seperate by , like the following
-    {"message" : "Software Developer","Bachelor's degree in Computer Science or related field", "4 years", "$105,000 per year (median)","High", "Your strong problem-solving skills will make you an excellent Software Developer. Your passion for technology and programming would be a great fit for this role, and your ability to work effectively in teams will be beneficial in collaborative development environments."}
+    Send it over as a Json Object in this format:
+    {
+      "careerPath": "Software Developer",
+      "schoolingRequired": "Bachelor's degree in computer science or related field",
+      "timeToQualify": "4 years",
+      "salaryInfo": "Median annual salary of $105,590 (May 2020) according to the U.S. Bureau of Labor Statistics",
+      "jobDemand": "Projected to grow 22% from 2019 to 2029, much faster than average",
+      "reasonForSuitability": "Your interest in technology and problem-solving, coupled with demonstrated aptitude in TypeScript, aligns seamlessly with the demands of a software developer role. Additionally, the software development industry boasts a multitude of career paths and ample opportunities for professional advancement and growth."
+  }
 
     Ensure your response is informative, well-structured, and provides valuable insights for the user.
   `;
@@ -72,7 +76,7 @@ const ResultsPage: React.FC<Props> = ({ userData, userAnswers }) => {
           response_format: { type: "json_object" },
         });
         console.log(completion.choices[0].message.content);
-        setResultData(JSON.stringify(completion.choices[0].message.content)); // Convert to string
+        setResultData(completion.choices[0].message.content); // Convert to string
         setIsLoading(false); // Set loading state to false after receiving the response
       } catch (error) {
         console.error("OpenAI API Error:", error);
@@ -93,29 +97,22 @@ const ResultsPage: React.FC<Props> = ({ userData, userAnswers }) => {
         height: "100vh",
       }}
     >
-      <div className="flex flex-col items-center justify-top h-screen text-blue-500 mt-15">
-        <h1 className="text-4xl font-bold mb-6">Your Results</h1>{" "}
-        {/* Bigger and bold */}
+      <div className="flex flex-col items-center justify-top h-screen text-blue-500 mt-15 relative">
+        <h1 className="text-4xl font-bold mb-6">Your Results</h1>
         <div className="flex flex-col items-center justify-center">
-          {resultData && <ResultCard resultData={resultData} />}{" "}
-          {/* Move ResultCard here */}
+          {resultData && <ResultCard resultData={resultData} />}
           {isLoading ? (
-            <div className="mt-4 text-center">
-              <img
-                src={mascot}
-                alt="Mascot"
-                className="w-1/4 mascot-animation mx-auto"
-              />
-              Loading...
-            </div>
-          ) : null}{" "}
-          {/* Hide loading section if not loading */}
-          {/* Display User Answers */}
+            <div className="mt-4 text-center">Loading...</div>
+          ) : null}
+        </div>
+        <div className="absolute bottom-24 right-4 mb-20 translate-x-10">
+          <img src={mascot} alt="Mascot" className="w-1/4" />
         </div>
       </div>
-      <Link to="/">Back to Home</Link>
+      <Link to="/" className="absolute top-4 right-4">
+        Back to Home
+      </Link>
     </section>
   );
 };
-
 export default ResultsPage;
