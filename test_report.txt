@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (60 ms)
+  ✕ renders learn react link (59 ms)
 
   ● renders learn react link
 
@@ -143,7 +143,7 @@ FAIL src/App.test.tsx
                   [36m>[39m
                     [36m<a[39m
                       [33mclass[39m=[32m"py-5 px-10 text-2xl font-bold text-white bg-gradient-to-r from-cyan-500 to-blue-500 rounded lg:py-4 hover:opacity-70"[39m
-                      [33mhref[39m=[32m"#/"[39m
+                      [33mhref[39m=[32m"#/basic-questions-page"[39m
                     [36m>[39m
                       [0mGet Started[0m
                     [36m</a>[39m
@@ -213,7 +213,7 @@ FAIL src/App.test.tsx
 ----------------------------------|---------|----------|---------|---------|-------------------
 File                              | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ----------------------------------|---------|----------|---------|---------|-------------------
-All files                         |   14.28 |     2.08 |   12.24 |   14.83 |                   
+All files                         |   14.03 |        2 |   11.76 |   14.54 |                   
  src                              |   31.81 |    16.66 |   33.33 |   31.81 |                   
   App.tsx                         |      60 |       50 |   33.33 |      60 | 18,26-32          
   Layout.tsx                      |     100 |      100 |     100 |     100 |                   
@@ -223,8 +223,10 @@ All files                         |   14.28 |     2.08 |   12.24 |   14.83 |
   AboutCard.tsx                   |      50 |      100 |       0 |      50 | 7                 
  src/Components/Card/BasicCard    |    2.17 |        0 |       0 |    2.22 |                   
   BasicCard.tsx                   |    2.17 |        0 |       0 |    2.22 | 9-190             
- src/Components/Card/DetailedCard |    3.33 |        0 |       0 |    3.84 |                   
-  DetailedCard.tsx                |    3.33 |        0 |       0 |    3.84 | 16-59             
+ src/Components/Card/DetailedCard |    3.12 |        0 |       0 |    3.57 |                   
+  DetailedCard.tsx                |    3.12 |        0 |       0 |    3.57 | 18-62             
+ src/Components/Card/ResultCard   |   33.33 |      100 |       0 |   33.33 |                   
+  ResultCard.tsx                  |   33.33 |      100 |       0 |   33.33 | 9-11              
  src/Components/Hero              |     100 |      100 |     100 |     100 |                   
   hero.tsx                        |     100 |      100 |     100 |     100 |                   
  src/Components/Navbar            |     100 |      100 |     100 |     100 |                   
@@ -240,15 +242,15 @@ All files                         |   14.28 |     2.08 |   12.24 |   14.83 |
   Alternate.tsx                   |      50 |      100 |       0 |      50 | 6                 
  src/Pages/BasicQuestionsPage     |   33.33 |      100 |       0 |   33.33 |                   
   BasicQuestionsPage.tsx          |   33.33 |      100 |       0 |   33.33 | 9-11              
- src/Pages/DetailedQuestionsPage  |    5.55 |        0 |       0 |    5.88 |                   
-  DetailedQuestionsPage.tsx       |    5.55 |        0 |       0 |    5.88 | 10-52             
+ src/Pages/DetailedQuestionsPage  |    5.26 |        0 |       0 |    5.55 |                   
+  DetailedQuestionsPage.tsx       |    5.26 |        0 |       0 |    5.55 | 10-75             
  src/Pages/HomePage               |     100 |      100 |     100 |     100 |                   
   HomePage.tsx                    |     100 |      100 |     100 |     100 |                   
- src/Pages/ResultsPage            |    6.66 |        0 |       0 |    6.66 |                   
-  ResultsPage.tsx                 |    6.66 |        0 |       0 |    6.66 | 12-74             
+ src/Pages/ResultsPage            |    5.26 |        0 |       0 |    5.26 |                   
+  ResultsPage.tsx                 |    5.26 |        0 |       0 |    5.26 | 13-89             
 ----------------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.2 s
+Time:        3.25 s
 Ran all test suites.
