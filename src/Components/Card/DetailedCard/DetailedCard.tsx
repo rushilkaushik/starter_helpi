@@ -6,12 +6,14 @@ interface Props {
   questions: string[];
   onInputChange: (question: string, answer: string) => void;
   answers: { [key: string]: string };
+  onSubmit: (userAnswers: string) => void; // Add onSubmit prop
 }
 
 const DetailedCard: React.FC<Props> = ({
   questions,
   onInputChange,
   answers,
+  onSubmit,
 }) => {
   const [textInput, setTextInput] = useState(answers[questions[0]] || ""); // Initialize with the answer if already provided
   const [questionIndex, setQuestionIndex] = useState(0); // State to store the current question index
@@ -21,12 +23,13 @@ const DetailedCard: React.FC<Props> = ({
   ); // State to track whether the text input is empty
 
   const handleSubmit = () => {
-    // Here you can submit the text input along with the current answers
     onInputChange(questions[questionIndex], textInput);
     const currentAnswers = {
       ...answers,
       [questions[questionIndex]]: textInput,
     };
+    const userAnswersString = JSON.stringify(answers);
+    onSubmit(userAnswersString);
     console.log("Current answers:", currentAnswers);
 
     // After submitting, you can navigate to the results page

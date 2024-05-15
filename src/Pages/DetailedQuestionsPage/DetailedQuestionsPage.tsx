@@ -70,6 +70,10 @@ const DetailedQuestionsPage = (props: Props) => {
               questions={questions}
               onInputChange={handleInputChange}
               answers={answers}
+              onSubmit={(userAnswers: string) => {
+                // Handle the submission logic here
+                console.log("User answers:", userAnswers);
+              }}
             />
           </div>
           <div

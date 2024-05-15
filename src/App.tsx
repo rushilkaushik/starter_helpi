@@ -48,11 +48,11 @@ function App(): JSX.Element {
               element={<DetailedQuestionsPage />}
             />
             <Route
-              path="/about-page"
-              element={<AboutPage />}
-              />
+              path="/results-page"
+              element={<ResultsPage userData="" userAnswers="" />}
+            />
+            <Route path="/about-page" element={<AboutPage />} />
           </Route>
-          <Route path="/results-page" element={<ResultsPage />} />
         </Routes>
       </Router>
 
