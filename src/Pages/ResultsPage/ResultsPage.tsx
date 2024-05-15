@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import mascot from "../../Components/Hero/LargeMascot.png";
 import "./ResultsPage.css";
-import { Link } from "react-router-dom";
 import { OpenAI } from "openai";
 import ResultCard from "../../Components/Card/ResultCard/ResultCard";
 import background from "../../Components/Hero/background.png";
@@ -33,7 +32,7 @@ const ResultsPage: React.FC<Props> = ({ userData, userAnswers }) => {
     - Job demand
     - Reason why this job would be suitable for them
 
-    Send it over as a Json Object in this format:
+    Send it over as a Json Object in this format: This is an example. Do not send the same thing
     {
       "careerPath": "Software Developer",
       "schoolingRequired": "Bachelor's degree in computer science or related field",
@@ -42,10 +41,10 @@ const ResultsPage: React.FC<Props> = ({ userData, userAnswers }) => {
       "jobDemand": "Projected to grow 22% from 2019 to 2029, much faster than average",
       "reasonForSuitability": "Your interest in technology and problem-solving, coupled with demonstrated aptitude in TypeScript, aligns seamlessly with the demands of a software developer role. Additionally, the software development industry boasts a multitude of career paths and ample opportunities for professional advancement and growth."
   }
-
+    This is an example. However answer based on the answers you recieve from the user below
     Ensure your response is informative, well-structured, and provides valuable insights for the user.
+    This is the user data ${userData} and this is the user's Answers ${userAnswers}
   `;
-
   useEffect(() => {
     async function main() {
       const apiKeyFromStorage =
@@ -76,6 +75,7 @@ const ResultsPage: React.FC<Props> = ({ userData, userAnswers }) => {
           response_format: { type: "json_object" },
         });
         console.log(completion.choices[0].message.content);
+        console.log("User prompt", user_prompt);
         setResultData(completion.choices[0].message.content); // Convert to string
         setIsLoading(false); // Set loading state to false after receiving the response
       } catch (error) {
@@ -84,7 +84,7 @@ const ResultsPage: React.FC<Props> = ({ userData, userAnswers }) => {
     }
 
     main();
-  }, [apiKey]);
+  }, [apiKey, user_prompt]);
 
   return (
     <section
@@ -100,18 +100,28 @@ const ResultsPage: React.FC<Props> = ({ userData, userAnswers }) => {
       <div className="flex flex-col items-center justify-top h-screen text-blue-500 mt-15 relative">
         <h1 className="text-4xl font-bold mb-6">Your Results</h1>
         <div className="flex flex-col items-center justify-center">
-          {resultData && <ResultCard resultData={resultData} />}
+          {resultData && (
+            <div>
+              <div className="absolute bottom-24 right-4 mb-20 translate-x-10">
+                <img src={mascot} alt="Mascot" className="w-1/4" />
+              </div>
+              <ResultCard resultData={resultData} />
+            </div>
+          )}
           {isLoading ? (
-            <div className="mt-4 text-center">Loading...</div>
+            <div className="mt-4 text-center">
+              <div style={{ display: "flex", justifyContent: "center" }}>
+                <img
+                  src={mascot}
+                  alt="Mascot"
+                  className="w-1/4 mascot-animation"
+                />
+              </div>
+              Loading...
+            </div>
           ) : null}
         </div>
-        <div className="absolute bottom-24 right-4 mb-20 translate-x-10">
-          <img src={mascot} alt="Mascot" className="w-1/4" />
-        </div>
       </div>
-      <Link to="/" className="absolute top-4 right-4">
-        Back to Home
-      </Link>
     </section>
   );
 };

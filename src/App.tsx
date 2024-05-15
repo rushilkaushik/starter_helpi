@@ -47,6 +47,10 @@ function App(): JSX.Element {
               path="/detailed-question-page"
               element={<DetailedQuestionsPage />}
             />
+            <Route
+              path="/results-page"
+              element={<ResultsPage userData="" userAnswers="" />}
+            />
             <Route path="/about-page" element={<AboutPage />} />
           </Route>
         </Routes>
