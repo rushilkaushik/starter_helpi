@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (59 ms)
+  ✕ renders learn react link (60 ms)
 
   ● renders learn react link
 
@@ -30,13 +30,19 @@ FAIL src/App.test.tsx
                 [36m/>[39m
               [36m</a>[39m
               [36m<div[39m
-                [33mclass[39m=[32m"hidden font-bold lg:flex"[39m
+                [33mclass[39m=[32m"hidden font-bold lg:flex space-x-6"[39m
               [36m>[39m
                 [36m<a[39m
                   [33mclass[39m=[32m"text-black hover:text-darkBlue"[39m
                   [33mhref[39m=[32m"#/"[39m
                 [36m>[39m
                   [0mDashboard[0m
+                [36m</a>[39m
+                [36m<a[39m
+                  [33mclass[39m=[32m"text-black hover:text-darkBlue"[39m
+                  [33mhref[39m=[32m"#/about-page"[39m
+                [36m>[39m
+                  [0mAbout[0m
                 [36m</a>[39m
               [36m</div>[39m
             [36m</div>[39m
@@ -207,12 +213,14 @@ FAIL src/App.test.tsx
 ----------------------------------|---------|----------|---------|---------|-------------------
 File                              | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ----------------------------------|---------|----------|---------|---------|-------------------
-All files                         |   13.37 |     2.08 |   12.76 |    13.9 |                   
+All files                         |   14.28 |     2.08 |   12.24 |   14.83 |                   
  src                              |   31.81 |    16.66 |   33.33 |   31.81 |                   
-  App.tsx                         |      60 |       50 |   33.33 |      60 | 17,25-31          
+  App.tsx                         |      60 |       50 |   33.33 |      60 | 18,26-32          
   Layout.tsx                      |     100 |      100 |     100 |     100 |                   
   index.tsx                       |       0 |      100 |     100 |       0 | 7-19              
   reportWebVitals.ts              |       0 |        0 |       0 |       0 | 3-10              
+ src/Components/AboutCard         |      50 |      100 |       0 |      50 |                   
+  AboutCard.tsx                   |      50 |      100 |       0 |      50 | 7                 
  src/Components/Card/BasicCard    |    2.17 |        0 |       0 |    2.22 |                   
   BasicCard.tsx                   |    2.17 |        0 |       0 |    2.22 | 9-190             
  src/Components/Card/DetailedCard |    3.33 |        0 |       0 |    3.84 |                   
@@ -226,6 +234,8 @@ All files                         |   13.37 |     2.08 |   12.76 |    13.9 |
   ProgressBar.tsx                 |       0 |        0 |       0 |       0 | 4-17              
  src/Components/VideoCard         |      20 |        0 |       0 |      20 |                   
   VideoCard.tsx                   |      20 |        0 |       0 |      20 | 10-16             
+ src/Pages/AboutPage              |      50 |      100 |       0 |      50 |                   
+  AboutPage.tsx                   |      50 |      100 |       0 |      50 | 10                
  src/Pages/Alternate              |      50 |      100 |       0 |      50 |                   
   Alternate.tsx                   |      50 |      100 |       0 |      50 | 6                 
  src/Pages/BasicQuestionsPage     |   33.33 |      100 |       0 |   33.33 |                   
@@ -240,5 +250,5 @@ All files                         |   13.37 |     2.08 |   12.76 |    13.9 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.189 s
+Time:        3.2 s
 Ran all test suites.
