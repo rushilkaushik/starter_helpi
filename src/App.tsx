@@ -8,7 +8,6 @@ import DetailedQuestionsPage from "./Pages/DetailedQuestionsPage/DetailedQuestio
 import { Layout } from "./Layout";
 import HomePage from "./Pages/HomePage/HomePage";
 import ResultsPage from "./Pages/ResultsPage/ResultsPage";
-import AboutUs from "./Pages/AboutPage/AboutPage";
 import AboutPage from "./Pages/AboutPage/AboutPage";
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
