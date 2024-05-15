@@ -1,18 +1,19 @@
 import React from "react";
 
 interface ResultCardProps {
-  resultData: string; // Added userData prop
+  resultData: string; // Result data as a JSON string
 }
 
 const ResultCard: React.FC<ResultCardProps> = ({ resultData }) => {
-  // Remove the first 25 characters
-  const trimmedResultData = resultData.substring(25);
+  // Print the type of resultData
+  console.log("Type of resultData:", typeof resultData);
 
-  // Split the trimmedResultData string into an array
-  const dataArray = trimmedResultData.split(": ");
+  // Parse the JSON string into an object
+  var dataObject = resultData;
+  dataObject = dataObject.substring(18, dataObject.length - 6);
+  const aiArray: string[] = dataObject.split(",");
 
-  // Log the dataArray
-  console.log("Split Data Array: ", dataArray);
+  console.log("Result Data Thing:", dataObject);
 
   return (
     <div
@@ -28,28 +29,24 @@ const ResultCard: React.FC<ResultCardProps> = ({ resultData }) => {
       }}
     >
       <div className="bg-white shadow-md rounded-lg p-8 w-full md:w-2/3 lg:w-3/4 xl:w-2/3 ml-auto mr-auto pt-10 border border-gray-300 flex flex-col items-center">
-        {/* Remove justify-between class to line up elements vertically */}
-        {/* <h1> Stuff: {trimmedResultData}</h1> */}
-        <h1 className="text-2xl font-bold mb-4">Suggested career path:</h1>
-        <p>{dataArray[1]}</p>
-        <h1 className="text-2xl font-bold mb-4">Type of schooling required:</h1>
-        <p>{dataArray[2]}</p>
-
-        <h1 className="text-2xl font-bold mb-4">
+        <h1 className="text-2xl font-bold mb-2">Suggested career path:</h1>
+        <p>{aiArray[0]}</p>
+        <h1 className="text-2xl font-bold mb-2">Type of schooling required:</h1>
+        <p>{aiArray[1]}</p>
+        <h1 className="text-2xl font-bold mb-2">
           Estimated time to become qualified:
         </h1>
-        <p>{dataArray[3]}</p>
-
-        <h1 className="text-2xl font-bold mb-4">Salary information:</h1>
-        <p>{dataArray[4]}</p>
-
-        <h1 className="text-2xl font-bold mb-4">Job demand:</h1>
-        <p>{dataArray[5]}</p>
-
-        <h1 className="text-2xl font-bold mb-4">
+        <p>{aiArray[2]}</p>
+        <h1 className="text-2xl font-bold mb-2">Salary information:</h1>
+        <p>
+          {aiArray[3]},{aiArray[4]}
+        </p>
+        <h1 className="text-2xl font-bold mb-2">Job demand:</h1>
+        <p>{aiArray[5]}</p>
+        <h1 className="text-2xl font-bold mb-2">
           Reasons why this job would be suitable for them:
         </h1>
-        <p>{dataArray[6]}</p>
+        <p>{aiArray[6]}</p>
       </div>
     </div>
   );

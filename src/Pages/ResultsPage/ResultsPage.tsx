@@ -34,7 +34,11 @@ const ResultsPage: React.FC<Props> = ({ userData, userAnswers }) => {
     - Job demand
     - Reasons why this job would be suitable for them
 
-    Send it over as 1 string
+    Send it over as 1 string like this:
+    Send it over in this exact format. Do not send it as a json object. Send it over as 1 string with this exact format:
+    Do not add extra words just a string seperate by , like the following
+    {"message" : "Software Developer","Bachelor's degree in Computer Science or related field", "4 years", "$105,000 per year (median)","High", "Your strong problem-solving skills will make you an excellent Software Developer. Your passion for technology and programming would be a great fit for this role, and your ability to work effectively in teams will be beneficial in collaborative development environments."}
+
     Ensure your response is informative, well-structured, and provides valuable insights for the user.
   `;
 
