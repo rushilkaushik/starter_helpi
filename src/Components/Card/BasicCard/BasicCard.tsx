@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Button, Modal } from "flowbite-react";
+import { Link } from "react-router-dom";
+import { useGlobalState } from "../../../GlobalStateContext";
 
-interface Props {
+export interface Props {
   questions: string[];
 }
-
 const BasicCard: React.FC<Props> = ({ questions }) => {
+  const { setAnswers, setQuestions } = useGlobalState();
   const [selectedOption, setSelectedOption] = useState(""); // State to store the selected option
-  const [answers, setAnswers] = useState<string[]>([]); // State to store the answers
+  const [answers, setLocalAnswers] = useState<string[]>([]); // State to store the answers
   const [questionIndex, setQuestionIndex] = useState(0); // State to store the current question index
   const [progress, setProgress] = useState(100/(questions.length)); // State to store progress through the quiz
   const [openModal, setOpenModal] = useState(false); // State for popup when submitting
@@ -33,10 +35,20 @@ const BasicCard: React.FC<Props> = ({ questions }) => {
   const handleSubmit = () => {
     // Here you can submit the selected option, for now, let's just log it
     setOpenModal(false);
+    setAnswers(answers);
+    setQuestions([
+      "1. I like working in a collaborative and social environment.",
+      "2. I enjoy using my hands in my work tasks.",
+      "3. I prefer spending my day indoors rather than outdoors.",
+      "4. I prefer working directly with people rather than indirectly.",
+      "5. I prefer following instructions rather than coming up with my own ideas.",
+      "6. I value having a job that allows me to express my creativity.",
+      "7. Work-life balance is important to me.",
+    ]);
     console.log("Selected option:", selectedOption);
     const updatedAnswers = [...answers]; // Create a copy of the answers array
     updatedAnswers[questionIndex] = selectedOption; // Set the answer at questionIndex to be the selected option
-    setAnswers(updatedAnswers); // Update the answers state with the updated array
+    setLocalAnswers(updatedAnswers); // Update the answers state with the updated array
     setSelectedOption(""); // Reset the selected option after submitting
     console.log({ updatedAnswers });
     
@@ -45,7 +57,7 @@ const BasicCard: React.FC<Props> = ({ questions }) => {
   const handleOptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const option = event.target.value;
     setSelectedOption(option); // Update the selected option state when the radio button value changes
-    setAnswers((prevAnswers) => {
+    setLocalAnswers((prevAnswers) => {
       const updatedAnswers = [...prevAnswers];
       updatedAnswers[questionIndex] = option;
       return updatedAnswers;
@@ -66,7 +78,7 @@ const BasicCard: React.FC<Props> = ({ questions }) => {
     if (questionIndex < questions.length - 1) { 
       setQuestionIndex(questionIndex + 1); //If you are before the last question, then you go to the next question.
     }
-    if (progress < 100){
+    if (progress < 99){
       setProgress(progress + (100/(questions.length))); //If progress is before the last question, set progress forward by 100/number of questions.
     }
     console.log("Next");
@@ -184,9 +196,11 @@ const BasicCard: React.FC<Props> = ({ questions }) => {
                   {handleMessage()}
                 </h3>
                 <div className="flex justify-center gap-4">
-                  <Button className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-blue-500 hover:to-cyan-500" onClick={handleSubmit} disabled={handleMessage() === "You haven't answered any questions yet. You must at least answer one question before submitting."}>
-                    {"Submit"}
-                  </Button>
+                  <Link to="/results-page" state={answers}>
+                    <Button className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-blue-500 hover:to-cyan-500" onClick={handleSubmit} disabled={handleMessage() === "You haven't answered any questions yet. You must at least answer one question before submitting."}>
+                      {"Submit"}
+                    </Button>
+                  </Link>
                   <Button color="gray" onClick={() => setOpenModal(false)}>
                     Continue
                   </Button>

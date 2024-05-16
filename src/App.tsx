@@ -9,6 +9,7 @@ import { Layout } from "./Layout";
 import HomePage from "./Pages/HomePage/HomePage";
 import ResultsPage from "./Pages/ResultsPage/ResultsPage";
 import AboutPage from "./Pages/AboutPage/AboutPage";
+import { GlobalStateProvider } from './GlobalStateContext';
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -18,9 +19,9 @@ if (prevKey !== null) {
   keyData = JSON.parse(prevKey);
 }
 
+
 function App(): JSX.Element {
   const [key, setKey] = useState<string>(keyData); //for api key input
-
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
     localStorage.setItem(saveKeyData, JSON.stringify(key));
@@ -35,25 +36,27 @@ function App(): JSX.Element {
   return (
     <>
       <Router>
-        <Routes>
-          <Route element={<Layout />}>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/alternate" element={<Alternate />} />
-            <Route
-              path="/basic-questions-page"
-              element={<BasicQuestionsPage />}
-            />
-            <Route
-              path="/detailed-question-page"
-              element={<DetailedQuestionsPage />}
-            />
-            <Route
-              path="/results-page"
-              element={<ResultsPage userData="" userAnswers="" />}
-            />
-            <Route path="/about-page" element={<AboutPage />} />
-          </Route>
-        </Routes>
+        <GlobalStateProvider>
+          <Routes>
+            <Route element={<Layout />}>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/alternate" element={<Alternate />} />
+              <Route
+                path="/basic-questions-page"
+                element={<BasicQuestionsPage />}
+              />
+              <Route
+                path="/detailed-question-page"
+                element={<DetailedQuestionsPage />}
+              />
+              <Route
+                path="/results-page"
+                element={<ResultsPage />}
+              />
+              <Route path="/about-page" element={<AboutPage />} />
+            </Route>
+          </Routes>
+        </GlobalStateProvider>
       </Router>
 
       <div className="form-container">
