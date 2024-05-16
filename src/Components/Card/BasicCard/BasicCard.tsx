@@ -23,10 +23,10 @@ const BasicCard: React.FC<Props> = ({ questions }) => {
     const answeredQuestions = answers.filter((answer: string ): boolean => answer !== "");
 
     // Define the confirmation message based on whether all questions are answered
-    let confirmMessage;
+    let confirmMessage = "Confirm answers?"
     if (answeredQuestions.length === 0) {
       confirmMessage = `You haven't answered any questions yet. You must at least answer one question before submitting.`;
-    } else {
+    } else if (answeredQuestions.length < questions.length) {
       confirmMessage = `Are you sure you want to submit? You have answered ${answeredQuestions.length} out of ${questions.length} questions.`;
     }
     return confirmMessage;
