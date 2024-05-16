@@ -15,6 +15,7 @@ const BasicQuestionsPage = () => {
     "samTwo.mp4",
     "samThree.mp4",
     "samFour.mp4",
+    "sigma.mp4",
   ];
 
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
