@@ -28,12 +28,17 @@ const BasicQuestionsPage = () => {
             <BasicCard
               questions={[
                 "1. I like working in a collaborative and social environment.",
-                "2. I enjoy using my hands in my work tasks.",
-                "3. I prefer spending my day indoors rather than outdoors.",
-                "4. I prefer working directly with people rather than indirectly.",
-                "5. I prefer following instructions rather than coming up with my own ideas.",
+                "2. I enjoy doing hands-on exercises/tasks.",
+                "3. I prefer to spend my day indoors rather than outdoors.",
+                "4. I believe I am extroverted as opposed to introverted.",
+                "5. I am motivated by financial benefits or high wages.",
                 "6. I value having a job that allows me to express my creativity.",
                 "7. Work-life balance is important to me.",
+                "8. Routine tasks are comforting to me as opposed to tedious.",
+                "9. I thrive in fast-paced, high-pressure environments.",
+                "10. In school, I preferred subjects like math, science, and technology (STEM).",
+                "11. In school, I preferred subjects like art, literature, and history.",
+                "12. When it comes to problem-solving, I feel more comfortable brainstorming creative solutions rather than analyzing data/statistics."
               ]}
             />
           </div>

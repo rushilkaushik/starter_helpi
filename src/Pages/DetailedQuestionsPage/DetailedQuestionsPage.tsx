@@ -24,21 +24,23 @@ const DetailedQuestionsPage = (props: Props) => {
     "7. Imagine yourself in a work environment: do you thrive in structured, predictable settings, or do you prefer flexibility and autonomy? How does your preferred work environment align with your personality traits and preferences for career paths?",
   ];
 
-  const [answers, setAnswers] = useState<{ [key: string]: string }>(() => {
-    const initialAnswers: { [key: string]: string } = {};
-    questions.forEach((question) => {
-      initialAnswers[question] = ""; // Initialize each answer as an empty string
-    });
-    return initialAnswers;
-  });
+  // const [answers, setAnswers] = useState<{ [key: string]: string }>(() => {
+  //   const initialAnswers: { [key: string]: string } = {};
+  //   questions.forEach((question) => {
+  //     initialAnswers[question] = ""; // Initialize each answer as an empty string
+  //   });
+  //   return initialAnswers;
+  // });
+  // const [answers, setAnswers] = useState<string[]>([]);
 
-  const handleInputChange = (question: string, answer: string) => {
-    // Update the answers state
-    setAnswers((prevAnswers) => ({
-      ...prevAnswers,
-      [question]: answer,
-    }));
-  };
+  // const handleInputChange = (question: string, answer: string) => {
+  //   // Update the answers state
+
+  //   setAnswers((prevAnswers) => ({
+  //     ...prevAnswers,
+  //     [question]: answer,
+  //   }));
+  // };
 
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
 
@@ -68,12 +70,12 @@ const DetailedQuestionsPage = (props: Props) => {
           <div className="flex justify-center pt-5">
             <DetailedCard
               questions={questions}
-              onInputChange={handleInputChange}
-              answers={answers}
-              onSubmit={(userAnswers: string) => {
-                // Handle the submission logic here
-                console.log("User answers:", userAnswers);
-              }}
+              // onInputChange={handleInputChange}
+              // answers={answers}
+              // onSubmit={(userAnswers: string) => {
+              //   // Handle the submission logic here
+              //   console.log("User answers:", userAnswers);
+              // }}
             />
           </div>
           <div

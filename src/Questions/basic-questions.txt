@@ -12,3 +12,13 @@
 6. Is it important for you to have a job that is creative or organized?
 
 7. How important is work-life balance for you?
+
+8. Routine tasks are comforting to me as opposed to tedious.
+
+9. I thrive in fast-paced, high-pressure environments.
+
+10. In school, I preferred subjects like math, science, and technology (STEM).
+
+11. In school, I preferred subjects like art, literature, and history.
+
+12. When it comes to problem-solving, I feel more comfortable brainstorming creative solutions rather than analyzing data/statistics.

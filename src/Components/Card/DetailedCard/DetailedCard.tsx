@@ -1,21 +1,25 @@
 // DetailedCard.tsx
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useGlobalState } from "../../../GlobalStateContext";
 
 interface Props {
   questions: string[];
-  onInputChange: (question: string, answer: string) => void;
-  answers: { [key: string]: string };
-  onSubmit: (userAnswers: string) => void; // Add onSubmit prop
+  // onInputChange: (question: string, answer: string) => void;
+  // answers: { [key: string]: string };
+  // answers: string[];
+  // onSubmit: (userAnswers: string) => void; // Add onSubmit prop
 }
 
 const DetailedCard: React.FC<Props> = ({
   questions,
-  onInputChange,
-  answers,
-  onSubmit,
+  // onInputChange,
+  // answers,
+  // onSubmit,
 }) => {
-  const [textInput, setTextInput] = useState(answers[questions[0]] || ""); // Initialize with the answer if already provided
+  const { setAnswers, setQuestions } = useGlobalState();
+  const [answers, setLocalAnswers] = useState<string[]>([]);
+  const [textInput, setTextInput] = useState(answers[0] || ""); // Initialize with the answer if already provided
   const [questionIndex, setQuestionIndex] = useState(0); // State to store the current question index
   const [progress, setProgress] = useState(100 / questions.length); // State to store progress through the quiz
   const [isTextInputEmpty, setIsTextInputEmpty] = useState(
@@ -23,14 +27,16 @@ const DetailedCard: React.FC<Props> = ({
   ); // State to track whether the text input is empty
 
   const handleSubmit = () => {
-    onInputChange(questions[questionIndex], textInput);
-    const currentAnswers = {
-      ...answers,
-      [questions[questionIndex]]: textInput,
-    };
-    const userAnswersString = JSON.stringify(answers);
-    onSubmit(userAnswersString);
-    console.log("Current answers:", currentAnswers);
+    setAnswers(answers);
+    setQuestions(questions);
+    // onInputChange(questions[questionIndex], textInput);
+    // const currentAnswers = {
+    //   ...answers,
+    //   [questions[questionIndex]]: textInput,
+    // };
+    // const userAnswersString = JSON.stringify(answers);
+    // onSubmit(userAnswersString);
+    // console.log("Current answers:", currentAnswers);
 
     // After submitting, you can navigate to the results page
   };
@@ -39,23 +45,28 @@ const DetailedCard: React.FC<Props> = ({
     const inputValue = event.target.value;
     setTextInput(inputValue);
     setIsTextInputEmpty(inputValue.trim() === ""); // Update the state based on the content of the input
+    setLocalAnswers((prevAnswers) => {
+      const updatedAnswers = [...prevAnswers];
+      updatedAnswers[questionIndex] = inputValue;
+      return updatedAnswers;
+    });
   };
 
   const handlePrevious = () => {
     if (questionIndex > 0) {
       setQuestionIndex((prevIndex) => prevIndex - 1);
-      setTextInput(answers[questions[questionIndex - 1]] || "");
+      setTextInput(answers[questionIndex - 1] || "");
       setProgress((prevProgress) => prevProgress - 100 / questions.length);
-      onInputChange(questions[questionIndex], textInput);
+      // onInputChange(questions[questionIndex], textInput);
     }
   };
 
   const handleNext = () => {
     if (questionIndex < questions.length - 1) {
       setQuestionIndex((prevIndex) => prevIndex + 1);
-      setTextInput(answers[questions[questionIndex + 1]] || "");
+      setTextInput(answers[questionIndex + 1] || "");
       setProgress((prevProgress) => prevProgress + 100 / questions.length);
-      onInputChange(questions[questionIndex], textInput);
+      // onInputChange(questions[questionIndex], textInput);
     }
   };
 

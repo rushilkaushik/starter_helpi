@@ -4,24 +4,23 @@ import "./ResultsPage.css";
 import { OpenAI } from "openai";
 import ResultCard from "../../Components/Card/ResultCard/ResultCard";
 import background from "../../Components/Hero/background.png";
-interface Props {
+import { useGlobalState } from "../../GlobalStateContext";
+export interface Data {
   userData: string;
   userAnswers: string;
 }
 
-const ResultsPage: React.FC<Props> = ({ userData, userAnswers }) => {
+const ResultsPage = () => {
   const [resultData, setResultData] = useState<string | null>(null); // Changed type to string
   const [apiKey, setApiKey] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(true);
-
+  const { answers, questions } = useGlobalState();
   const user_prompt = `
     You will be given a TypeScript Hashmap in the following format:
 
-    interface Props {
-      questions: string[];
-      onInputChange: (question: string, answer: string) => void;
-      answers: { [key: string]: string };
-    }
+    Questions: A string of questions, separated by ";"
+    Answers: A string of answers, separated by ";"
+    Each question matches with the answer respectively.
 
     Based on the questions and answers provided, your task is to suggest a career path for the user. Your response should include the following details:
 
@@ -43,7 +42,10 @@ const ResultsPage: React.FC<Props> = ({ userData, userAnswers }) => {
   }
     This is an example. However answer based on the answers you recieve from the user below
     Ensure your response is informative, well-structured, and provides valuable insights for the user.
-    This is the user data ${userData} and this is the user's Answers ${userAnswers}
+    If the answers are simply whether they agree or not, do not pick a generic job (for example: Human Resources or Social Worker)
+    
+    This is the user Answers: ${answers.join(" ; ")}
+    This is the user's Questions: ${questions.join(" ; ")}
   `;
   useEffect(() => {
     async function main() {
