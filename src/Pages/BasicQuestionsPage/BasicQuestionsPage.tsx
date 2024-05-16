@@ -1,12 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import VideoCard from "../../Components/VideoCard/VideoCard";
-import John from "../../assets/John.png";
+import John from "../../assets/clearJohn.png";
 import "./BasicQuestionPage.css";
 import BasicCard from "../../Components/Card/BasicCard/BasicCard";
 import background from "../../Components/Hero/background.png";
 
 const BasicQuestionsPage = () => {
-  const subwaySurfersVideoSrc = "subwaysurfers.mp4"; // Keep the video source link
+  const videos = [
+    "MinecraftVideo.mp4",
+    "subwaysurfers.mp4",
+    "kingBaldwin.mp4",
+    "sandvideo.mp4",
+    "samOne.mp4",
+    "samTwo.mp4",
+    "samThree.mp4",
+    "samFour.mp4",
+  ];
+
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+
+  const handleVideoScroll = (event: React.WheelEvent<HTMLDivElement>) => {
+    const delta = event.deltaY;
+    const newIndex = currentVideoIndex + (delta > 0 ? 1 : -1);
+    if (newIndex >= 0 && newIndex < videos.length) {
+      setCurrentVideoIndex(newIndex);
+    }
+  };
 
   return (
     <>
@@ -38,15 +57,18 @@ const BasicQuestionsPage = () => {
                 "9. I thrive in fast-paced, high-pressure environments.",
                 "10. In school, I preferred subjects like math, science, and technology (STEM).",
                 "11. In school, I preferred subjects like art, literature, and history.",
-                "12. When it comes to problem-solving, I feel more comfortable brainstorming creative solutions rather than analyzing data/statistics."
+                "12. When it comes to problem-solving, I feel more comfortable brainstorming creative solutions rather than analyzing data/statistics.",
               ]}
             />
           </div>
 
-          <div className="float top-1/2 transform -translate-y-1/2 pl-10 right-10 w-1/5">
-            <VideoCard videoSrc={subwaySurfersVideoSrc} />{" "}
-            {/* Use the video source link */}
+          <div
+            className="float top-1/2 transform -translate-y-1/2 pl-10 right-10 w-1/5 pb-28"
+            onWheel={handleVideoScroll}
+          >
+            <VideoCard videoSrc={videos[currentVideoIndex]} />
           </div>
+          {/* Use the video source link */}
         </div>
         <div className="absolute bottom-0 right-0">
           <img src={John} alt="John" className="john-image" />

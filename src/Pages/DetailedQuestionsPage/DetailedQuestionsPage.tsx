@@ -12,6 +12,10 @@ const DetailedQuestionsPage = (props: Props) => {
     "subwaysurfers.mp4",
     "kingBaldwin.mp4",
     "sandvideo.mp4",
+    "samOne.mp4",
+    "samTwo.mp4",
+    "samThree.mp4",
+    "samFour.mp4",
   ];
 
   const questions = [
