@@ -24,7 +24,7 @@ const ResultsPage = () => {
 
     Based on the questions and answers provided, your task is to suggest a career path for the user. Your response should include the following details:
 
-    - Suggested career path
+    - Suggested career path and a short description of what the career is
     - Type of schooling required
     - Estimated time to become qualified
     - Salary information
@@ -33,7 +33,7 @@ const ResultsPage = () => {
 
     Send it over as a Json Object in this format: This is an example. Do not send the same thing
     {
-      "careerPath": "Software Developer",
+      "careerPath": "Software Developer: Someone who Analyze users' needs and then design and develop software to meet those needs. ",
       "schoolingRequired": "Bachelor's degree in computer science or related field",
       "timeToQualify": "4 years",
       "salaryInfo": "Median annual salary of $105,590 (May 2020) according to the U.S. Bureau of Labor Statistics",
@@ -104,7 +104,7 @@ const ResultsPage = () => {
         <div className="flex flex-col items-center justify-center">
           {resultData && (
             <div>
-              <div className="absolute bottom-24 right-4 mb-20 translate-x-10">
+              <div className="absolute bottom-24 left-4 mb-20 translate-x-10">
                 <img src={mascot} alt="Mascot" className="w-1/4" />
               </div>
               <ResultCard resultData={resultData} />

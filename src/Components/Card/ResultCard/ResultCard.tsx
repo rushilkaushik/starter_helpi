@@ -12,8 +12,8 @@ const ResultCard: React.FC<ResultCardProps> = ({ resultData }) => {
     <div
       className="flex flex-col items-center"
       style={{
-        maxWidth: "1000px",
-        minWidth: "1000px",
+        maxWidth: "1200px",
+        minWidth: "1200px",
         maxHeight: "500px",
         minHeight: "500px",
         display: "flex",
@@ -23,28 +23,36 @@ const ResultCard: React.FC<ResultCardProps> = ({ resultData }) => {
     >
       <div className="bg-white shadow-md rounded-lg p-8 w-full md:w-2/3 lg:w-3/4 xl:w-2/3 ml-auto mr-auto pt-10 border border-gray-300 flex flex-col items-center">
         <h1 className="text-2xl font-bold mb-2">Suggested career path:</h1>
-        <p className="text-center pb-2 text-lg">{dataObject.careerPath}</p>
+        <p className="text-center pb-2 text-lg" style={{ color: "black" }}>
+          {dataObject.careerPath}
+        </p>
 
         <h1 className="text-2xl font-bold mb-2">Type of schooling required:</h1>
-        <p className="text-center pb-2 text-lg">
+        <p className="text-center pb-2 text-lg" style={{ color: "black" }}>
           {dataObject.schoolingRequired}
         </p>
 
         <h1 className="text-2xl font-bold mb-2">
           Estimated time to become qualified:
         </h1>
-        <p className="text-center pb-2 text-lg">{dataObject.timeToQualify}</p>
+        <p className="text-center pb-2 text-lg" style={{ color: "black" }}>
+          {dataObject.timeToQualify}
+        </p>
 
         <h1 className="text-2xl font-bold mb-2">Salary information:</h1>
-        <p className="text-center pb-2 text-lg">{dataObject.salaryInfo}</p>
+        <p className="text-center pb-2 text-lg" style={{ color: "black" }}>
+          {dataObject.salaryInfo}
+        </p>
 
         <h1 className="text-2xl font-bold mb-2">Job demand:</h1>
-        <p className="text-center pb-2 text-lg">{dataObject.jobDemand}</p>
+        <p className="text-center pb-2 text-lg" style={{ color: "black" }}>
+          {dataObject.jobDemand}
+        </p>
 
         <h1 className="text-2xl font-bold mb-2">
           Reasons why this job would be suitable for them:
         </h1>
-        <p className="text-center pb-2 text-lg">
+        <p className="text-center pb-2 text-lg" style={{ color: "black" }}>
           {dataObject.reasonForSuitability}
         </p>
       </div>
