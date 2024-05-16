@@ -22,35 +22,37 @@ const ResultCard: React.FC<ResultCardProps> = ({ resultData }) => {
       }}
     >
       <div className="bg-white shadow-md rounded-lg p-8 w-full md:w-2/3 lg:w-3/4 xl:w-2/3 ml-auto mr-auto pt-10 border border-gray-300 flex flex-col items-center">
-        <h1 className="text-2xl font-bold mb-2">Suggested career path:</h1>
+        <h1 className="text-2xl font-bold mb-2">
+          Suggested Career Path: {dataObject.careerPath}
+        </h1>
         <p className="text-center pb-2 text-lg" style={{ color: "black" }}>
-          {dataObject.careerPath}
+          {dataObject.careerDescription}
         </p>
 
-        <h1 className="text-2xl font-bold mb-2">Type of schooling required:</h1>
+        <h1 className="text-2xl font-bold mb-2">Type of Schooling Required:</h1>
         <p className="text-center pb-2 text-lg" style={{ color: "black" }}>
           {dataObject.schoolingRequired}
         </p>
 
         <h1 className="text-2xl font-bold mb-2">
-          Estimated time to become qualified:
+          Estimated Time To Become Qualified:
         </h1>
         <p className="text-center pb-2 text-lg" style={{ color: "black" }}>
           {dataObject.timeToQualify}
         </p>
 
-        <h1 className="text-2xl font-bold mb-2">Salary information:</h1>
+        <h1 className="text-2xl font-bold mb-2">Salary Information:</h1>
         <p className="text-center pb-2 text-lg" style={{ color: "black" }}>
           {dataObject.salaryInfo}
         </p>
 
-        <h1 className="text-2xl font-bold mb-2">Job demand:</h1>
+        <h1 className="text-2xl font-bold mb-2">Job Demand:</h1>
         <p className="text-center pb-2 text-lg" style={{ color: "black" }}>
           {dataObject.jobDemand}
         </p>
 
         <h1 className="text-2xl font-bold mb-2">
-          Reasons why this job would be suitable for them:
+          Reasons Why This Job Would Be Suitable For You:
         </h1>
         <p className="text-center pb-2 text-lg" style={{ color: "black" }}>
           {dataObject.reasonForSuitability}
