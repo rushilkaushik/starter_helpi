@@ -33,7 +33,8 @@ const ResultsPage = () => {
 
     Send it over as a Json Object in this format: This is an example. Do not send the same thing
     {
-      "careerPath": "Software Developer: Someone who Analyze users' needs and then design and develop software to meet those needs. ",
+      "careerPath": "Software Developer"
+      "careerDescription" : [Do not Repeat the Job Name] Someone who Analyze users' needs and then design and develop software to meet those needs. ",
       "schoolingRequired": "Bachelor's degree in computer science or related field",
       "timeToQualify": "4 years",
       "salaryInfo": "Median annual salary of $105,590 (May 2020) according to the U.S. Bureau of Labor Statistics",
