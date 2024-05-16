@@ -242,9 +242,9 @@ All files                         |   16.66 |     1.66 |      14 |   17.12 |
  src/Pages/Alternate              |      50 |      100 |       0 |      50 |                   
   Alternate.tsx                   |      50 |      100 |       0 |      50 | 6                 
  src/Pages/BasicQuestionsPage     |   11.11 |        0 |       0 |   11.11 |                   
-  BasicQuestionsPage.tsx          |   11.11 |        0 |       0 |   11.11 | 9-30              
+  BasicQuestionsPage.tsx          |   11.11 |        0 |       0 |   11.11 | 9-31              
  src/Pages/DetailedQuestionsPage  |      10 |        0 |       0 |      10 |                   
-  DetailedQuestionsPage.tsx       |      10 |        0 |       0 |      10 | 10-58             
+  DetailedQuestionsPage.tsx       |      10 |        0 |       0 |      10 | 10-59             
  src/Pages/HomePage               |     100 |      100 |     100 |     100 |                   
   HomePage.tsx                    |     100 |      100 |     100 |     100 |                   
  src/Pages/ResultsPage            |       5 |        0 |       0 |       5 |                   
@@ -253,5 +253,5 @@ All files                         |   16.66 |     1.66 |      14 |   17.12 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.531 s
+Time:        3.261 s
 Ran all test suites.
