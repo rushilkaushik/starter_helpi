@@ -9,16 +9,26 @@ export function Navbar(props: Props) {
     <>
       <nav className="relative container mx-auto p-6">
         <div className="flex items-center justify-between">
+          
           <div className="flex items-center space-x-20">
+            
             <Link to="/">
               <img src={cornerlogo} alt="" />
             </Link>
-            <div className="hidden font-bold lg:flex">
+
+            <div className="hidden font-bold lg:flex space-x-6">
+              
               <Link to="/" className="text-black hover:text-darkBlue">
                 Dashboard
               </Link>
+
+              <Link to="/about-page" className="text-black hover:text-darkBlue">
+                About 
+              </Link>
+
             </div>
           </div>
+            
           <div className="hidden lg:flex items-center space-x-6 text-back">
             <Tooltip content="Streamlined multiple-choice evaluation designed to explore individual strengths, preferences, and aspirations in depth"
               arrow1="absolute hidden group-hover:inline-block -mt-[calc(8%)] ml-[calc(50%-30px)] -mb-[1px] overflow-hidden"
@@ -43,6 +53,7 @@ export function Navbar(props: Props) {
               </Link>
             </Tooltip>
           </div>
+
         </div>
       </nav>
     </>

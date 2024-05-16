@@ -1,84 +1,128 @@
 import React, { useEffect, useState } from "react";
 import mascot from "../../Components/Hero/LargeMascot.png";
 import "./ResultsPage.css";
-import { Link } from "react-router-dom";
-import OpenAI from "openai";
+import { OpenAI } from "openai";
+import ResultCard from "../../Components/Card/ResultCard/ResultCard";
+import background from "../../Components/Hero/background.png";
+interface Props {
+  userData: string;
+  userAnswers: string;
+}
 
-export type Completion = {
-  id: string;
-  object: string;
-  created: number;
-  model: string;
-  system_fingerprint: string;
-  choices: {
-    index: number;
-    message: {
-      role: string;
-      content: string;
-    };
-    logprobs: any;
-    finish_reason: string;
-  }[];
-  usage: {
-    prompt_tokens: number;
-    completion_tokens: number;
-    total_tokens: number;
-  };
-};
+const ResultsPage: React.FC<Props> = ({ userData, userAnswers }) => {
+  const [resultData, setResultData] = useState<string | null>(null); // Changed type to string
+  const [apiKey, setApiKey] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
-const ResultsPage: React.FC = () => {
-  const [systemResponse, setSystemResponse] = useState<string | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
+  const user_prompt = `
+    You will be given a TypeScript Hashmap in the following format:
 
-  useEffect(() => {
-    const apiKey: string | null = localStorage.getItem("MYKEY");
-    if (apiKey) {
-      const openai = new OpenAI({ apiKey, dangerouslyAllowBrowser: true });
-      simulateConversation(openai);
-    } else {
-      console.error("API key not found in local storage.");
+    interface Props {
+      questions: string[];
+      onInputChange: (question: string, answer: string) => void;
+      answers: { [key: string]: string };
     }
-  }, []);
 
-  async function simulateConversation(openai: OpenAI) {
-    try {
-      setLoading(true); // Set loading to true before starting the simulation
+    Based on the questions and answers provided, your task is to suggest a career path for the user. Your response should include the following details:
 
-      const userMessage = "Hello, I need some assistance.";
-      const userCompletion = await openai.chat.completions.create({
-        messages: [{ role: "user", content: userMessage }],
-        model: "gpt-3.5-turbo",
-      });
-      console.log("User message:", userCompletion.choices[0]?.message.content);
+    - Suggested career path
+    - Type of schooling required
+    - Estimated time to become qualified
+    - Salary information
+    - Job demand
+    - Reason why this job would be suitable for them
 
-      const systemCompletion = await openai.chat.completions.create({
-        messages: [{ role: "system", content: "" }],
-        model: "gpt-3.5-turbo",
-      });
-      const systemResponse = systemCompletion.choices[0]?.message.content;
-      console.log("System response:", systemResponse);
-      setSystemResponse(systemResponse);
-    } catch (error) {
-      console.error("Error during conversation simulation:", error);
-    } finally {
-      setLoading(false); // Set loading to false regardless of success or failure
-    }
+    Send it over as a Json Object in this format: This is an example. Do not send the same thing
+    {
+      "careerPath": "Software Developer",
+      "schoolingRequired": "Bachelor's degree in computer science or related field",
+      "timeToQualify": "4 years",
+      "salaryInfo": "Median annual salary of $105,590 (May 2020) according to the U.S. Bureau of Labor Statistics",
+      "jobDemand": "Projected to grow 22% from 2019 to 2029, much faster than average",
+      "reasonForSuitability": "Your interest in technology and problem-solving, coupled with demonstrated aptitude in TypeScript, aligns seamlessly with the demands of a software developer role. Additionally, the software development industry boasts a multitude of career paths and ample opportunities for professional advancement and growth."
   }
+    This is an example. However answer based on the answers you recieve from the user below
+    Ensure your response is informative, well-structured, and provides valuable insights for the user.
+    This is the user data ${userData} and this is the user's Answers ${userAnswers}
+  `;
+  useEffect(() => {
+    async function main() {
+      const apiKeyFromStorage =
+        (localStorage.getItem("MYKEY") ?? "").slice(1, -1) ?? "";
+      console.log("API Key from Storage:", apiKeyFromStorage);
+
+      setApiKey(apiKeyFromStorage);
+
+      const openai = new OpenAI({
+        apiKey: apiKeyFromStorage,
+        dangerouslyAllowBrowser: true,
+      });
+
+      try {
+        const completion = await openai.chat.completions.create({
+          messages: [
+            {
+              role: "system",
+              content:
+                "You are a career selection assistant. Help the user find the best job based on their preferences and skills. Return the results in a JSON object.",
+            },
+            {
+              role: "user",
+              content: user_prompt,
+            },
+          ],
+          model: "gpt-3.5-turbo",
+          response_format: { type: "json_object" },
+        });
+        console.log(completion.choices[0].message.content);
+        console.log("User prompt", user_prompt);
+        setResultData(completion.choices[0].message.content); // Convert to string
+        setIsLoading(false); // Set loading state to false after receiving the response
+      } catch (error) {
+        console.error("OpenAI API Error:", error);
+      }
+    }
+
+    main();
+  }, [apiKey, user_prompt]);
 
   return (
-    <Link to="/">
-      <div className="flex flex-col items-center justify-center h-screen text-blue-500">
+    <section
+      id="Hero"
+      style={{
+        backgroundImage: `url(${background})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "bottom center", // Adjust the position here
+        height: "100vh",
+      }}
+    >
+      <div className="flex flex-col items-center justify-top h-screen text-blue-500 mt-15 relative">
+        <h1 className="text-4xl font-bold mb-6">Your Results</h1>
         <div className="flex flex-col items-center justify-center">
-          <img src={mascot} alt="Mascot" className="w-1/4 mascot-animation" />
-          <div className="text-6xl mt-4">Under Construction</div>
-          {loading && <div>Loading...</div>}
-          {systemResponse && (
-            <div className="mt-4">System Response: {systemResponse}</div>
+          {resultData && (
+            <div>
+              <div className="absolute bottom-24 right-4 mb-20 translate-x-10">
+                <img src={mascot} alt="Mascot" className="w-1/4" />
+              </div>
+              <ResultCard resultData={resultData} />
+            </div>
           )}
+          {isLoading ? (
+            <div className="mt-4 text-center">
+              <div style={{ display: "flex", justifyContent: "center" }}>
+                <img
+                  src={mascot}
+                  alt="Mascot"
+                  className="w-1/4 mascot-animation"
+                />
+              </div>
+              Loading...
+            </div>
+          ) : null}
         </div>
       </div>
-    </Link>
+    </section>
   );
 };
-
 export default ResultsPage;

@@ -32,7 +32,7 @@ const Hero = (props: Props) => {
           <div className="mx-auto lg:mx-0">
             <div className="link-container">
               <Link
-                to="/"
+                to="/basic-questions-page"
                 className="py-5 px-10 text-2xl font-bold text-white bg-gradient-to-r from-cyan-500 to-blue-500 rounded lg:py-4 hover:opacity-70"
               >
                 Get Started
