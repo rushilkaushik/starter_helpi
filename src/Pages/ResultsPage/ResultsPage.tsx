@@ -74,7 +74,7 @@ const ResultsPage = () => {
               content: user_prompt,
             },
           ],
-          model: "gpt-3.5-turbo",
+          model: "gpt-4-turbo",
           response_format: { type: "json_object" },
         });
         console.log(completion.choices[0].message.content);
